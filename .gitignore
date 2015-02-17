@@ -1,0 +1,5 @@
+.vim/bundle
+.netrwhist
+.DS_Store
+.svn
+*.swp

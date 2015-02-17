@@ -1,0 +1,15 @@
+#!/bin/bash
+
+d=$(cd $(dirname $0);pwd)
+
+# git completion for bash
+completion_path="/usr/local/git/contrib/completion/"
+if [ ! -d $completion_path ]; then
+    mkdir -p $completion_path
+    wget --no-check-certificate https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -O /usr/local/git/contrib/completion/git-prompt.sh
+    wget --no-check-certificate https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -O /usr/local/git/contrib/completion/git-completion.bash
+fi
+
+bash ${d}/link
+bash ${d}/vim
+bash ${d}/rbenv

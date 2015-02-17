@@ -1,0 +1,6 @@
+set line /dev/cu.usbserial-FTB3L68B
+set speed 9600
+set stop-bits 1
+set flow-control none
+set parity none
+set carrier-watch off

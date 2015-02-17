@@ -1,0 +1,20 @@
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[push]
+	default = simple
+[core]
+	excludesfile = ~/.gitignore
+	pager = lv -c
+[user]
+	name = Ryo Inomata
+	email = inomata724@gmail.com
+[fetch]
+	prune = true

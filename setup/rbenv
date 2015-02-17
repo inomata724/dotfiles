@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rbenv_dir=~/.rbenv
+
+if [ ! -d $rbenv_dir ]; then
+    git clone git://github.com/sstephenson/rbenv.git $rbenv_dir
+    git clone git://github.com/sstephenson/ruby-build.git $rbenv_dir/plugins/ruby-build
+fi
