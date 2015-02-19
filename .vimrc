@@ -27,6 +27,7 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'Blackrush/vim-gocode'
 NeoBundle 'Shougo/unite.vim'
 
 NeoBundleCheck
@@ -121,6 +122,8 @@ au BufRead,BufNewFile,BufReadPre *.go set filetype=go
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+set rtp+=$GOROOT/misc/vim
+exe "set rtp+=" . globpath($GOPATH, "src/github.com/golang/lint/misc/vim")
 
 " Search File
 let g:unite_source_history_yank_enable = 1
@@ -136,7 +139,7 @@ set fenc=utf-8
 set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " GUI
-set guifont=Ricty_Diminished:h18
+set guifont=Myrica:h18
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
