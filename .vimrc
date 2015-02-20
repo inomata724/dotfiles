@@ -44,6 +44,11 @@ set showmatch
 set matchtime=1
 set showtabline=2
 set noswapfile
+set cursorline
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+set expandtab
 syntax enable
 filetype on
 filetype plugin indent on
