@@ -49,6 +49,7 @@ set shiftwidth=2
 set tabstop=2
 set softtabstop=2
 set expandtab
+set scrolloff=10
 syntax enable
 filetype on
 filetype plugin indent on
