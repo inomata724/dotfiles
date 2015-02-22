@@ -145,7 +145,7 @@ set fenc=utf-8
 set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " GUI
-set guifont=Ricty_Diminished:h18
+set guifont=Ricty_Diminished:h17
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
