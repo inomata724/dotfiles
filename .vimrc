@@ -21,7 +21,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Shougo/neocomplcache-rsense.vim'
 NeoBundle 'othree/html5.vim'
-NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'fatih/molokai'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
@@ -56,8 +56,10 @@ filetype plugin indent on
 autocmd BufWritePre * if index(['markdown'], &filetype) < 0 | :%s/\s\+$//e
 
 " Color
-set background=dark
-colorscheme solarized
+colorscheme molokai
+set t_Co=256
+let g:molokai_original = 1
+let g:rehash256 = 1
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
