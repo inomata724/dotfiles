@@ -1,0 +1,5 @@
+set main-view = id date author commit-title:graph=yes,refs=yes
+set vertical-split = yes
+
+bind generic g move-first-line
+bind generic G move-last-line
