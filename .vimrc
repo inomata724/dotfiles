@@ -45,10 +45,6 @@ set matchtime=1
 set showtabline=2
 set noswapfile
 set cursorline
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
-set expandtab
 set scrolloff=10
 syntax enable
 filetype on
@@ -93,6 +89,10 @@ augroup invisible
 	autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
 augroup END
 
+" Plain Text
+au BufRead,BufNewFile,BufReadPre *.txt set filetype=text
+au FileType text set sw=2 ts=2 sts=2 expandtab
+
 " HTML5
 let g:html5_event_handler_attributes_complete = 1
 let g:html5_rdfa_attributes_complete = 1
@@ -114,13 +114,13 @@ au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
 autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 
 " Apache config file
-au BufRead,BufNewFile *etc/httpd/conf/*,*etc/httpd/conf.d/*,/etc/apache2/apache2.conf set filetype=apache
+au BufRead,BufNewFile,BufReadPre *etc/httpd/conf/*,*etc/httpd/conf.d/*,/etc/apache2/apache2.conf set filetype=apache
 
 " Yaml
 au FileType yaml set expandtab ts=2 sw=2
 
 " Markdown
-au BufRead,BufNewFile *.md,*.markdown,*.md.* set filetype=markdown
+au BufRead,BufNewFile,BufReadPre *.md,*.markdown,*.md.* set filetype=markdown
 let g:vim_markdown_folding_disabled=1
 
 " Go
