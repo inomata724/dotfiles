@@ -100,9 +100,11 @@ let g:html5_microdata_attributes_complete = 1
 let g:html5_aria_attributes_complete = 1
 
 " Ruby
-let ruby_space_errors=1
+au BufRead,BufNewFile,BufReadPre *.rb set filetype=ruby
+au BufRead,BufNewFile,BufReadPre *.erb set filetype=eruby
 au FileType ruby set sw=2 ts=2 sts=2 expandtab
 au FileType eruby set sw=2 ts=2 sts=2 expandtab
+let ruby_space_errors=1
 
 " Python
 autocmd FileType python setl autoindent
@@ -110,7 +112,7 @@ autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,exc
 autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
 " CoffeeScript
-au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
 autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 
 " Apache config file
