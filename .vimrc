@@ -100,8 +100,8 @@ let g:html5_microdata_attributes_complete = 1
 let g:html5_aria_attributes_complete = 1
 
 " Ruby
-au BufRead,BufNewFile,BufReadPre *.rb set filetype=ruby
-au BufRead,BufNewFile,BufReadPre *.erb set filetype=eruby
+au BufRead,BufNewFile *.rb set filetype=ruby
+au BufRead,BufNewFile *.erb set filetype=eruby
 au FileType ruby set sw=2 ts=2 sts=2 expandtab
 au FileType eruby set sw=2 ts=2 sts=2 expandtab
 let ruby_space_errors=1
