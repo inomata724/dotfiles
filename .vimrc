@@ -1,4 +1,9 @@
 if has('vim_starting')
+	set nocompatible
+	if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
+		echo "Installing neobundle..."
+		:call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+	endif
 	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
@@ -7,11 +12,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 call neobundle#end()
 
 NeoBundle 'Shougo/vimproc', {
-\ 'build' : {
-\       'mac' : 'make -f make_mac.mak',
-\       'unix' : 'make -f make_unix.mak',
-\   },
-\ }
+			\ 'build' : {
+			\       'mac' : 'make -f make_mac.mak',
+			\       'unix' : 'make -f make_unix.mak',
+			\   },
+			\ }
 NeoBundle 'rails.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'pangloss/vim-javascript'
@@ -136,8 +141,8 @@ exe "set rtp+=" . globpath($GOPATH, "src/github.com/golang/lint/misc/vim")
 " Search File
 let g:unite_source_history_yank_enable = 1
 try
-  let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+	let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+	call unite#filters#matcher_default#use(['matcher_fuzzy'])
 catch
 endtry
 
