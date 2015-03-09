@@ -34,6 +34,7 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'Blackrush/vim-gocode'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Rykka/riv.vim'
 
 NeoBundleCheck
 
@@ -129,6 +130,9 @@ au FileType yaml set expandtab ts=2 sw=2
 " Markdown
 au BufRead,BufNewFile,BufReadPre *.md,*.markdown,*.md.* set filetype=markdown
 let g:vim_markdown_folding_disabled=1
+
+" reStructuredText
+let g:riv_disable_folding = 1
 
 " Go
 au BufRead,BufNewFile,BufReadPre *.go set filetype=go
