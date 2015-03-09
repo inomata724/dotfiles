@@ -21,7 +21,7 @@ export PATH=/usr/local/bin:$PATH:$HOME/bin
 export EDITOR=vim
 export GREP_OPTIONS="--color=auto"
 
-if [ -x "`which go`" ]; then
+if [ -x "`which go 2> /dev/null`" ]; then
 	export GOROOT=`go env GOROOT`
 	export GOPATH=$HOME/go
 	export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
@@ -51,7 +51,7 @@ fi
 
 alias lv='lv -c'
 alias be='bundle exec'
-if [[ -x `which colordiff` ]]; then
+if [[ -x `which colordiff 2> /dev/null` ]]; then
 	alias diff='colordiff -u'
 else
 	alias diff='diff -u'
