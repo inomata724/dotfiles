@@ -34,7 +34,7 @@ if [ `uname` = "Darwin" ]; then
 	source /usr/local/etc/bash_completion.d/git-prompt.sh
 	source /usr/local/etc/bash_completion.d/git-completion.bash
 	set_git_ps1_options
-	export PS1="\[\e[0;32m\][\$(date +%I:%M) \W\$(__git_ps1 ' (%s)')]\$ \[\e[00m\]"
+	export PS1="\[\e[0;32m\][(\$(date +%I:%M)) \W\$(__git_ps1 ' (%s)')]\$ \[\e[00m\]"
 	if [ -f `brew --prefix`/etc/bash_completion ]; then
 		. `brew --prefix`/etc/bash_completion
 	fi
