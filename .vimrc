@@ -35,6 +35,7 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'Blackrush/vim-gocode'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Rykka/riv.vim'
+NeoBundle 'todesking/ruby_hl_lvar.vim'
 
 NeoBundleCheck
 
@@ -111,6 +112,7 @@ au BufRead,BufNewFile *.erb set filetype=eruby
 au FileType ruby set sw=2 ts=2 sts=2 expandtab
 au FileType eruby set sw=2 ts=2 sts=2 expandtab
 let ruby_space_errors=1
+let g:ruby_hl_lvar_auto_enable=1
 
 " Python
 autocmd FileType python setl autoindent
