@@ -32,7 +32,6 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'fatih/vim-go'
-NeoBundle 'Blackrush/vim-gocode'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Rykka/riv.vim'
 
@@ -139,8 +138,8 @@ au BufRead,BufNewFile,BufReadPre *.go set filetype=go
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
-set rtp+=$GOROOT/misc/vim
-exe "set rtp+=" . globpath($GOPATH, "src/github.com/golang/lint/misc/vim")
+let g:go_fmt_command = 'goimports'
+let g:go_fmt_autosave = 1
 
 " Search File
 let g:unite_source_history_yank_enable = 1
