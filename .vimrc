@@ -33,7 +33,7 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Rykka/riv.vim'
-NeoBundle 'cocopon/iceberg.vim'
+NeoBundle 'fatih/molokai'
 
 NeoBundleCheck
 
@@ -57,7 +57,10 @@ filetype plugin indent on
 autocmd BufWritePre * if index(['markdown'], &filetype) < 0 | :%s/\s\+$//e
 
 " Color
-colorscheme iceberg
+colorscheme molokai
+set t_Co=256
+let g:molokai_original = 1
+let g:rehash256 = 1
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
