@@ -51,6 +51,7 @@ set showtabline=2
 set noswapfile
 set cursorline
 set scrolloff=10
+set hlsearch
 syntax enable
 filetype on
 filetype plugin indent on
