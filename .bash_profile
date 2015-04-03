@@ -31,6 +31,8 @@ if [ `uname` = "Darwin" ]; then
 	export LANG=ja_JP.UTF-8
 	export CLICOLOR=1
 	export LSCOLORS=GxFxCxDxBxegedabagaced
+	export PGDATA=/usr/local/var/postgres
+
 	source /usr/local/etc/bash_completion.d/git-prompt.sh
 	source /usr/local/etc/bash_completion.d/git-completion.bash
 	set_git_ps1_options
