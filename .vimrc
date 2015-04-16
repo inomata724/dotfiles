@@ -34,6 +34,7 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Rykka/riv.vim'
 NeoBundle 'fatih/molokai'
+NeoBundle 'Shougo/unite-outline'
 
 NeoBundleCheck
 
@@ -170,4 +171,5 @@ nnoremap tc :<C-u>tabnew<CR>
 nnoremap tn gt
 nnoremap tp gT
 nnoremap <space><space> :<C-u>Unite -start-insert file_rec/async<cr>
+nnoremap <space>o :<C-u>Unite outline<cr>
 nnoremap <space>r <Plug>(unite_restart)
