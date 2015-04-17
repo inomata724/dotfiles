@@ -60,6 +60,7 @@ autocmd BufWritePre * if index(['markdown'], &filetype) < 0 | :%s/\s\+$//e
 
 " Color
 set t_Co=256
+set background="dark"
 let g:molokai_original=1
 let g:rehash256=1
 colorscheme molokai
@@ -174,5 +175,5 @@ nnoremap tp gT
 nmap ;n :NERDTreeToggle<CR>
 nmap ; [unite]
 nnoremap [unite]f :Unite -start-insert file_rec/async<CR>
-nnoremap [unite]o :Unite -vertical -no-quit -toggle outline<CR>
+nnoremap [unite]o :Unite -vertical -toggle outline<CR>
 nnoremap [unite]r <Plug>(unite_restart)
