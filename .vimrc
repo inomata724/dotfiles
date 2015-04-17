@@ -60,25 +60,25 @@ autocmd BufWritePre * if index(['markdown'], &filetype) < 0 | :%s/\s\+$//e
 
 " Color
 set t_Co=256
-let g:molokai_original = 1
-let g:rehash256 = 1
+let g:molokai_original=1
+let g:rehash256=1
 colorscheme molokai
 
 " Unite
-let g:unite_split_rule = "rightbelow"
-let g:unite_winwidth = 40
+let g:unite_split_rule="rightbelow"
+let g:unite_winwidth=40
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
 " Neocomplecache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_ignore_case = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_max_list = 20
-let g:neocomplcache_manual_completion_start_length = 3
+let g:neocomplcache_enable_at_startup=1
+let g:neocomplcache_enable_ignore_case=1
+let g:neocomplcache_enable_smart_case=1
+let g:neocomplcache_max_list=20
+let g:neocomplcache_manual_completion_start_length=3
 if !exists('g:neocomplcache_delimiter_patterns')
-	let g:neocomplcache_delimiter_patterns = {}
+	let g:neocomplcache_delimiter_patterns={}
 endif
 function! s:my_crinsert()
 	return pumvisible() ? neocomplcache#close_popup() : "\<Cr>"
@@ -105,10 +105,10 @@ au BufRead,BufNewFile,BufReadPre *.txt set filetype=text
 au FileType text set sw=2 ts=2 sts=2 expandtab
 
 " HTML5
-let g:html5_event_handler_attributes_complete = 1
-let g:html5_rdfa_attributes_complete = 1
-let g:html5_microdata_attributes_complete = 1
-let g:html5_aria_attributes_complete = 1
+let g:html5_event_handler_attributes_complete=1
+let g:html5_rdfa_attributes_complete=1
+let g:html5_microdata_attributes_complete=1
+let g:html5_aria_attributes_complete=1
 
 " Ruby
 au BufRead,BufNewFile *.rb set filetype=ruby
@@ -137,20 +137,20 @@ au BufRead,BufNewFile,BufReadPre *.md,*.markdown,*.md.* set filetype=markdown
 let g:vim_markdown_folding_disabled=1
 
 " reStructuredText
-let g:riv_disable_folding = 1
+let g:riv_disable_folding=1
 
 " Go
 au BufRead,BufNewFile,BufReadPre *.go set filetype=go
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = 'goimports'
-let g:go_fmt_autosave = 1
+let g:go_highlight_functions=1
+let g:go_highlight_methods=1
+let g:go_highlight_structs=1
+let g:go_highlight_operators=1
+let g:go_highlight_build_constraints=1
+let g:go_fmt_command='goimports'
+let g:go_fmt_autosave=1
 
 " Search File
-let g:unite_source_history_yank_enable = 1
+let g:unite_source_history_yank_enable=1
 try
 	let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
 	call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -174,6 +174,7 @@ set guioptions-=e
 nnoremap tc :<C-u>tabnew<CR>
 nnoremap tn gt
 nnoremap tp gT
-nnoremap <space><space> :<C-u>Unite -start-insert file_rec/async<cr>
-nnoremap <space>o :<C-u>Unite -vertical -no-quit outline<cr>
-nnoremap <space>r <Plug>(unite_restart)
+nmap , [unite]
+nnoremap [unite]f :<C-u>Unite -start-insert file_rec/async<cr>
+nnoremap [unite]o :<C-u>Unite -vertical -no-quit -toggle outline<cr>
+nnoremap [unite]r <Plug>(unite_restart)
