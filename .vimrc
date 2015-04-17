@@ -59,10 +59,14 @@ filetype plugin indent on
 autocmd BufWritePre * if index(['markdown'], &filetype) < 0 | :%s/\s\+$//e
 
 " Color
-colorscheme molokai
 set t_Co=256
 let g:molokai_original = 1
 let g:rehash256 = 1
+colorscheme molokai
+
+" Unite
+let g:unite_split_rule = "rightbelow"
+let g:unite_winwidth = 40
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -171,5 +175,5 @@ nnoremap tc :<C-u>tabnew<CR>
 nnoremap tn gt
 nnoremap tp gT
 nnoremap <space><space> :<C-u>Unite -start-insert file_rec/async<cr>
-nnoremap <space>o :<C-u>Unite outline<cr>
+nnoremap <space>o :<C-u>Unite -vertical -no-quit outline<cr>
 nnoremap <space>r <Plug>(unite_restart)
