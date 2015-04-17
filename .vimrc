@@ -68,9 +68,6 @@ colorscheme molokai
 let g:unite_split_rule="rightbelow"
 let g:unite_winwidth=40
 
-" NERDTree
-map <C-n> :NERDTreeToggle<CR>
-
 " Neocomplecache
 let g:neocomplcache_enable_at_startup=1
 let g:neocomplcache_enable_ignore_case=1
@@ -174,7 +171,8 @@ set guioptions-=e
 nnoremap tc :<C-u>tabnew<CR>
 nnoremap tn gt
 nnoremap tp gT
-nmap , [unite]
-nnoremap [unite]f :<C-u>Unite -start-insert file_rec/async<cr>
-nnoremap [unite]o :<C-u>Unite -vertical -no-quit -toggle outline<cr>
+nmap ;n :NERDTreeToggle<CR>
+nmap ; [unite]
+nnoremap [unite]f :Unite -start-insert file_rec/async<CR>
+nnoremap [unite]o :Unite -vertical -no-quit -toggle outline<CR>
 nnoremap [unite]r <Plug>(unite_restart)
