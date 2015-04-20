@@ -32,6 +32,7 @@ if [ `uname` = "Darwin" ]; then
 	export CLICOLOR=1
 	export LSCOLORS=GxFxCxDxBxegedabagaced
 	export PGDATA=/usr/local/var/postgres
+	export PATH=$PATH:$HOME/Library/Python/2.7/bin
 
 	source /usr/local/etc/bash_completion.d/git-prompt.sh
 	source /usr/local/etc/bash_completion.d/git-completion.bash
