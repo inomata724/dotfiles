@@ -25,6 +25,8 @@ NeoBundle 'Shougo/neocomplcache-rsense.vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'fatih/molokai'
 
 NeoBundle 'vim-ruby/vim-ruby'
