@@ -17,24 +17,23 @@ NeoBundle 'Shougo/vimproc', {
 			\       'unix' : 'make -f make_unix.mak',
 			\   },
 			\ }
-NeoBundle 'rails.vim'
+
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Shougo/neocomplcache-rsense.vim'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tpope/vim-endwise'
-NeoBundle 'fatih/vim-go'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Rykka/riv.vim'
-NeoBundle 'fatih/molokai'
 NeoBundle 'Shougo/unite-outline'
+NeoBundle 'fatih/molokai'
+
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'rails.vim'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'Rykka/riv.vim'
 
 NeoBundleCheck
 
@@ -53,6 +52,8 @@ set noswapfile
 set cursorline
 set scrolloff=10
 set hlsearch
+set noshowmode
+set laststatus=2
 syntax enable
 filetype on
 filetype plugin indent on
@@ -130,7 +131,6 @@ au FileType yaml set expandtab ts=2 sw=2
 
 " Markdown
 au BufRead,BufNewFile,BufReadPre *.md,*.markdown,*.md.* set filetype=markdown
-let g:vim_markdown_folding_disabled=1
 
 " reStructuredText
 let g:riv_disable_folding=1
@@ -158,8 +158,16 @@ set enc=utf-8
 set fenc=utf-8
 set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
+" Powerline
+:call system("which powerline-config")
+if v:shell_error == 0
+	python from powerline.vim import setup as powerline_setup
+	python powerline_setup()
+	python del powerline_setup
+endif
+
 " GUI
-set guifont=Ricty_Diminished:h18
+set guifont=Ricty_Discord_For_Powerline:h18
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
