@@ -54,6 +54,7 @@ fi
 
 alias lv='lv -c'
 alias be='bundle exec'
+alias vi='vim'
 if [[ -x `which colordiff 2> /dev/null` ]]; then
 	alias diff='colordiff -u'
 else
