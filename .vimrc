@@ -21,8 +21,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Shougo/neocomplcache.vim'
-NeoBundle 'Shougo/neocomplcache-rsense.vim'
+NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
@@ -73,19 +72,24 @@ colorscheme molokai
 let g:unite_split_rule="rightbelow"
 let g:unite_winwidth=40
 
-" Neocomplecache
-let g:neocomplcache_enable_at_startup=1
-let g:neocomplcache_enable_ignore_case=1
-let g:neocomplcache_enable_smart_case=1
-let g:neocomplcache_max_list=20
-let g:neocomplcache_manual_completion_start_length=3
-if !exists('g:neocomplcache_delimiter_patterns')
-	let g:neocomplcache_delimiter_patterns={}
+if neobundle#is_installed('neocomplete')
+	let g:neocomplete#enable_at_startup = 1
+	let g:neocomplete#enable_ignore_case = 1
+	let g:neocomplete#enable_smart_case = 1
+elseif neobundle#is_installed('neocomplcache')
+	let g:neocomplcache_enable_at_startup=1
+	let g:neocomplcache_enable_ignore_case=1
+	let g:neocomplcache_enable_smart_case=1
+	let g:neocomplcache_max_list=20
+	let g:neocomplcache_manual_completion_start_length=3
+	if !exists('g:neocomplcache_delimiter_patterns')
+		let g:neocomplcache_delimiter_patterns={}
+	endif
+	function! s:my_crinsert()
+		return pumvisible() ? neocomplcache#close_popup() : "\<Cr>"
+	endfunction
+	inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
 endif
-function! s:my_crinsert()
-	return pumvisible() ? neocomplcache#close_popup() : "\<Cr>"
-endfunction
-inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
 
 " Syntastic
 let g:syntastic_enable_signs=1
@@ -172,7 +176,7 @@ if v:shell_error == 0
 endif
 
 " GUI
-set guifont=Ricty_Discord_For_Powerline:h18
+set guifont=Ricty_For_Powerline:h18
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
@@ -188,3 +192,7 @@ nmap ; [unite]
 nnoremap [unite]f :Unite -start-insert -toggle file_rec/async<CR>
 nnoremap [unite]o :Unite -vertical -toggle outline<CR>
 nnoremap [unite]r <Plug>(unite_restart)
+nnoremap gb :Gblame<CR>
+nnoremap gs :Gstatus<CR>
+nnoremap gc :Gcommit<CR>
+nnoremap gd :Gdiff<CR>
