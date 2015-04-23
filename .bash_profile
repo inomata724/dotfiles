@@ -17,7 +17,7 @@ if [ -d ~/.rbenv ]; then
 	eval "$(rbenv init -)"
 fi
 
-export PATH=/usr/local/bin:$PATH:$HOME/bin
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH:$HOME/bin
 export EDITOR=vim
 export GREP_OPTIONS="--color=auto"
 
