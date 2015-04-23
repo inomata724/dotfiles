@@ -43,6 +43,7 @@ if [ `uname` = "Darwin" ]; then
 	fi
 
 	alias flushdns='sudo discoveryutil mdnsflushcache'
+	alias chrome='open -a Google\ Chrome'
 else
 	if [ -f $BASH_COMPLETION_DIR/git -o -f $BASH_COMPLETION_COMPAT_DIR/git-prompt ]; then
 		set_git_ps1_options
