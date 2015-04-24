@@ -97,7 +97,7 @@ elseif neobundle#is_installed('neocomplcache')
 endif
 
 " NERDTree
-let NERDTreeWinSize=40
+let NERDTreeWinSize=35
 
 " Syntastic
 let g:syntastic_enable_signs=1
