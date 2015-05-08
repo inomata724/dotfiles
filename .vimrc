@@ -51,7 +51,7 @@ set colorcolumn=80
 set display=lastline
 set showmatch
 set matchtime=1
-set showtabline=2
+set showtabline=1
 set noswapfile
 set cursorline
 set scrolloff=10
