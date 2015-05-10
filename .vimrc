@@ -9,7 +9,6 @@ endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
 
 NeoBundle 'Shougo/vimproc', {
 			\ 'build' : {
@@ -39,6 +38,7 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'Rykka/riv.vim'
 
 NeoBundleCheck
+call neobundle#end()
 
 set nocompatible
 set wrap
