@@ -30,7 +30,6 @@ fi
 if [ `uname` = "Darwin" ]; then
 	export LANG=ja_JP.UTF-8
 	export CLICOLOR=1
-	export LSCOLORS=GxFxCxDxBxegedabagaced
 	export PGDATA=/usr/local/var/postgres
 	export PATH=$PATH:$HOME/Library/Python/2.7/bin
 
@@ -40,6 +39,10 @@ if [ `uname` = "Darwin" ]; then
 	export PS1="\[\e[0;32m\][\u@\h:\W\$(__git_ps1 ' (%s)')]\$ \[\e[00m\]"
 	if [ -f `brew --prefix`/etc/bash_completion ]; then
 		. `brew --prefix`/etc/bash_completion
+	fi
+
+	if [ -x "`which gls 2> /dev/null`" ]; then
+		alias ls='gls --color=auto'
 	fi
 
 	alias flushdns='sudo discoveryutil mdnsflushcache'
