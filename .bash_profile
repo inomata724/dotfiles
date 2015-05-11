@@ -1,15 +1,17 @@
 # .bash_profile
 
-function set_git_ps1_options {
-	GIT_PS1_SHOWUPSTREAM=true
-	GIT_PS1_SHOWUNTRACKEDFILES=true
-	GIT_PS1_SHOWSTASHSTATE=true
-	GIT_PS1_SHOWDIRTYSTATE=true
-}
-
 if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
+
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH:$HOME/bin
+export EDITOR=vim
+export GREP_OPTIONS="--color=auto"
+
+export GIT_PS1_SHOWUPSTREAM=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWSTASHSTATE=true
+export GIT_PS1_SHOWDIRTYSTATE=true
 
 # rbenv
 if [ -d ~/.rbenv ]; then
@@ -17,14 +19,10 @@ if [ -d ~/.rbenv ]; then
 	eval "$(rbenv init -)"
 fi
 
-export PATH=/usr/local/sbin:/usr/local/bin:$PATH:$HOME/bin
-export EDITOR=vim
-export GREP_OPTIONS="--color=auto"
-
+# Go
 if [ -x "`which go 2> /dev/null`" ]; then
-	export GOROOT=`go env GOROOT`
 	export GOPATH=$HOME/go
-	export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+	export PATH=$PATH:$GOPATH/bin
 fi
 
 if [ `uname` = "Darwin" ]; then
@@ -35,7 +33,6 @@ if [ `uname` = "Darwin" ]; then
 
 	source /usr/local/etc/bash_completion.d/git-prompt.sh
 	source /usr/local/etc/bash_completion.d/git-completion.bash
-	set_git_ps1_options
 	export PS1="\[\e[0;32m\][\u@\h:\W\$(__git_ps1 ' (%s)')]\$ \[\e[00m\]"
 	if [ -f `brew --prefix`/etc/bash_completion ]; then
 		. `brew --prefix`/etc/bash_completion
@@ -45,12 +42,15 @@ if [ `uname` = "Darwin" ]; then
 		alias ls='gls --color=auto'
 	fi
 
+	if [ -x "`which gdircolors 2> /dev/null`" ]; then
+		eval $(gdircolors ~/.dircolors.monokai)
+	fi
+
 	alias flushdns='sudo discoveryutil mdnsflushcache'
 	alias chrome='open -a Google\ Chrome'
 	alias mvim='mvim --remote-tab-silent'
 else
 	if [ -f $BASH_COMPLETION_DIR/git -o -f $BASH_COMPLETION_COMPAT_DIR/git-prompt ]; then
-		set_git_ps1_options
 		export PS1='\[\e[0;32m\][\u@\h:\W$(__git_ps1 " (%s)")]\$ \[\e[00m\]'
 	else
 		export PS1='\[\e[0;32m\][\u@\h:\W]\$ \[\e[00m\]'

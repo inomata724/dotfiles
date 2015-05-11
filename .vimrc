@@ -57,6 +57,8 @@ set scrolloff=10
 set hlsearch
 set noshowmode
 set laststatus=2
+set ignorecase
+set smartcase
 syntax enable
 filetype on
 filetype plugin indent on
@@ -101,17 +103,6 @@ let NERDTreeWinSize=35
 " Syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=2
-
-" Highlight em space"
-syn sync fromstart
-function! ActivateInvisibleIndicator()
-	syntax match InvisibleJISX0208Space "　" display containedin=ALL
-	highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=darkgray gui=underline
-endfunction
-augroup invisible
-	autocmd! invisible
-	autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
-augroup END
 
 " Plain Text
 au BufRead,BufNewFile,BufReadPre *.txt set filetype=text
