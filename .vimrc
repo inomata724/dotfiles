@@ -59,6 +59,7 @@ set noshowmode
 set laststatus=2
 set ignorecase
 set smartcase
+set clipboard+=unnamed
 syntax enable
 filetype on
 filetype plugin indent on
