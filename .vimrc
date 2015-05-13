@@ -31,6 +31,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'fatih/molokai'
 
 NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'todesking/ruby_hl_lvar.vim'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
