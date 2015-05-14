@@ -80,6 +80,8 @@ if neobundle#is_installed('neocomplete')
 	let g:neocomplete#enable_ignore_case = 1
 	let g:neocomplete#enable_smart_case = 1
 	let g:neocomplete#sources#syntax#min_keyword_length = 3
+	let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+	let g:neocomplete#max_list = 20
 	if !exists('g:neocomplete#keyword_patterns')
 		    let g:neocomplete#keyword_patterns = {}
 	endif
