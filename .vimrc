@@ -62,6 +62,7 @@ set laststatus=2
 set ignorecase
 set smartcase
 set clipboard+=unnamed
+set backspace=indent,eol,start
 syntax enable
 filetype on
 filetype plugin indent on
