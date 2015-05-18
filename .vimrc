@@ -21,13 +21,14 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
-NeoBundle 'tpope/vim-endwise'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'kana/vim-smartinput'
+NeoBundle 'cohama/vim-smartinput-endwise'
 NeoBundle 'fatih/molokai'
 
 NeoBundle 'vim-ruby/vim-ruby'
@@ -82,10 +83,16 @@ if neobundle#is_installed('neocomplete')
 	let g:neocomplete#sources#syntax#min_keyword_length = 3
 	let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 	let g:neocomplete#max_list = 20
+
 	if !exists('g:neocomplete#keyword_patterns')
 		    let g:neocomplete#keyword_patterns = {}
 	endif
 	let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+	if !exists('g:neocomplete#force_omni_input_patterns')
+		  let g:neocomplete#force_omni_input_patterns = {}
+	endif
+	let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 elseif neobundle#is_installed('neocomplcache')
 	let g:neocomplcache_enable_at_startup=1
 	let g:neocomplcache_enable_ignore_case=1
@@ -107,6 +114,9 @@ let NERDTreeWinSize=35
 " Syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=2
+
+" smartinput-endwise
+call smartinput_endwise#define_default_rules()
 
 " Plain Text
 au BufRead,BufNewFile,BufReadPre *.txt set filetype=text
