@@ -43,7 +43,7 @@ NeoBundleCheck
 call neobundle#end()
 
 set nocompatible
-set wrap
+set nowrap
 set number
 set autoindent
 set list
