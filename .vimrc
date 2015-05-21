@@ -167,12 +167,14 @@ let g:go_fmt_command='goimports'
 let g:go_fmt_autosave=1
 
 " Search File
-let g:unite_source_history_yank_enable=1
-try
-	let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
-	call unite#filters#matcher_default#use(['matcher_fuzzy'])
-catch
-endtry
+if executable('ag')
+	let g:unite_source_history_yank_enable=1
+	try
+		let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+		call unite#filters#matcher_default#use(['matcher_fuzzy'])
+	catch
+	endtry
+endif
 
 " Encoding
 set enc=utf-8
