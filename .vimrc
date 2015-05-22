@@ -70,7 +70,7 @@ autocmd BufWritePre * if index(['markdown'], &filetype) < 0 | :%s/\s\+$//e
 
 " Color
 set t_Co=256
-colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night-Eighties
 
 " Unite
 let g:unite_split_rule="rightbelow"
