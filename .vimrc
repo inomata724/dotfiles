@@ -31,7 +31,9 @@ NeoBundle 'kana/vim-smartinput'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'chriskempson/vim-tomorrow-theme'
+
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'tomasr/molokai'
 
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'todesking/ruby_hl_lvar.vim'
@@ -66,13 +68,13 @@ set smartcase
 set clipboard+=unnamed
 set backspace=indent,eol,start
 syntax enable
-filetype on
 filetype plugin indent on
 autocmd BufWritePre * if index(['markdown'], &filetype) < 0 | :%s/\s\+$//e
 
 " Color
 set t_Co=256
-colorscheme Tomorrow-Night
+let g:rehash256=1
+colorscheme molokai
 
 " Unite
 let g:unite_split_rule="rightbelow"
@@ -179,14 +181,6 @@ endif
 set enc=utf-8
 set fenc=utf-8
 set fencs=utf-8,iso-2022-jp,euc-jp,cp932
-
-" Powerline
-:call system("which powerline-config")
-if v:shell_error == 0
-	python from powerline.vim import setup as powerline_setup
-	python powerline_setup()
-	python del powerline_setup
-endif
 
 " GUI
 set guifont=Ricty_For_Powerline:h18
