@@ -28,7 +28,9 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'kana/vim-smartinput'
-NeoBundle 'cohama/vim-smartinput-endwise'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 NeoBundle 'vim-ruby/vim-ruby'
@@ -70,7 +72,7 @@ autocmd BufWritePre * if index(['markdown'], &filetype) < 0 | :%s/\s\+$//e
 
 " Color
 set t_Co=256
-colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night
 
 " Unite
 let g:unite_split_rule="rightbelow"
@@ -114,9 +116,6 @@ let NERDTreeWinSize=35
 " Syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=2
-
-" smartinput-endwise
-call smartinput_endwise#define_default_rules()
 
 " Plain Text
 au BufRead,BufNewFile,BufReadPre *.txt set filetype=text
@@ -210,3 +209,5 @@ nnoremap gb :Gblame<CR>
 nnoremap gs :Gstatus<CR>
 nnoremap gc :Gcommit<CR>
 nnoremap gd :Gdiff<CR>
+vmap <Enter> <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
