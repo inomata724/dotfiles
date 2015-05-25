@@ -55,7 +55,7 @@ set colorcolumn=80
 set display=lastline
 set showmatch
 set matchtime=1
-set showtabline=1
+set showtabline=2
 set noswapfile
 set cursorline
 set scrolloff=10
@@ -90,12 +90,12 @@ if neobundle#is_installed('neocomplete')
 	let g:neocomplete#max_list = 20
 
 	if !exists('g:neocomplete#keyword_patterns')
-		    let g:neocomplete#keyword_patterns = {}
+		let g:neocomplete#keyword_patterns = {}
 	endif
 	let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 	if !exists('g:neocomplete#force_omni_input_patterns')
-		  let g:neocomplete#force_omni_input_patterns = {}
+		let g:neocomplete#force_omni_input_patterns = {}
 	endif
 	let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 elseif neobundle#is_installed('neocomplcache')
@@ -183,6 +183,27 @@ set enc=utf-8
 set fenc=utf-8
 set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
+" lightline
+let g:lightline = {
+	\ 'colorscheme': 'solarized',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+	\ },
+	\ 'component': {
+	\   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+	\   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+	\   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+	\ },
+	\ 'component_visible_condition': {
+	\   'readonly': '(&filetype!="help"&& &readonly)',
+	\   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+	\   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+	\ },
+	\ 'separator': { 'left': '⮀', 'right': '⮂' },
+	\ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+	\ }
+
 " GUI
 set guifont=Ricty_For_Powerline:h18
 set guioptions-=r
@@ -206,5 +227,3 @@ nnoremap gc :Gcommit<CR>
 nnoremap gd :Gdiff<CR>
 vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-nnoremap ft :echo &filetype<CR>
-
