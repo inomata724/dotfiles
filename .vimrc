@@ -30,6 +30,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'rhysd/auto-neobundle'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tomasr/molokai'
@@ -44,6 +45,11 @@ NeoBundle 'Rykka/riv.vim'
 
 NeoBundleCheck
 call neobundle#end()
+
+augroup AutoNeoBundle
+  autocmd!
+  autocmd VimEnter * call auto_neobundle#update_daily()
+augroup END
 
 set nocompatible
 set nowrap
