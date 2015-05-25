@@ -185,24 +185,22 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " lightline
 let g:lightline = {
-	\ 'colorscheme': 'powerline',
-	\ 'active': {
-	\   'left': [ [ 'mode', 'paste' ],
-	\             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-	\ },
-	\ 'component': {
-	\   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
-	\   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-	\   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-	\ },
-	\ 'component_visible_condition': {
-	\   'readonly': '(&filetype!="help"&& &readonly)',
-	\   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-	\   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-	\ },
-	\ 'separator': { 'left': '⮀', 'right': '⮂' },
-	\ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-	\ }
+			\ 'colorscheme': 'powerline',
+			\ 'active': {
+			\   'left': [ [ 'mode', 'paste' ],
+			\             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+			\ },
+			\ 'component': {
+			\   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+			\   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+			\   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+			\ },
+			\ 'component_visible_condition': {
+			\   'readonly': '(&filetype!="help"&& &readonly)',
+			\   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+			\   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+			\ },
+			\ }
 
 " GUI
 set guifont=Ricty_For_Powerline:h18
