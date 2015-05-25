@@ -193,12 +193,12 @@ let g:lightline = {
 			\ 'component': {
 			\   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
 			\   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-			\   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+			\   'fugitive': '%{fugitive#head()}'
 			\ },
 			\ 'component_visible_condition': {
 			\   'readonly': '(&filetype!="help"&& &readonly)',
 			\   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-			\   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+			\   'fugitive': '(""!=fugitive#head())'
 			\ },
 			\ }
 
