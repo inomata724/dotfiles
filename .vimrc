@@ -68,6 +68,8 @@ set clipboard+=unnamed
 set backspace=indent,eol,start
 syntax enable
 filetype plugin indent on
+
+" delete trailing spaces
 autocmd BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s/\s\+$//e
 
 " Color
