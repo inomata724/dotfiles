@@ -185,7 +185,7 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " lightline
 let g:lightline = {
-	\ 'colorscheme': 'solarized',
+	\ 'colorscheme': 'powerline',
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste' ],
 	\             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
