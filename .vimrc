@@ -68,7 +68,7 @@ set clipboard+=unnamed
 set backspace=indent,eol,start
 syntax enable
 filetype plugin indent on
-autocmd BufWritePre * if index(['markdown'], &filetype) < 0 | :%s/\s\+$//e
+autocmd BufWritePre * if index(['markdown', 'diff'], &filetype) < 0 | :%s/\s\+$//e
 
 " Color
 set t_Co=256
