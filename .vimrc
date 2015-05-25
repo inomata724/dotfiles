@@ -204,3 +204,5 @@ nnoremap gc :Gcommit<CR>
 nnoremap gd :Gdiff<CR>
 vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+nnoremap ft :echo &filetype<CR>
+
