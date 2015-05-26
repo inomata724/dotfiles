@@ -103,7 +103,6 @@ if neobundle#is_installed('neocomplete')
 	if !exists('g:neocomplete#force_omni_input_patterns')
 		let g:neocomplete#force_omni_input_patterns = {}
 	endif
-	let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 elseif neobundle#is_installed('neocomplcache')
 	let g:neocomplcache_enable_at_startup=1
 	let g:neocomplcache_enable_ignore_case=1
@@ -193,10 +192,11 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 let g:lightline={
 		\ 'colorscheme': 'powerline',
 		\ 'active': {
-		\   'left': [ [ 'mode', 'paste' ],
-		\             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+		\   'left':  [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
+		\   'right': [ [ 'rows' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
 		\ },
 		\ 'component': {
+		\   'rows'    : '%L',
 		\   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
 		\   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
 		\   'fugitive': '%{fugitive#head()}'
