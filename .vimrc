@@ -34,7 +34,6 @@ NeoBundle 'rhysd/auto-neobundle'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tomasr/molokai'
-NeoBundle 'chriskempson/base16-vim'
 
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'todesking/ruby_hl_lvar.vim'
@@ -82,20 +81,8 @@ autocmd BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s
 
 " Color
 set t_Co=256
-if $BASE16_SHELL != ""
-	if $BASE16_BACKGROUND == "dark"
-		set background=dark
-	else
-		set background=light
-	endif
-
-	let base16colorspace=256
-	colorscheme $BASE16_THEME
-else
-	set background=dark
-	let g:rehash256=1
-	colorscheme molokai
-endif
+let g:rehash256=1
+colorscheme molokai
 
 " Unite
 let g:unite_split_rule="rightbelow"

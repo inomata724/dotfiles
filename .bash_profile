@@ -46,18 +46,6 @@ if [ `uname` = "Darwin" ]; then
 		eval $(gdircolors ~/.dircolors.monokai)
 	fi
 
-	# base16 theme
-	if [ $TERM_PROGRAM = 'iTerm.app' ]; then
-		export BASE16_THEME=base16-ocean
-		export BASE16_BACKGROUND=dark
-		export BASE16_SHELL="$HOME/config/base16-shell/$BASE16_THEME.$BASE16_BACKGROUND.sh"
-		if [ ! -s $BASE16_SHELL ]; then
-			mkdir -p $HOME/config
-			git clone https://github.com/chriskempson/base16-shell.git $HOME/config/base16-shell
-		fi
-		source $BASE16_SHELL
-	fi
-
 	alias flushdns='sudo discoveryutil mdnsflushcache'
 	alias chrome='open -a Google\ Chrome'
 	alias mvim='mvim --remote-tab-silent'
