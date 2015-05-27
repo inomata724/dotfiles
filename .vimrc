@@ -66,9 +66,10 @@ set showtabline=2
 set noswapfile
 set cursorline
 set scrolloff=10
-set hlsearch
 set noshowmode
 set laststatus=2
+set hlsearch
+set incsearch
 set ignorecase
 set smartcase
 set clipboard+=unnamed
@@ -81,11 +82,17 @@ autocmd BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s
 
 " Color
 set t_Co=256
-set background=dark
 if $BASE16_SHELL != ""
+	if $BASE16_BACKGROUND == "dark"
+		set background=dark
+	else
+		set background=light
+	endif
+
 	let base16colorspace=256
-	colorscheme base16-paraiso
+	colorscheme $BASE16_THEME
 else
+	set background=dark
 	let g:rehash256=1
 	colorscheme molokai
 endif
