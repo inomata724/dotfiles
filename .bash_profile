@@ -13,14 +13,6 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 
-# base16 theme
-export BASE16_SHELL="$HOME/config/base16-shell/base16-paraiso.dark.sh"
-if [ ! -s $BASE16_SHELL ]; then
-	mkdir -p $HOME/config
-	git clone https://github.com/chriskempson/base16-shell.git $HOME/config/base16-shell
-fi
-source $BASE16_SHELL
-
 # rbenv
 if [ -d ~/.rbenv ]; then
 	export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
@@ -52,6 +44,18 @@ if [ `uname` = "Darwin" ]; then
 
 	if [ -x "`which gdircolors 2> /dev/null`" ]; then
 		eval $(gdircolors ~/.dircolors.monokai)
+	fi
+
+	# base16 theme
+	if [ $TERM_PROGRAM = 'iTerm.app' ]; then
+		export BASE16_THEME=base16-ocean
+		export BASE16_BACKGROUND=dark
+		export BASE16_SHELL="$HOME/config/base16-shell/$BASE16_THEME.$BASE16_BACKGROUND.sh"
+		if [ ! -s $BASE16_SHELL ]; then
+			mkdir -p $HOME/config
+			git clone https://github.com/chriskempson/base16-shell.git $HOME/config/base16-shell
+		fi
+		source $BASE16_SHELL
 	fi
 
 	alias flushdns='sudo discoveryutil mdnsflushcache'
