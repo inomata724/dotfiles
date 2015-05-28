@@ -174,6 +174,15 @@ let g:go_highlight_build_constraints=1
 let g:go_fmt_command='goimports'
 let g:go_fmt_autosave=1
 
+" JSON formatter
+if executable('jq')
+  function! FormatJson()
+    execute "%!jq '.'"
+    set filetype=json
+  endfunction
+  nnoremap jf :call FormatJson()<CR>
+endif
+
 " Search File
 if executable('ag')
 	let g:unite_source_history_yank_enable=1
@@ -231,4 +240,3 @@ nnoremap gs :Gstatus<CR>
 nnoremap gc :Gcommit<CR>
 nnoremap gd :Gdiff<CR>
 vmap <Enter> <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
