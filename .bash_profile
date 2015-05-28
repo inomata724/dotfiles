@@ -43,7 +43,7 @@ if [ `uname` = "Darwin" ]; then
 	fi
 
 	if [ -x "`which gdircolors 2> /dev/null`" ]; then
-		eval $(gdircolors ~/.dircolors.monokai)
+		eval $(gdircolors ~/.dircolors)
 	fi
 
 	alias flushdns='sudo discoveryutil mdnsflushcache'
@@ -55,6 +55,8 @@ else
 	else
 		export PS1='\[\e[0;32m\][\u@\h:\W]\$ \[\e[00m\]'
 	fi
+
+	eval $(dircolors ~/.dircolors)
 fi
 
 alias lv='lv -c'
