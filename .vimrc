@@ -17,6 +17,7 @@ NeoBundle 'Shougo/vimproc', {
 			\   },
 			\ }
 
+NeoBundle 'rhysd/auto-neobundle'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'scrooloose/syntastic'
@@ -30,10 +31,9 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'rhysd/auto-neobundle'
 
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'tomasr/molokai'
+NeoBundle 'cocopon/iceberg.vim'
 
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'todesking/ruby_hl_lvar.vim'
@@ -81,8 +81,7 @@ autocmd BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s
 
 " Color
 set t_Co=256
-let g:rehash256=1
-colorscheme molokai
+colorscheme iceberg
 
 " Unite
 let g:unite_split_rule="rightbelow"
@@ -178,9 +177,7 @@ let g:go_fmt_autosave=1
 if executable('jq')
   function! FormatJson()
     execute "%!jq '.'"
-    set filetype=json
   endfunction
-  nnoremap jf :call FormatJson()<CR>
 endif
 
 " Search File
@@ -200,7 +197,7 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " lightline
 let g:lightline={
-		\ 'colorscheme': 'powerline',
+		\ 'colorscheme': 'jellybeans',
 		\ 'active': {
 		\   'left':  [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
 		\   'right': [ [ 'rows' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
@@ -230,13 +227,14 @@ set guioptions-=e
 nnoremap tc :<C-u>tabnew<CR>
 nnoremap tn gt
 nnoremap tp gT
-nmap ;n :NERDTreeToggle<CR>
-nmap ; [unite]
-nnoremap [unite]f :Unite -start-insert -toggle file_rec/async<CR>
-nnoremap [unite]o :Unite -vertical -toggle outline<CR>
-nnoremap [unite]r <Plug>(unite_restart)
-nnoremap gb :Gblame<CR>
-nnoremap gs :Gstatus<CR>
-nnoremap gc :Gcommit<CR>
-nnoremap gd :Gdiff<CR>
+nmap ; [prefix]
+nnoremap [prefix]n  :NERDTreeToggle<CR>
+nnoremap [prefix]f  :Unite -start-insert -toggle file_rec/async<CR>
+nnoremap [prefix]o  :Unite -vertical -toggle outline<CR>
+nnoremap [prefix]r  <Plug>(unite_restart)
+nnoremap [prefix]jf :call FormatJson()<CR>
+nnoremap [prefix]gb :Gblame<CR>
+nnoremap [prefix]gs :Gstatus<CR>
+nnoremap [prefix]gc :Gcommit<CR>
+nnoremap [prefix]gd :Gdiff<CR>
 vmap <Enter> <Plug>(EasyAlign)
