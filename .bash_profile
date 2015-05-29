@@ -13,6 +13,38 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 
+function current_dir_name() {
+	echo $(basename `pwd`)
+}
+
+function rename_tmux_window_name() {
+	local window_name=$1
+	tmux rename-window "$window_name"
+}
+
+function cd() {
+	command cd $@
+	if [ "x$TMUX" != "x" ]; then
+		local current_dir_name=$(current_dir_name)
+		rename_tmux_window_name $current_dir_name
+	fi
+}
+
+function ssh() {
+	if [ "x$TMUX" != "x" ]; then
+		local current_window_name=$(tmux display -p '#{window_name}')
+		rename_tmux_window_name "ssh $1"
+		command ssh $@
+		rename_tmux_window_name $current_window_name
+	else
+		command ssh $@
+	fi
+}
+
+if [ "x$TMUX" != "x" ]; then
+	rename_tmux_window_name $(current_dir_name)
+fi
+
 # rbenv
 if [ -d ~/.rbenv ]; then
 	export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
@@ -58,25 +90,6 @@ else
 
 	eval $(dircolors ~/.dircolors)
 fi
-
-function cd() {
-	command cd $@
-	if [ "x$TMUX" != "x" ]; then
-		local current_dir_name=$(basename `pwd`)
-		tmux rename-window `basename $current_dir_name`
-	fi
-}
-
-function ssh() {
-	if [ "x$TMUX" != "x" ]; then
-		local current_window_name=$(tmux display -p '#{window_name}')
-		tmux rename-window "ssh:$1"
-		command ssh $@
-		tmux rename-window $current_window_name
-	else
-		command ssh $@
-	fi
-}
 
 alias lv='lv -c'
 alias vi='vim'
