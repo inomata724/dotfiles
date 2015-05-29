@@ -11,11 +11,11 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/vimproc', {
-			\ 'build' : {
-			\       'mac' : 'make -f make_mac.mak',
-			\       'unix' : 'make -f make_unix.mak',
-			\   },
-			\ }
+	\'build': {
+	\	'mac': 'make -f make_mac.mak',
+	\	'unix': 'make -f make_unix.mak',
+	\},
+\}
 
 NeoBundle 'rhysd/auto-neobundle'
 NeoBundle 'scrooloose/nerdtree'
@@ -47,8 +47,7 @@ NeoBundleCheck
 call neobundle#end()
 
 augroup AutoNeoBundle
-  autocmd!
-  autocmd VimEnter * call auto_neobundle#update_daily()
+	autocmd VimEnter * call auto_neobundle#update_daily()
 augroup END
 
 set nocompatible
@@ -175,9 +174,9 @@ let g:go_fmt_autosave=1
 
 " JSON formatter
 if executable('jq')
-  function! FormatJson()
-    execute "%!jq '.'"
-  endfunction
+	function! FormatJson()
+		execute "%!jq '.'"
+	endfunction
 endif
 
 " Search File
@@ -197,23 +196,46 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " lightline
 let g:lightline={
-		\ 'colorscheme': 'jellybeans',
-		\ 'active': {
-		\   'left':  [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
-		\   'right': [ [ 'rows' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
-		\ },
-		\ 'component': {
-		\   'rows'    : '%L',
-		\   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
-		\   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-		\   'fugitive': '%{fugitive#head()}'
-		\ },
-		\ 'component_visible_condition': {
-		\   'readonly': '(&filetype!="help"&& &readonly)',
-		\   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-		\   'fugitive': '(""!=fugitive#head())'
-		\ },
-		\ }
+	\'colorscheme': 'jellybeans',
+	\'active': {
+	\	'left':  [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
+	\	'right': [ [ 'rows' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype', 'indentation' ] ]
+	\},
+	\'component': {
+	\	'rows'    : '%L',
+	\	'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+	\	'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+	\	'fugitive': '%{fugitive#head()}'
+	\},
+	\'component_vsible_condition': {
+	\	'readonly': '(&filetype!="help"&& &readonly)',
+	\	'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+	\	'fugitive': '(""!=fugitive#head())'
+	\},
+	\'component_expand': {
+	\	'indentation': 'MixedIndentationWarning',
+	\},
+	\'component_type': {
+	\	'indentation': 'warning',
+	\},
+\}
+
+function MixedIndentationWarning()
+	if (search('^\t', 'nw') != 0) && (search('^ ', 'nw') != 0)
+		return 'MixedIndentation'
+	else
+		return ''
+	endif
+endfunction
+
+function UpdateExpandComponents()
+	call MixedIndentationWarning()
+	call lightline#update()
+endfunction
+
+augroup AutoUpdateExpandComponents
+	autocmd BufWritePost * call UpdateExpandComponents()
+augroup END
 
 " GUI
 set guifont=Ricty:h18
