@@ -26,23 +26,23 @@ function cd() {
 	command cd "$@"
 	if [ "x$TMUX" != "x" ]; then
 		local current_dir_name=$(current_dir_name)
-		rename_tmux_window_name $current_dir_name
+		rename_tmux_window_name "$current_dir_name"
 	fi
 }
 
 function ssh() {
 	if [ "x$TMUX" != "x" ]; then
-		local current_window_name=$(tmux display -p '#{window_name}')
+		local current_window_name=$(tmux display -p "#{window_name}")
 		rename_tmux_window_name "ssh $1"
 		command ssh $@
-		rename_tmux_window_name $current_window_name
+		rename_tmux_window_name "$current_window_name"
 	else
 		command ssh $@
 	fi
 }
 
 if [ "x$TMUX" != "x" ]; then
-	rename_tmux_window_name $(current_dir_name)
+	rename_tmux_window_name "$(current_dir_name)"
 fi
 
 # rbenv
