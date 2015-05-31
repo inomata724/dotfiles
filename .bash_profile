@@ -14,7 +14,7 @@ export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 
 function current_dir_name() {
-	echo $(basename `pwd`)
+	echo $(basename "`pwd`")
 }
 
 function rename_tmux_window_name() {
@@ -23,7 +23,7 @@ function rename_tmux_window_name() {
 }
 
 function cd() {
-	command cd $@
+	command cd "$@"
 	if [ "x$TMUX" != "x" ]; then
 		local current_dir_name=$(current_dir_name)
 		rename_tmux_window_name $current_dir_name
