@@ -31,6 +31,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'kana/vim-tabpagecd'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'cocopon/iceberg.vim'
