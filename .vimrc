@@ -198,7 +198,7 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " lightline
 let g:lightline={
-	\'colorscheme': 'jellybeans',
+	\'colorscheme': 'powerline',
 	\'active': {
 	\	'left':  [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
 	\	'right': [ [ 'rows' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype', 'indentation' ] ]
