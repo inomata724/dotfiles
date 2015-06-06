@@ -34,7 +34,7 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'kana/vim-tabpagecd'
 
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'cocopon/iceberg.vim'
+NeoBundle 'tomasr/molokai'
 
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'todesking/ruby_hl_lvar.vim'
@@ -81,7 +81,8 @@ autocmd BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s
 
 " Color
 set t_Co=256
-colorscheme iceberg
+let g:rehash256 = 1
+colorscheme molokai
 
 " Unite
 let g:unite_split_rule="rightbelow"
