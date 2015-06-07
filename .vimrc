@@ -22,8 +22,6 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/unite-outline'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tpope/vim-fugitive'
@@ -32,6 +30,7 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'kana/vim-tabpagecd'
+NeoBundle "ctrlpvim/ctrlp.vim"
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tomasr/molokai'
@@ -118,6 +117,43 @@ elseif neobundle#is_installed('neocomplcache')
 	endfunction
 	inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
 endif
+
+" CtrlP
+let g:ctrlp_map = '<Nop>'
+let g:ctrlp_prompt_mappings = {
+  \ 'PrtBS()':              ['<c-h>'],
+  \ 'PrtDeleteWord()':      ['<c-w>'],
+  \ 'PrtCurEnd()':          ['<c-e>'],
+  \ 'PrtCurLeft()':         ['<c-b>'],
+  \ 'PrtCurRight()':        ['<c-f>'],
+  \ 'PrtSelectMove("j")':   ['<c-n>'],
+  \ 'PrtSelectMove("k")':   ['<c-p>'],
+  \ 'PrtHistory(-1)':       ['nop'],
+  \ 'PrtHistory(1)':        ['nop'],
+  \ 'AcceptSelection("e")': ['<cr>'],
+  \ 'ToggleRegex()':        ['<c-r>'],
+  \ 'ToggleByFname()':      ['<c-d>'],
+  \ 'PrtExit()':            ['<c-l>', '<esc>', '<c-c>'],
+  \ 'ToggleFocus()':        ['<nop>'],
+  \ 'PrtExpandDir()':       ['<nop>'],
+  \ 'AcceptSelection("h")': ['<nop>'],
+  \ 'AcceptSelection("t")': ['<nop>'],
+  \ 'AcceptSelection("v")': ['<nop>'],
+  \ 'ToggleType(1)':        ['<nop>'],
+  \ 'ToggleType(-1)':       ['<nop>'],
+  \ 'PrtInsert()':          ['<nop>'],
+  \ 'PrtCurStart()':        ['<nop>'],
+  \ 'PrtClearCache()':      ['<nop>'],
+  \ 'PrtDeleteEnt()':       ['<nop>'],
+  \ 'CreateNewFile()':      ['<nop>'],
+  \ 'MarkToOpen()':         ['<nop>'],
+  \ 'OpenMulti()':          ['<nop>'],
+  \ 'PrtDelete()':          ['<nop>'],
+  \ 'PrtSelectMove("t")':   ['<nop>'],
+  \ 'PrtSelectMove("b")':   ['<nop>'],
+  \ 'PrtSelectMove("u")':   ['<nop>'],
+  \ 'PrtSelectMove("d")':   ['<nop>'],
+\ }
 
 " NERDTree
 let NERDTreeWinSize=35
@@ -253,9 +289,7 @@ nnoremap tn gt
 nnoremap tp gT
 nmap ; [prefix]
 nnoremap [prefix]n  :NERDTreeToggle<CR>
-nnoremap [prefix]f  :Unite -start-insert -toggle file_rec/async<CR>
-nnoremap [prefix]o  :Unite -vertical -toggle outline<CR>
-nnoremap [prefix]r  <Plug>(unite_restart)
+nnoremap [prefix]f  :<C-u>CtrlP<CR>
 nnoremap [prefix]jf :call FormatJson()<CR>
 nnoremap [prefix]gb :Gblame<CR>
 nnoremap [prefix]gs :Gstatus<CR>
