@@ -121,8 +121,8 @@ endif
 " CtrlP
 let g:ctrlp_map = '<Nop>'
 let g:ctrlp_prompt_mappings = {
-  \ 'PrtBS()':              ['<c-h>'],
-  \ 'PrtDeleteWord()':      ['<c-w>'],
+  \ 'PrtBS()':              ['<bs>'],
+  \ 'PrtDeleteWord()':      ['<del>'],
   \ 'PrtCurEnd()':          ['<c-e>'],
   \ 'PrtCurLeft()':         ['<c-b>'],
   \ 'PrtCurRight()':        ['<c-f>'],
