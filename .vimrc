@@ -144,38 +144,38 @@ endif
 " CtrlP
 let g:ctrlp_map = '<Nop>'
 let g:ctrlp_prompt_mappings = {
-  \ 'PrtBS()':              ['<bs>'],
-  \ 'PrtDeleteWord()':      ['<del>'],
-  \ 'PrtCurEnd()':          ['<c-e>'],
-  \ 'PrtCurLeft()':         ['<c-b>'],
-  \ 'PrtCurRight()':        ['<c-f>'],
-  \ 'PrtSelectMove("j")':   ['<c-n>'],
-  \ 'PrtSelectMove("k")':   ['<c-p>'],
-  \ 'PrtHistory(-1)':       ['nop'],
-  \ 'PrtHistory(1)':        ['nop'],
-  \ 'AcceptSelection("e")': ['<cr>'],
-  \ 'ToggleRegex()':        ['<c-r>'],
-  \ 'ToggleByFname()':      ['<c-d>'],
-  \ 'PrtExit()':            ['<c-l>', '<esc>', '<c-c>'],
-  \ 'ToggleFocus()':        ['<nop>'],
-  \ 'PrtExpandDir()':       ['<nop>'],
-  \ 'AcceptSelection("h")': ['<nop>'],
-  \ 'AcceptSelection("t")': ['<nop>'],
-  \ 'AcceptSelection("v")': ['<nop>'],
-  \ 'ToggleType(1)':        ['<nop>'],
-  \ 'ToggleType(-1)':       ['<nop>'],
-  \ 'PrtInsert()':          ['<nop>'],
-  \ 'PrtCurStart()':        ['<nop>'],
-  \ 'PrtClearCache()':      ['<nop>'],
-  \ 'PrtDeleteEnt()':       ['<nop>'],
-  \ 'CreateNewFile()':      ['<nop>'],
-  \ 'MarkToOpen()':         ['<nop>'],
-  \ 'OpenMulti()':          ['<nop>'],
-  \ 'PrtDelete()':          ['<nop>'],
-  \ 'PrtSelectMove("t")':   ['<nop>'],
-  \ 'PrtSelectMove("b")':   ['<nop>'],
-  \ 'PrtSelectMove("u")':   ['<nop>'],
-  \ 'PrtSelectMove("d")':   ['<nop>'],
+	\ 'PrtBS()':              ['<bs>'],
+	\ 'PrtDeleteWord()':      ['<del>'],
+	\ 'PrtCurEnd()':          ['<c-e>'],
+	\ 'PrtCurLeft()':         ['<c-b>'],
+	\ 'PrtCurRight()':        ['<c-f>'],
+	\ 'PrtSelectMove("j")':   ['<c-n>'],
+	\ 'PrtSelectMove("k")':   ['<c-p>'],
+	\ 'PrtHistory(-1)':       ['nop'],
+	\ 'PrtHistory(1)':        ['nop'],
+	\ 'AcceptSelection("e")': ['<cr>'],
+	\ 'ToggleRegex()':        ['<c-r>'],
+	\ 'ToggleByFname()':      ['<c-d>'],
+	\ 'PrtExit()':            ['<c-l>', '<esc>', '<c-c>'],
+	\ 'ToggleFocus()':        ['<nop>'],
+	\ 'PrtExpandDir()':       ['<nop>'],
+	\ 'AcceptSelection("h")': ['<nop>'],
+	\ 'AcceptSelection("t")': ['<nop>'],
+	\ 'AcceptSelection("v")': ['<nop>'],
+	\ 'ToggleType(1)':        ['<nop>'],
+	\ 'ToggleType(-1)':       ['<nop>'],
+	\ 'PrtInsert()':          ['<nop>'],
+	\ 'PrtCurStart()':        ['<nop>'],
+	\ 'PrtClearCache()':      ['<nop>'],
+	\ 'PrtDeleteEnt()':       ['<nop>'],
+	\ 'CreateNewFile()':      ['<nop>'],
+	\ 'MarkToOpen()':         ['<nop>'],
+	\ 'OpenMulti()':          ['<nop>'],
+	\ 'PrtDelete()':          ['<nop>'],
+	\ 'PrtSelectMove("t")':   ['<nop>'],
+	\ 'PrtSelectMove("b")':   ['<nop>'],
+	\ 'PrtSelectMove("u")':   ['<nop>'],
+	\ 'PrtSelectMove("d")':   ['<nop>'],
 \ }
 
 " NERDTree
@@ -187,29 +187,29 @@ let g:syntastic_auto_loc_list=2
 
 " lightline
 let g:lightline={
-	\'colorscheme': 'powerline',
-	\'active': {
-	\	'left':  [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
-	\	'right': [ [ 'rows' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype', 'indentation' ] ]
-	\},
-	\'component': {
-	\	'rows'    : '%L',
-	\	'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
-	\	'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-	\	'fugitive': '%{fugitive#head()}'
-	\},
-	\'component_vsible_condition': {
-	\	'readonly': '(&filetype!="help"&& &readonly)',
-	\	'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-	\	'fugitive': '(""!=fugitive#head())'
-	\},
-	\'component_expand': {
-	\	'indentation': 'MixedIndentationWarning',
-	\},
-	\'component_type': {
-	\	'indentation': 'warning',
-	\},
-\}
+	\ 'colorscheme': 'powerline',
+	\ 'active': {
+	\ 	'left':  [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
+	\ 	'right': [ [ 'rows' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype', 'indentation' ] ]
+	\ },
+	\ 'component': {
+	\ 	'rows'    : '%L',
+	\ 	'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+	\ 	'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+	\ 	'fugitive': '%{fugitive#head()}'
+	\ },
+	\ 'component_vsible_condition': {
+	\ 	'readonly': '(&filetype!="help"&& &readonly)',
+	\ 	'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+	\ 	'fugitive': '(""!=fugitive#head())'
+	\ },
+	\ 'component_expand': {
+	\ 	'indentation': 'MixedIndentationWarning',
+	\ },
+	\ 'component_type': {
+	\ 	'indentation': 'warning',
+	\ },
+\ }
 
 function MixedIndentationWarning()
 	if (search('^\t', 'nw') != 0) && (search('^ ', 'nw') != 0)
