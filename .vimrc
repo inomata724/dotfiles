@@ -72,6 +72,7 @@ set ignorecase
 set smartcase
 set clipboard+=unnamed
 set backspace=indent,eol,start
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 syntax enable
 filetype plugin indent on
 
@@ -143,6 +144,10 @@ endif
 
 " CtrlP
 let g:ctrlp_map = '<Nop>'
+let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+	\ 'file': '\v\.(so|swp|zip)$',
+\ }
 let g:ctrlp_prompt_mappings = {
 	\ 'PrtBS()':              ['<bs>'],
 	\ 'PrtDeleteWord()':      ['<del>'],
