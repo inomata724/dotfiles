@@ -112,12 +112,12 @@ nnoremap [prefix]gd :Gdiff<CR>
 vmap <Enter> <Plug>(EasyAlign)
 
 if neobundle#is_installed('neocomplete')
-	let g:neocomplete#enable_at_startup = 1
-	let g:neocomplete#enable_ignore_case = 1
-	let g:neocomplete#enable_smart_case = 1
+	let g:neocomplete#enable_at_startup                 = 1
+	let g:neocomplete#enable_ignore_case                = 1
+	let g:neocomplete#enable_smart_case                 = 1
 	let g:neocomplete#sources#syntax#min_keyword_length = 3
-	let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-	let g:neocomplete#max_list = 20
+	let g:neocomplete#lock_buffer_name_pattern          = '\*ku\*'
+	let g:neocomplete#max_list                          = 20
 
 	if !exists('g:neocomplete#keyword_patterns')
 		let g:neocomplete#keyword_patterns = {}
@@ -128,13 +128,13 @@ if neobundle#is_installed('neocomplete')
 		let g:neocomplete#force_omni_input_patterns = {}
 	endif
 elseif neobundle#is_installed('neocomplcache')
-	let g:neocomplcache_enable_at_startup=1
-	let g:neocomplcache_enable_ignore_case=1
-	let g:neocomplcache_enable_smart_case=1
-	let g:neocomplcache_max_list=20
-	let g:neocomplcache_manual_completion_start_length=3
+	let g:neocomplcache_enable_at_startup              = 1
+	let g:neocomplcache_enable_ignore_case             = 1
+	let g:neocomplcache_enable_smart_case              = 1
+	let g:neocomplcache_max_list                       = 20
+	let g:neocomplcache_manual_completion_start_length = 3
 	if !exists('g:neocomplcache_delimiter_patterns')
-		let g:neocomplcache_delimiter_patterns={}
+		let g:neocomplcache_delimiter_patterns = {}
 	endif
 	function! s:my_crinsert()
 		return pumvisible() ? neocomplcache#close_popup() : "\<Cr>"
@@ -143,8 +143,10 @@ elseif neobundle#is_installed('neocomplcache')
 endif
 
 " CtrlP
-let g:ctrlp_map = '<Nop>'
-let g:ctrlp_custom_ignore = {
+let g:ctrlp_map             = '<Nop>'
+let g:ctrlp_use_caching     = 0
+let g:ctrlp_max_depth       = 10
+let g:ctrlp_custom_ignore   = {
 	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
 	\ 'file': '\v\.(so|swp|zip)$',
 \ }
@@ -184,17 +186,17 @@ let g:ctrlp_prompt_mappings = {
 \ }
 
 " NERDTree
-let NERDTreeWinSize=35
-let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen=0
+let NERDTreeWinSize    = 35
+let NERDTreeShowHidden = 1
+let NERDTreeQuitOnOpen = 0
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Syntastic
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=2
+let g:syntastic_enable_signs  = 1
+let g:syntastic_auto_loc_list = 2
 
 " lightline
-let g:lightline={
+let g:lightline = {
 	\ 'colorscheme': 'powerline',
 	\ 'active': {
 	\ 	'left':  [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
@@ -248,17 +250,17 @@ au BufRead,BufNewFile,BufReadPre *.txt set filetype=text
 au FileType text set sw=2 ts=2 sts=2 expandtab
 
 " HTML5
-let g:html5_event_handler_attributes_complete=1
-let g:html5_rdfa_attributes_complete=1
-let g:html5_microdata_attributes_complete=1
-let g:html5_aria_attributes_complete=1
+let g:html5_event_handler_attributes_complete = 1
+let g:html5_rdfa_attributes_complete          = 1
+let g:html5_microdata_attributes_complete     = 1
+let g:html5_aria_attributes_complete          = 1
 
 " Ruby
 au BufRead,BufNewFile *.rb set filetype=ruby
 au BufRead,BufNewFile *.erb set filetype=eruby
 au FileType ruby set sw=2 ts=2 sts=2 expandtab
 au FileType eruby set sw=2 ts=2 sts=2 expandtab
-let ruby_space_errors=1
+let ruby_space_errors = 1
 
 " Python
 autocmd FileType python setl autoindent
@@ -279,14 +281,14 @@ au FileType yaml set expandtab ts=2 sw=2
 au BufRead,BufNewFile,BufReadPre *.md,*.markdown,*.md.* set filetype=markdown
 
 " reStructuredText
-let g:riv_disable_folding=1
+let g:riv_disable_folding = 1
 
 " Go
 au BufRead,BufNewFile,BufReadPre *.go set filetype=go
-let g:go_highlight_functions=1
-let g:go_highlight_methods=1
-let g:go_highlight_structs=1
-let g:go_highlight_operators=1
-let g:go_highlight_build_constraints=1
-let g:go_fmt_command='goimports'
-let g:go_fmt_autosave=1
+let g:go_highlight_functions         = 1
+let g:go_highlight_methods           = 1
+let g:go_highlight_structs           = 1
+let g:go_highlight_operators         = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command                 = 'goimports'
+let g:go_fmt_autosave                = 1
