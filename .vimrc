@@ -147,6 +147,7 @@ endif
 let g:ctrlp_map             = '<Nop>'
 let g:ctrlp_use_caching     = 0
 let g:ctrlp_max_depth       = 10
+let g:ctrlp_show_hidden     = 1
 let g:ctrlp_custom_ignore   = {
 	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
 	\ 'file': '\v\.(so|swp|zip)$',
