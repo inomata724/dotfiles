@@ -17,7 +17,6 @@ NeoBundle 'Shougo/vimproc', {
 	\},
 \}
 
-NeoBundle 'rhysd/auto-neobundle'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'scrooloose/syntastic'
@@ -46,10 +45,6 @@ NeoBundle 'Rykka/riv.vim'
 
 NeoBundleCheck
 call neobundle#end()
-
-augroup AutoNeoBundle
-	autocmd VimEnter * call auto_neobundle#update_daily()
-augroup END
 
 set nocompatible
 set nowrap
