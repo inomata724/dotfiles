@@ -70,6 +70,7 @@ set clipboard+=unnamed
 set backspace=indent,eol,start
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set timeout timeoutlen=1000 ttimeoutlen=75
+set shortmess+=I
 syntax enable
 filetype plugin indent on
 
