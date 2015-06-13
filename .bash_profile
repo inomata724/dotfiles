@@ -82,7 +82,7 @@ if [ `uname` = "Darwin" ]; then
 		eval $(gdircolors ~/.dircolors)
 	fi
 
-	if [ osx_version = "10.10.3" ]; then
+	if [ "$(osx_version)" = "10.10.3" ]; then
 		alias flushdns='sudo discoveryutil mdnsflushcache'
 	else
 		alias flushdns='sudo killall -HUP mDNSResponder'
