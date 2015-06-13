@@ -58,6 +58,10 @@ if [ -x "`which go 2> /dev/null`" ]; then
 fi
 
 if [ `uname` = "Darwin" ]; then
+	function osx_version() {
+		echo `sw_vers|grep ProductVersion|cut -d ':' -f 2|tr -d "\t"`
+	}
+
 	export LANG=ja_JP.UTF-8
 	export CLICOLOR=1
 	export PGDATA=/usr/local/var/postgres
@@ -78,7 +82,11 @@ if [ `uname` = "Darwin" ]; then
 		eval $(gdircolors ~/.dircolors)
 	fi
 
-	alias flushdns='sudo discoveryutil mdnsflushcache'
+	if [ osx_version = "10.10.3" ]; then
+		alias flushdns='sudo discoveryutil mdnsflushcache'
+	else
+		alias flushdns='sudo killall -HUP mDNSResponder'
+	fi
 	alias chrome='open -a Google\ Chrome'
 	alias mvim='mvim --remote-tab-silent'
 else
