@@ -29,7 +29,7 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'kana/vim-tabpagecd'
-NeoBundle "ctrlpvim/ctrlp.vim"
+NeoBundle 'ctrlpvim/ctrlp.vim'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tomasr/molokai'
@@ -109,6 +109,7 @@ nnoremap [prefix]gc :Gcommit<CR>
 nnoremap [prefix]gd :Gdiff<CR>
 vmap <Enter> <Plug>(EasyAlign)
 
+" neocomplete / neocomplcache
 if neobundle#is_installed('neocomplete')
 	let g:neocomplete#enable_at_startup                 = 1
 	let g:neocomplete#enable_ignore_case                = 1
