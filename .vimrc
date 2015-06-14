@@ -196,7 +196,7 @@ let g:syntastic_auto_loc_list = 2
 
 " lightline
 let g:lightline = {
-	\ 'colorscheme': 'powerline',
+	\ 'colorscheme': 'jellybeans',
 	\ 'active': {
 	\ 	'left':  [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
 	\ 	'right': [ [ 'rows' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype', 'indentation' ] ]
