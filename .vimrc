@@ -32,7 +32,7 @@ NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'cocopon/iceberg.vim'
+NeoBundle 'tomasr/molokai'
 
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'todesking/ruby_hl_lvar.vim'
@@ -84,7 +84,8 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " Color
 set t_Co=256
-colorscheme iceberg
+let g:rehash256 = 1
+colorscheme molokai
 
 " GUI
 set guifont=Ricty:h17
@@ -196,7 +197,7 @@ let g:syntastic_auto_loc_list = 2
 
 " lightline
 let g:lightline = {
-	\ 'colorscheme': 'jellybeans',
+	\ 'colorscheme': 'powerline',
 	\ 'active': {
 	\ 	'left':  [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
 	\ 	'right': [ [ 'rows' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype', 'indentation' ] ]
