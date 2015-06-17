@@ -150,6 +150,9 @@ let g:ctrlp_custom_ignore   = {
 	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
 	\ 'file': '\v\.(so|swp|zip)$',
 \ }
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
+endif
 let g:ctrlp_prompt_mappings = {
 	\ 'PrtBS()':              ['<bs>'],
 	\ 'PrtDeleteWord()':      ['<del>'],
