@@ -14,19 +14,18 @@ export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 
 function current_dir_name() {
-	echo $(basename "`pwd`")
+	echo $(basename $(pwd))
 }
 
 function rename_tmux_window_name() {
 	local window_name=$1
-	tmux rename-window "$window_name"
+	tmux rename-window $window_name
 }
 
 function cd() {
 	command cd "$@"
 	if [ "x$TMUX" != "x" ]; then
-		local current_dir_name=$(current_dir_name)
-		rename_tmux_window_name "$current_dir_name"
+		rename_tmux_window_name $(current_dir_name)
 	fi
 }
 
@@ -35,7 +34,7 @@ function ssh() {
 		local current_window_name=$(tmux display -p "#{window_name}")
 		rename_tmux_window_name "ssh $1"
 		command ssh $@
-		rename_tmux_window_name "$current_window_name"
+		rename_tmux_window_name $current_window_name
 	else
 		command ssh $@
 	fi
@@ -52,14 +51,14 @@ if [ -d ~/.rbenv ]; then
 fi
 
 # Go
-if [ -x "`which go 2> /dev/null`" ]; then
+if [ -x "$(which go 2> /dev/null)" ]; then
 	export GOPATH=$HOME/go
 	export PATH=$PATH:$GOPATH/bin
 fi
 
-if [ `uname` = "Darwin" ]; then
+if [ $(uname) = "Darwin" ]; then
 	function osx_version() {
-		echo `sw_vers|grep ProductVersion|cut -d ':' -f 2|tr -d "\t"`
+		echo $(sw_vers|grep ProductVersion|cut -d ':' -f 2|tr -d "\t")
 	}
 
 	export LANG=ja_JP.UTF-8
@@ -70,19 +69,19 @@ if [ `uname` = "Darwin" ]; then
 	source /usr/local/etc/bash_completion.d/git-prompt.sh
 	source /usr/local/etc/bash_completion.d/git-completion.bash
 	export PS1="\[\e[0;32m\][\u@\h:\W\$(__git_ps1 ' (%s)')]\$ \[\e[00m\]"
-	if [ -f `brew --prefix`/etc/bash_completion ]; then
-		. `brew --prefix`/etc/bash_completion
+	if [ -f $(brew --prefix)/etc/bash_completion ]; then
+		. $(brew --prefix)/etc/bash_completion
 	fi
 
-	if [ -x "`which gls 2> /dev/null`" ]; then
+	if [ -x $(which gls 2> /dev/null) ]; then
 		alias ls='gls --color=auto'
 	fi
 
-	if [ -x "`which gdircolors 2> /dev/null`" ]; then
+	if [ -x $(which gdircolors 2> /dev/null) ]; then
 		eval $(gdircolors ~/.dircolors)
 	fi
 
-	if [ "$(osx_version)" = "10.10.3" ]; then
+	if [ "x$(osx_version)" = "x10.10.3" ]; then
 		alias flushdns='sudo discoveryutil mdnsflushcache'
 	else
 		alias flushdns='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder;'
@@ -103,7 +102,7 @@ alias lv='lv -c'
 alias vi='vim'
 alias be='bundle exec'
 alias ge='goop exec'
-if [[ -x `which colordiff 2> /dev/null` ]]; then
+if [[ -x $(which colordiff 2> /dev/null) ]]; then
 	alias diff='colordiff -u'
 else
 	alias diff='diff -u'
