@@ -14,18 +14,18 @@ export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 
 function current_dir_name() {
-	echo $(basename $(pwd))
+	echo $(basename "$(pwd)")
 }
 
 function rename_tmux_window_name() {
 	local window_name=$1
-	tmux rename-window $window_name
+	tmux rename-window "$window_name"
 }
 
 function cd() {
 	command cd "$@"
 	if [ "x$TMUX" != "x" ]; then
-		rename_tmux_window_name $(current_dir_name)
+		rename_tmux_window_name "$(current_dir_name)"
 	fi
 }
 
@@ -33,10 +33,10 @@ function ssh() {
 	if [ "x$TMUX" != "x" ]; then
 		local current_window_name=$(tmux display -p "#{window_name}")
 		rename_tmux_window_name "ssh $1"
-		command ssh $@
-		rename_tmux_window_name $current_window_name
+		command ssh "$@"
+		rename_tmux_window_name "$current_window_name"
 	else
-		command ssh $@
+		command ssh "$@"
 	fi
 }
 
@@ -51,12 +51,12 @@ if [ -d ~/.rbenv ]; then
 fi
 
 # Go
-if [ -x "$(which go 2> /dev/null)" ]; then
+if [ -x $(which go 2> /dev/null) ]; then
 	export GOPATH=$HOME/go
 	export PATH=$PATH:$GOPATH/bin
 fi
 
-if [ $(uname) = "Darwin" ]; then
+if [ "x$(uname)" = "xDarwin" ]; then
 	function osx_version() {
 		echo $(sw_vers|grep ProductVersion|cut -d ':' -f 2|tr -d "\t")
 	}
