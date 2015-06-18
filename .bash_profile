@@ -102,7 +102,7 @@ alias lv='lv -c'
 alias vi='vim'
 alias be='bundle exec'
 alias ge='goop exec'
-if [[ -x $(which colordiff 2> /dev/null) ]]; then
+if [ -x $(which colordiff 2> /dev/null) ]; then
 	alias diff='colordiff -u'
 else
 	alias diff='diff -u'
