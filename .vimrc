@@ -194,6 +194,7 @@ let g:ctrlp_prompt_mappings = {
 let NERDTreeWinSize    = 35
 let NERDTreeShowHidden = 1
 let NERDTreeQuitOnOpen = 0
+let NERDTreeChDirMode  = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Syntastic
