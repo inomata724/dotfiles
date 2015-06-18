@@ -145,12 +145,8 @@ endif
 let g:ctrlp_map             = '<Nop>'
 let g:ctrlp_use_caching     = 0
 let g:ctrlp_show_hidden     = 1
-let g:ctrlp_custom_ignore   = {
-	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
-	\ 'file': '\v\.(so|swp|zip)$',
-\ }
 if executable('ag')
-	let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
+	let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ".git" --ignore ".svn" --ignore ".hg" --hidden -g ""'
 	let g:ctrlp_max_depth    = 40
 else
 	let g:ctrlp_max_depth = 10
