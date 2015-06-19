@@ -71,6 +71,7 @@ set backspace=indent,eol,start
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
+set autochdir
 syntax enable
 filetype plugin indent on
 
