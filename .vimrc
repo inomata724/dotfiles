@@ -2,7 +2,7 @@ if has('vim_starting')
 	set nocompatible
 	if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
 		echo "Installing neobundle..."
-		:call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+		call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
 	endif
 	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -33,6 +33,7 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tomasr/molokai'
+NeoBundle 'cocopon/iceberg.vim'
 
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'todesking/ruby_hl_lvar.vim'
@@ -86,7 +87,7 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 " Color
 set t_Co=256
 let g:rehash256 = 1
-colorscheme molokai
+colorscheme iceberg
 
 " GUI
 set guifont=Ricty:h17
@@ -104,10 +105,10 @@ nmap ; [prefix]
 nnoremap [prefix]n  :NERDTreeToggle<CR>
 nnoremap [prefix]f  :<C-u>CtrlP<CR>
 nnoremap [prefix]jf :call FormatJson()<CR>
-nnoremap [prefix]gb :Gblame<CR>
-nnoremap [prefix]gs :Gstatus<CR>
-nnoremap [prefix]gc :Gcommit<CR>
-nnoremap [prefix]gd :Gdiff<CR>
+nnoremap [prefix]b :Gblame<CR>
+nnoremap [prefix]s :Gstatus<CR>
+nnoremap [prefix]c :Gcommit<CR>
+nnoremap [prefix]d :Gdiff<CR>
 vmap <Enter> <Plug>(EasyAlign)
 
 " neocomplete / neocomplcache
@@ -191,8 +192,8 @@ let g:ctrlp_prompt_mappings = {
 let NERDTreeWinSize     = 35
 let NERDTreeShowHidden  = 1
 let NERDTreeQuitOnOpen  = 0
-let NERDTreeChDirMode   = 1
-let NERDTreeHijackNetrw = 0
+let NERDTreeChDirMode   = 2
+let NERDTreeHijackNetrw = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Syntastic
