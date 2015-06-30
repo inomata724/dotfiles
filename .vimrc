@@ -33,7 +33,6 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tomasr/molokai'
-NeoBundle 'cocopon/iceberg.vim'
 
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'todesking/ruby_hl_lvar.vim'
@@ -87,7 +86,7 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 " Color
 set t_Co=256
 let g:rehash256 = 1
-colorscheme iceberg
+colorscheme molokai
 
 " GUI
 set guifont=Ricty:h17
