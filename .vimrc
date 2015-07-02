@@ -87,7 +87,7 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 " Color
 set t_Co=256
 let g:rehash256 = 1
-colorscheme iceberg
+colorscheme molokai
 
 " GUI
 set guifont=Ricty:h18
