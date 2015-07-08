@@ -90,7 +90,7 @@ let g:rehash256 = 1
 colorscheme molokai
 
 " GUI
-set guifont=Ricty:h17
+set guifont=Ricty:h18
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
