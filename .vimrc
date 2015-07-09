@@ -30,6 +30,8 @@ NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-easytags'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tomasr/molokai'
@@ -72,6 +74,7 @@ set backspace=indent,eol,start
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
+set tags=<tags_path>
 syntax enable
 filetype plugin indent on
 
@@ -86,7 +89,11 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 " Color
 set t_Co=256
 let g:rehash256 = 1
-colorscheme molokai
+if has("gui_running")
+	colorscheme iceberg
+else
+	colorscheme molokai
+endif
 
 " GUI
 set guifont=Ricty:h18
@@ -141,6 +148,10 @@ elseif neobundle#is_installed('neocomplcache')
 	endfunction
 	inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
 endif
+
+" easytags
+let g:easytags_events = ['BufWritePost']
+let g:easytags_async  = 1
 
 " CtrlP
 let g:ctrlp_map             = '<Nop>'
