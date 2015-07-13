@@ -17,8 +17,6 @@ NeoBundle 'Shougo/vimproc', {
 	\},
 \}
 
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 NeoBundle 'kannokanno/previm'
@@ -79,6 +77,9 @@ filetype plugin indent on
 " delete trailing spaces
 autocmd BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s/\s\+$//e
 
+" netrw
+let g:netrw_liststyle=3
+
 " Encoding
 set enc=utf-8
 set fenc=utf-8
@@ -106,7 +107,7 @@ nnoremap tc :<C-u>tabnew<CR>
 nnoremap tn gt
 nnoremap tp gT
 nmap ; [prefix]
-nnoremap [prefix]n  :NERDTreeToggle<CR>
+nnoremap [prefix]e  :Explore<CR>
 nnoremap [prefix]f  :<C-u>CtrlP<CR>
 nnoremap [prefix]jf :call FormatJson()<CR>
 nnoremap [prefix]b :Gblame<CR>
@@ -191,14 +192,6 @@ let g:ctrlp_prompt_mappings = {
 	\ 'PrtSelectMove("u")':   ['<nop>'],
 	\ 'PrtSelectMove("d")':   ['<nop>'],
 \ }
-
-" NERDTree
-let NERDTreeWinSize     = 35
-let NERDTreeShowHidden  = 1
-let NERDTreeQuitOnOpen  = 0
-let NERDTreeChDirMode   = 2
-let NERDTreeHijackNetrw = 0
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Syntastic
 let g:syntastic_enable_signs  = 1
