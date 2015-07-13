@@ -30,8 +30,6 @@ NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-easytags'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tomasr/molokai'
@@ -148,10 +146,6 @@ elseif neobundle#is_installed('neocomplcache')
 	endfunction
 	inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
 endif
-
-" easytags
-let g:easytags_events = ['BufWritePost']
-let g:easytags_async  = 1
 
 " CtrlP
 let g:ctrlp_map             = '<Nop>'
