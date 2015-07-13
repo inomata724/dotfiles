@@ -79,6 +79,7 @@ autocmd BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s
 
 " netrw
 let g:netrw_liststyle=3
+au BufEnter * if line("$") == 1 && getline(1) == "" | Explore | endif
 
 " Encoding
 set enc=utf-8
