@@ -81,16 +81,6 @@ autocmd BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s
 let g:netrw_liststyle=3
 au BufEnter * if line("$") == 1 && getline(1) == "" | Explore | endif
 
-let g:last_bufnr = ""
-function ExploreToggle()
-	if &filetype == "netrw" && g:last_bufnr != ""
-		exec ':b' . g:last_bufnr
-	else
-		let g:last_bufnr = bufnr('%')
-		Explore
-	endif
-endf
-
 " Encoding
 set enc=utf-8
 set fenc=utf-8
@@ -118,7 +108,6 @@ nnoremap tc :<C-u>tabnew<CR>
 nnoremap tn gt
 nnoremap tp gT
 nmap ; [prefix]
-nnoremap [prefix]e  :call ExploreToggle()<CR>
 nnoremap [prefix]f  :<C-u>CtrlP<CR>
 nnoremap [prefix]jf :call FormatJson()<CR>
 nnoremap [prefix]b :Gblame<CR>
