@@ -82,11 +82,12 @@ let g:netrw_liststyle=3
 au BufEnter * if line("$") == 1 && getline(1) == "" | Explore | endif
 
 function ExploreToggle()
-  if &filetype == "netrw"
-    bd
-  else
-    Explore
-  endif
+	if &filetype == "netrw"
+		exec ':b' . g:last_bufnr
+	else
+		let g:last_bufnr = bufnr('%')
+		Explore
+	endif
 endf
 
 " Encoding
