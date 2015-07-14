@@ -81,8 +81,9 @@ autocmd BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s
 let g:netrw_liststyle=3
 au BufEnter * if line("$") == 1 && getline(1) == "" | Explore | endif
 
+let g:last_bufnr = ""
 function ExploreToggle()
-	if &filetype == "netrw"
+	if &filetype == "netrw" && g:last_bufnr != ""
 		exec ':b' . g:last_bufnr
 	else
 		let g:last_bufnr = bufnr('%')
