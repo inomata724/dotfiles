@@ -81,6 +81,18 @@ autocmd BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s
 let g:netrw_liststyle=3
 au BufEnter * if line("$") == 1 && getline(1) == "" | Explore | endif
 
+let g:last_bufnr = ''
+function ExploreToggle()
+	if &filetype == 'netrw'
+		if g:last_bufnr != ''
+			exe ':b' . g:last_bufnr
+		endif
+	else
+		let g:last_bufnr = bufnr('%')
+		Explore
+	endif
+endfunction
+
 " Encoding
 set enc=utf-8
 set fenc=utf-8
@@ -104,17 +116,19 @@ set guioptions-=L
 set guioptions-=e
 
 " Custom Keymap
-nnoremap tc :<C-u>tabnew<CR>
-nnoremap tn gt
-nnoremap tp gT
-nmap ; [prefix]
+nnoremap tc         :<C-u>tabnew<CR>
+nnoremap tn         gt
+nnoremap tp         gT
+nmap     [prefix]   <Nop>
+nmap     ;          [prefix]
+nnoremap [prefix]e  :call ExploreToggle()<CR>
 nnoremap [prefix]f  :<C-u>CtrlP<CR>
 nnoremap [prefix]jf :call FormatJson()<CR>
-nnoremap [prefix]b :Gblame<CR>
-nnoremap [prefix]s :Gstatus<CR>
-nnoremap [prefix]c :Gcommit<CR>
-nnoremap [prefix]d :Gdiff<CR>
-vmap <Enter> <Plug>(EasyAlign)
+nnoremap [prefix]b  :Gblame<CR>
+nnoremap [prefix]s  :Gstatus<CR>
+nnoremap [prefix]c  :Gcommit<CR>
+nnoremap [prefix]d  :Gdiff<CR>
+vmap     <Enter>    <Plug>(EasyAlign)
 
 " neocomplete / neocomplcache
 if neobundle#is_installed('neocomplete')
