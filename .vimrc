@@ -71,6 +71,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
 set tags=<tags_path>
+set autoread
 syntax enable
 filetype plugin indent on
 
