@@ -73,7 +73,7 @@ set backspace=indent,eol,start
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
-set tags=./tags,tags
+set tags=./tags,tags,~/.vimtags
 set autoread
 syntax enable
 filetype plugin indent on
@@ -126,6 +126,7 @@ nnoremap [prefix]b  :Gblame<CR>
 nnoremap [prefix]s  :Gstatus<CR>
 nnoremap [prefix]c  :Gcommit<CR>
 nnoremap [prefix]d  :Gdiff<CR>
+nnoremap [prefix]u  :UpdateTags -R .<CR>
 nnoremap <C-]> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
@@ -218,6 +219,7 @@ let g:rooter_silent_chdir = 1
 let g:easytags_dynamic_files  = 1
 let g:easytags_always_enabled = 1
 let g:easytags_async          = 1
+let g:easytags_on_cursorhold  = 1
 let g:easytags_events         = ['BufWritePost']
 
 " lightline
