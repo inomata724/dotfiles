@@ -28,6 +28,7 @@ NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'airblade/vim-rooter'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tomasr/molokai'
@@ -205,6 +206,10 @@ let g:ctrlp_prompt_mappings = {
 " Syntastic
 let g:syntastic_enable_signs  = 1
 let g:syntastic_auto_loc_list = 2
+
+" vim-rooter
+let g:rooter_patterns = ['Rakefile', '.git/']
+let g:rooter_disable_map = 1
 
 " lightline
 let g:lightline = {
