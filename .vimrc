@@ -103,7 +103,7 @@ set t_Co=256
 colorscheme iceberg
 
 " GUI
-set guifont=Ricty:h18
+set guifont=Ricty\ Regular\ For\ Powerline:h18
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
@@ -230,6 +230,16 @@ let g:lightline = {
 	\ 'component_type': {
 	\ 	'indentation': 'warning',
 	\ },
+	\ 'separator': {
+	\ 	'left': "\u2b80", 'right': "\u2b82"
+	\ },
+	\ 'subseparator': {
+	\ 	'left': "\u2b81", 'right': "\u2b83"
+	\ },
+	\ 'tabline': {
+	\ 	'left': [ [ 'tabs' ] ],
+	\ 	'right': [ [] ]
+	\ }
 \ }
 
 function MixedIndentationWarning()
