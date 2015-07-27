@@ -126,6 +126,7 @@ nnoremap [prefix]b  :Gblame<CR>
 nnoremap [prefix]s  :Gstatus<CR>
 nnoremap [prefix]c  :Gcommit<CR>
 nnoremap [prefix]d  :Gdiff<CR>
+nnoremap <C-]> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
 " neocomplete / neocomplcache
