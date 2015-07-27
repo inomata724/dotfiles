@@ -29,6 +29,8 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'airblade/vim-rooter'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-easytags'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tomasr/molokai'
@@ -71,7 +73,7 @@ set backspace=indent,eol,start
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
-set tags=<tags_path>
+set tags=./tags,tags
 set autoread
 syntax enable
 filetype plugin indent on
@@ -210,6 +212,10 @@ let g:syntastic_auto_loc_list = 2
 " vim-rooter
 let g:rooter_disable_map  = 1
 let g:rooter_silent_chdir = 1
+
+" vim-easytags
+let g:easytags_dynamic_files  = 1
+let g:easytags_always_enabled = 1
 
 " lightline
 let g:lightline = {
