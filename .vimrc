@@ -126,7 +126,7 @@ nnoremap [prefix]b  :Gblame<CR>
 nnoremap [prefix]s  :Gstatus<CR>
 nnoremap [prefix]c  :Gcommit<CR>
 nnoremap [prefix]d  :Gdiff<CR>
-nnoremap [prefix]u  :UpdateTags -R .<CR>
+nnoremap [prefix]t  :UpdateTags -R .<CR>
 nnoremap <C-]> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
