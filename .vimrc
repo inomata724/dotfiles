@@ -217,6 +217,7 @@ let g:rooter_silent_chdir = 1
 let g:easytags_dynamic_files  = 1
 let g:easytags_always_enabled = 1
 let g:easytags_async          = 1
+let g:easytags_events         = ['BufWritePost']
 
 " lightline
 let g:lightline = {
