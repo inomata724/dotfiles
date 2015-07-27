@@ -208,7 +208,6 @@ let g:syntastic_enable_signs  = 1
 let g:syntastic_auto_loc_list = 2
 
 " vim-rooter
-let g:rooter_patterns = ['Rakefile', '.git/']
 let g:rooter_disable_map = 1
 
 " lightline
