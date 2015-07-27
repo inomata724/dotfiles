@@ -82,7 +82,7 @@ filetype plugin indent on
 autocmd BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s/\s\+$//e
 
 " netrw
-let g:netrw_liststyle=3
+let g:netrw_liststyle = 3
 
 let g:last_bufnr = ''
 function ExploreToggle()
@@ -92,7 +92,7 @@ function ExploreToggle()
 		endif
 	else
 		let g:last_bufnr = bufnr('%')
-		Explore
+		Explore .
 	endif
 endfunction
 
