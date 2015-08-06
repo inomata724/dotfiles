@@ -31,8 +31,6 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'airblade/vim-rooter'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tomasr/molokai'
@@ -77,6 +75,7 @@ set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
 set tags=./tags,tags,~/.vimtags
 set autoread
+set autochdir
 syntax enable
 filetype plugin indent on
 
@@ -164,10 +163,6 @@ elseif neobundle#is_installed('neocomplcache')
 	endfunction
 	inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
 endif
-
-" NERDTree
-let NERDTreeHijackNetrw=1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " CtrlP
 let g:ctrlp_map             = '<Nop>'
