@@ -31,6 +31,8 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'airblade/vim-rooter'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tomasr/molokai'
@@ -120,6 +122,7 @@ nnoremap tp         gT
 nmap     [prefix]   <Nop>
 nmap     ;          [prefix]
 nnoremap [prefix]e  :call ExploreToggle()<CR>
+nnoremap [prefix]n  :NERDTreeToggle<CR>
 nnoremap [prefix]f  :<C-u>CtrlP<CR>
 nnoremap [prefix]jf :call FormatJson()<CR>
 nnoremap [prefix]b  :Gblame<CR>
@@ -161,6 +164,10 @@ elseif neobundle#is_installed('neocomplcache')
 	endfunction
 	inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
 endif
+
+" NERDTree
+let NERDTreeHijackNetrw=1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " CtrlP
 let g:ctrlp_map             = '<Nop>'
