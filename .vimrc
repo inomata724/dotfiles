@@ -121,7 +121,6 @@ nnoremap tp         gT
 nmap     [prefix]   <Nop>
 nmap     ;          [prefix]
 nnoremap [prefix]e  :call ExploreToggle()<CR>
-nnoremap [prefix]n  :NERDTreeToggle<CR>
 nnoremap [prefix]f  :<C-u>CtrlP<CR>
 nnoremap [prefix]jf :call FormatJson()<CR>
 nnoremap [prefix]b  :Gblame<CR>
