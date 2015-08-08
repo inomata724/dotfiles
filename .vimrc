@@ -169,6 +169,7 @@ endif
 " NERDTree
 let NERDTreeChDirMode=2
 let NERDTreeHijackNetrw=1
+let NERDTreeWinSize=35
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " CtrlP
