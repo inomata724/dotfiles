@@ -84,20 +84,9 @@ filetype plugin indent on
 " delete trailing spaces
 autocmd BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s/\s\+$//e
 
-" netrw
-let g:netrw_liststyle = 3
-
-let g:last_bufnr = ''
-function ExploreToggle()
-	if &filetype == 'netrw'
-		if g:last_bufnr != ''
-			exe ':b' . g:last_bufnr
-		endif
-	else
-		let g:last_bufnr = bufnr('%')
-		Explore .
-	endif
-endfunction
+" disable netrw
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
 
 " Encoding
 set enc=utf-8
@@ -122,7 +111,6 @@ nnoremap tn         gt
 nnoremap tp         gT
 nmap     [prefix]   <Nop>
 nmap     ;          [prefix]
-nnoremap [prefix]e  :call ExploreToggle()<CR>
 nnoremap [prefix]n  :NERDTreeToggle<CR>
 nnoremap [prefix]f  :<C-u>CtrlP<CR>
 nnoremap [prefix]jf :call FormatJson()<CR>
@@ -168,7 +156,7 @@ endif
 
 " NERDTree
 let NERDTreeChDirMode=2
-let NERDTreeHijackNetrw=1
+let NERDTreeHijackNetrw=0
 let NERDTreeWinSize=35
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
