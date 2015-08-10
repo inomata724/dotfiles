@@ -106,19 +106,18 @@ set guioptions-=L
 set guioptions-=e
 
 " Custom Keymap
+let mapleader = ";"
 nnoremap tc         :<C-u>tabnew<CR>
 nnoremap tn         gt
 nnoremap tp         gT
-nmap     [prefix]   <Nop>
-nmap     ;          [prefix]
-nnoremap [prefix]n  :NERDTreeToggle<CR>
-nnoremap [prefix]f  :<C-u>CtrlP<CR>
-nnoremap [prefix]jf :call FormatJson()<CR>
-nnoremap [prefix]b  :Gblame<CR>
-nnoremap [prefix]s  :Gstatus<CR>
-nnoremap [prefix]c  :Gcommit<CR>
-nnoremap [prefix]d  :Gdiff<CR>
-nnoremap [prefix]t  :UpdateTags -R .<CR>
+nnoremap <Leader>n  :NERDTreeToggle<CR>
+nnoremap <Leader>f  :<C-u>CtrlP<CR>
+nnoremap <Leader>jf :call FormatJson()<CR>
+nnoremap <Leader>b  :Gblame<CR>
+nnoremap <Leader>s  :Gstatus<CR>
+nnoremap <Leader>c  :Gcommit<CR>
+nnoremap <Leader>d  :Gdiff<CR>
+nnoremap <Leader>t  :UpdateTags -R .<CR>
 nnoremap <C-]> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
