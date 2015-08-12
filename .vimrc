@@ -77,7 +77,6 @@ set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
 set tags=./tags,tags,~/.vimtags
 set autoread
-set autochdir
 syntax enable
 filetype plugin indent on
 
@@ -154,9 +153,10 @@ elseif neobundle#is_installed('neocomplcache')
 endif
 
 " NERDTree
-let NERDTreeChDirMode=2
-let NERDTreeHijackNetrw=0
-let NERDTreeWinSize=35
+let NERDTreeChDirMode   = 0
+let NERDTreeHijackNetrw = 0
+let NERDTreeWinSize     = 35
+let NERDTreeShowHidden  = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " CtrlP
