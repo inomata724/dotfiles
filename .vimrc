@@ -77,6 +77,7 @@ set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
 set tags=./tags,tags,~/.vimtags
 set autoread
+"set guicursor+=n-v-c:blinkon0
 syntax enable
 filetype plugin indent on
 
@@ -146,7 +147,7 @@ elseif neobundle#is_installed('neocomplcache')
 	if !exists('g:neocomplcache_delimiter_patterns')
 		let g:neocomplcache_delimiter_patterns = {}
 	endif
-	function s:my_crinsert()
+	function! s:my_crinsert()
 		return pumvisible() ? neocomplcache#close_popup() : "\<Cr>"
 	endfunction
 	inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
@@ -224,19 +225,20 @@ let g:easytags_on_cursorhold  = 1
 let g:lightline = {
 	\ 'colorscheme': 'powerline',
 	\ 'active': {
-	\ 	'left':  [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
+	\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch', 'readonly', 'filename', 'modified' ] ],
 	\ 	'right': [ [ 'rows' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype', 'indentation' ] ]
 	\ },
 	\ 'component': {
 	\ 	'rows'    : '%L',
 	\ 	'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
 	\ 	'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-	\ 	'fugitive': '%{fugitive#head()}'
 	\ },
 	\ 'component_vsible_condition': {
 	\ 	'readonly': '(&filetype!="help"&& &readonly)',
 	\ 	'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-	\ 	'fugitive': '(""!=fugitive#head())'
+	\ },
+	\ 'component_function': {
+	\ 	'current_branch': 'ShowCurrentBranch',
 	\ },
 	\ 'component_expand': {
 	\ 	'indentation': 'MixedIndentationWarning',
@@ -256,7 +258,18 @@ let g:lightline = {
 	\ }
 \ }
 
-function MixedIndentationWarning()
+function! ShowCurrentBranch()
+  try
+    if exists('*fugitive#head')
+      let _ = fugitive#head()
+      return strlen(_) ? '⭠ '._ : ''
+    endif
+  catch
+  endtry
+  return ''
+endfunction
+
+function! MixedIndentationWarning()
 	if (search('^\t', 'nw') != 0) && (search('^ ', 'nw') != 0)
 		return 'MixedIndentation'
 	else
@@ -264,7 +277,7 @@ function MixedIndentationWarning()
 	endif
 endfunction
 
-function UpdateExpandComponents()
+function! UpdateExpandComponents()
 	call MixedIndentationWarning()
 	call lightline#update()
 endfunction
@@ -275,7 +288,7 @@ augroup END
 
 " JSON formatter
 if executable('jq')
-	function FormatJson()
+	function! FormatJson()
 		execute "%!jq '.'"
 	endfunction
 endif
