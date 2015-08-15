@@ -68,7 +68,7 @@ if [ "x$(uname)" = "xDarwin" ]; then
 
 	source /usr/local/etc/bash_completion.d/git-prompt.sh
 	source /usr/local/etc/bash_completion.d/git-completion.bash
-	export PS1="\[\e[0;32m\]\][\u@\h:\W\$(__git_ps1 ' (%s)')]\$ \[\e[00m\]"
+	export PS1="\[\e[0;32m\][\u@\h:\W\$(__git_ps1 ' (%s)')]\$ \[\e[m\]"
 	if [ -f $(brew --prefix)/etc/bash_completion ]; then
 		. $(brew --prefix)/etc/bash_completion
 	fi
@@ -91,9 +91,9 @@ if [ "x$(uname)" = "xDarwin" ]; then
 	alias mvim='mvim --remote-tab-silent'
 else
 	if [ -f $BASH_COMPLETION_DIR/git -o -f $BASH_COMPLETION_COMPAT_DIR/git-prompt ]; then
-		export PS1='\[\e[0;32m\]\][\u@\h:\W$(__git_ps1 " (%s)")]\$ \[\e[00m\]'
+		export PS1='\[\e[0;32m\][\u@\h:\W$(__git_ps1 " (%s)")]\$ \[\e[m\]'
 	else
-		export PS1='\[\e[0;32m\]\][\u@\h:\W]\$ \[\e[00m\]'
+		export PS1='\[\e[0;32m\][\u@\h:\W]\$ \[\e[m\]'
 	fi
 
 	eval $(dircolors ~/.dircolors)
