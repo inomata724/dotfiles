@@ -238,7 +238,7 @@ let g:lightline = {
 	\ 	'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
 	\ },
 	\ 'component_function': {
-	\ 	'current_branch': 'ShowCurrentBranch',
+	\ 	'current_branch': 'CurrentBranch',
 	\ },
 	\ 'component_expand': {
 	\ 	'indentation': 'MixedIndentationWarning',
@@ -258,15 +258,15 @@ let g:lightline = {
 	\ }
 \ }
 
-function! ShowCurrentBranch()
-  try
-    if exists('*fugitive#head')
-      let _ = fugitive#head()
-      return strlen(_) ? '⭠ '._ : ''
-    endif
-  catch
-  endtry
-  return ''
+function! CurrentBranch()
+	try
+		if exists('*fugitive#head')
+			let _ = fugitive#head()
+			return strlen(_) ? '⭠ '._ : ''
+		endif
+	catch
+	endtry
+	return ''
 endfunction
 
 function! MixedIndentationWarning()
