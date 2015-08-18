@@ -39,7 +39,9 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'cocopon/iceberg.vim'
 
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'todesking/ruby_hl_lvar.vim'
+if has('ruby')
+	NeoBundle 'todesking/ruby_hl_lvar.vim'
+endif
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'pangloss/vim-javascript'
