@@ -2,7 +2,7 @@ if has('vim_starting')
 	set nocompatible
 	if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
 		echo "Installing neobundle..."
-		call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+		call system("git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim")
 	endif
 	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
