@@ -43,7 +43,14 @@ if has('ruby')
 	NeoBundle 'todesking/ruby_hl_lvar.vim'
 endif
 NeoBundle 'tpope/vim-rails'
-NeoBundle 'fatih/vim-go'
+
+NeoBundleLazy 'fatih/vim-go', {
+	\ 'autoload' : {
+	\ 	'filetypes' : 'go',
+	\ 	'commands' : ['GoInstallBinaries', 'GoUpdateBinaries'],
+	\ }
+\ }
+
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'othree/html5.vim'
