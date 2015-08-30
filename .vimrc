@@ -19,8 +19,6 @@ NeoBundle 'Shougo/vimproc', {
 
 NeoBundle 'scrooloose/syntastic'
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-endwise'
@@ -35,7 +33,6 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'tomasr/molokai'
 NeoBundle 'cocopon/iceberg.vim'
 
 NeoBundle 'vim-ruby/vim-ruby'
@@ -336,6 +333,7 @@ au FileType yaml set expandtab ts=2 sw=2
 
 " Markdown
 au BufRead,BufNewFile,BufReadPre *.md,*.markdown,*.md.* set filetype=markdown
+au FileType markdown set sw=2 ts=2 sts=2 expandtab
 
 " reStructuredText
 let g:riv_disable_folding = 1
