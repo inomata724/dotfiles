@@ -29,8 +29,6 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'airblade/vim-rooter'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'cocopon/iceberg.vim'
@@ -62,13 +60,11 @@ set number
 set autoindent
 set list
 set listchars=tab:▸\ ,trail:-,extends:»,precedes:«,nbsp:%
-set colorcolumn=80
 set display=lastline
 set showmatch
 set matchtime=1
 set showtabline=2
 set noswapfile
-set cursorline
 set scrolloff=10
 set noshowmode
 set laststatus=2
@@ -83,6 +79,13 @@ set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
 set tags=./tags,tags,~/.vimtags
 set autoread
+set nofoldenable
+
+if has('gui_running')
+	set colorcolumn=80
+	set cursorline
+endif
+
 "set guicursor+=n-v-c:blinkon0
 syntax enable
 filetype plugin indent on
@@ -90,9 +93,20 @@ filetype plugin indent on
 " delete trailing spaces
 autocmd BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s/\s\+$//e
 
-" disable netrw
-let g:loaded_netrw       = 1
-let g:loaded_netrwPlugin = 1
+" netrw
+let g:netrw_liststyle = 3
+
+let g:last_bufnr = ''
+function ExploreToggle()
+	if &filetype == 'netrw'
+		if g:last_bufnr != ''
+			exe ':b' . g:last_bufnr
+		endif
+	else
+		let g:last_bufnr = bufnr('%')
+		Explore .
+	endif
+endfunction
 
 " Encoding
 set enc=utf-8
@@ -116,7 +130,7 @@ let mapleader = ";"
 nnoremap tc         :<C-u>tabnew<CR>
 nnoremap tn         gt
 nnoremap tp         gT
-nnoremap <Leader>n  :NERDTreeToggle<CR>
+nnoremap <Leader>e  :call ExploreToggle()<CR>
 nnoremap <Leader>f  :<C-u>CtrlP<CR>
 nnoremap <Leader>jf :call FormatJson()<CR>
 nnoremap <Leader>b  :Gblame<CR>
@@ -158,13 +172,6 @@ elseif neobundle#is_installed('neocomplcache')
 	endfunction
 	inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
 endif
-
-" NERDTree
-let NERDTreeChDirMode   = 0
-let NERDTreeHijackNetrw = 0
-let NERDTreeWinSize     = 35
-let NERDTreeShowHidden  = 1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " CtrlP
 let g:ctrlp_map             = '<Nop>'
