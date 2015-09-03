@@ -21,10 +21,8 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'tpope/vim-endwise'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'airblade/vim-rooter'
 NeoBundle 'xolox/vim-misc'
@@ -39,9 +37,12 @@ NeoBundleLazy 'vim-ruby/vim-ruby', {
 NeoBundleLazy 'tpope/vim-rails', {
 	\ "autoload" : {"filetypes" :["ruby"]}
 \ }
+NeoBundleLazy 'tpope/vim-endwise', {
+	\ "autoload" : {"filetypes" :["ruby"]}
+\ }
 if has('ruby')
 	NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
-		\ "autoload" : {"filetypes" :["scala"]}
+		\ "autoload" : {"filetypes" :["ruby"]}
 	\ }
 endif
 NeoBundleLazy 'fatih/vim-go', {
@@ -254,16 +255,14 @@ let g:easytags_on_cursorhold  = 1
 let g:lightline = {
 	\ 'colorscheme': 'powerline',
 	\ 'active': {
-	\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch', 'readonly', 'filename', 'modified' ] ],
+	\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch', 'filename', 'modified', 'readonly' ] ],
 	\ 	'right': [ [ 'rows' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype', 'indentation' ] ]
 	\ },
 	\ 'component': {
 	\ 	'rows'    : '%L',
-	\ 	'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
 	\ 	'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
 	\ },
 	\ 'component_vsible_condition': {
-	\ 	'readonly': '(&filetype!="help"&& &readonly)',
 	\ 	'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
 	\ },
 	\ 'component_function': {
@@ -271,9 +270,11 @@ let g:lightline = {
 	\ },
 	\ 'component_expand': {
 	\ 	'indentation': 'MixedIndentationWarning',
+	\ 	'readonly': 'ReadOnly',
 	\ },
 	\ 'component_type': {
-	\ 	'indentation': 'warning',
+	\ 	'indentation': 'error',
+	\ 	'readonly': 'error',
 	\ },
 	\ 'separator': {
 	\ 	'left': "\u2b80", 'right': "\u2b82"
@@ -286,6 +287,10 @@ let g:lightline = {
 	\ 	'right': [ [] ]
 	\ }
 \ }
+
+function! ReadOnly()
+	return &ft !~? 'help' && &ro ? '⭤' : ''
+endfunction
 
 function! CurrentBranch()
 	try
