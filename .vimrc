@@ -33,23 +33,33 @@ NeoBundle 'xolox/vim-easytags'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'cocopon/iceberg.vim'
 
-NeoBundle 'vim-ruby/vim-ruby'
+NeoBundleLazy 'vim-ruby/vim-ruby', {
+	\ "autoload" : {"filetypes" :["ruby"]}
+\ }
+NeoBundleLazy 'tpope/vim-rails', {
+	\ "autoload" : {"filetypes" :["ruby"]}
+\ }
 if has('ruby')
-	NeoBundle 'todesking/ruby_hl_lvar.vim'
+	NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
+		\ "autoload" : {"filetypes" :["scala"]}
+	\ }
 endif
-NeoBundle 'tpope/vim-rails'
-
 NeoBundleLazy 'fatih/vim-go', {
 	\ 'autoload' : {
 	\ 	'filetypes' : 'go',
 	\ 	'commands' : ['GoInstallBinaries', 'GoUpdateBinaries'],
 	\ }
 \ }
-
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'kchmck/vim-coffee-script'
+NeoBundleLazy 'pangloss/vim-javascript', {
+	\ "autoload" : {"filetypes" :["javascript"]}
+\ }
+NeoBundleLazy 'kchmck/vim-coffee-script', {
+	\ "autoload" : {"filetypes" :["coffee"]}
+	\ }
+NeoBundleLazy 'Rykka/riv.vim', {
+	\ "autoload" : {"filetypes" :["rst"]}
+\ }
 NeoBundle 'othree/html5.vim'
-NeoBundle 'Rykka/riv.vim'
 
 NeoBundleCheck
 call neobundle#end()
@@ -80,7 +90,6 @@ set shortmess+=I
 set tags=./tags,tags,~/.vimtags
 set autoread
 set nofoldenable
-
 if has('gui_running')
 	set colorcolumn=80
 	set cursorline
@@ -155,22 +164,29 @@ if neobundle#is_installed('neocomplete')
 	endif
 	let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-	if !exists('g:neocomplete#force_omni_input_patterns')
-		let g:neocomplete#force_omni_input_patterns = {}
+	if !exists('g:neocomplete#sources#omni#input_patterns')
+		let g:neocomplete#sources#omni#input_patterns = {}
 	endif
+	let g:neocomplete#sources#omni#input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+	let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
 elseif neobundle#is_installed('neocomplcache')
 	let g:neocomplcache_enable_at_startup              = 1
 	let g:neocomplcache_enable_ignore_case             = 1
 	let g:neocomplcache_enable_smart_case              = 1
+	let g:neocomplcache_min_syntax_length              = 3
+	let g:neocomplcache_lock_buffer_name_pattern       = '\*ku\*'
 	let g:neocomplcache_max_list                       = 20
-	let g:neocomplcache_manual_completion_start_length = 3
-	if !exists('g:neocomplcache_delimiter_patterns')
-		let g:neocomplcache_delimiter_patterns = {}
+
+	if !exists('g:neocomplcache_keyword_patterns')
+		let g:neocomplcache_keyword_patterns = {}
 	endif
-	function! s:my_crinsert()
-		return pumvisible() ? neocomplcache#close_popup() : "\<Cr>"
-	endfunction
-	inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
+	let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+	if !exists('g:neocomplcache_force_omni_patterns')
+		let g:neocomplcache_force_omni_patterns = {}
+	endif
+	let g:neocomplcache_force_omni_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+	let g:neocomplcache_force_omni_patterns.go = '\h\w\.\w*'
 endif
 
 " CtrlP
