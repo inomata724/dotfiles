@@ -91,6 +91,7 @@ set shortmess+=I
 set tags=./tags,tags,~/.vimtags
 set autoread
 set nofoldenable
+set re=0
 if has('gui_running')
 	set colorcolumn=80
 	set cursorline
