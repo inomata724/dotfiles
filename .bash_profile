@@ -52,8 +52,8 @@ fi
 
 # Go
 if [ -x $(which go 2> /dev/null) ]; then
+	export PATH=$PATH:/usr/local/go/bin
 	export GOPATH=$HOME/go
-	export PATH=$PATH:$GOPATH/bin
 fi
 
 if [ "x$(uname)" = "xDarwin" ]; then
