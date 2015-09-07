@@ -28,7 +28,9 @@ NeoBundle 'airblade/vim-rooter'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
 
-NeoBundle 'itchyny/lightline.vim'
+if has('gui_running')
+	NeoBundle 'itchyny/lightline.vim'
+endif
 NeoBundle 'cocopon/iceberg.vim'
 
 NeoBundleLazy 'vim-ruby/vim-ruby', {
@@ -92,6 +94,8 @@ set tags=./tags,tags,~/.vimtags
 set autoread
 set nofoldenable
 set re=0
+set lazyredraw
+set ttyfast
 if has('gui_running')
 	set colorcolumn=80
 	set cursorline
@@ -257,13 +261,13 @@ let g:lightline = {
 	\ 'colorscheme': 'powerline',
 	\ 'active': {
 	\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch', 'filename', 'modified', 'readonly' ] ],
-	\ 	'right': [ [ 'rows' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype', 'indentation' ] ]
+	\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
 	\ },
 	\ 'component': {
 	\ 	'rows'    : '%L',
 	\ 	'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
 	\ },
-	\ 'component_vsible_condition': {
+	\ 'component_visible_condition': {
 	\ 	'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
 	\ },
 	\ 'component_function': {
