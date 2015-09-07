@@ -257,73 +257,75 @@ let g:easytags_async          = 1
 let g:easytags_on_cursorhold  = 1
 
 " lightline
-let g:lightline = {
-	\ 'colorscheme': 'powerline',
-	\ 'active': {
-	\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch', 'filename', 'modified', 'readonly' ] ],
-	\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
-	\ },
-	\ 'component': {
-	\ 	'rows'    : '%L',
-	\ 	'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-	\ },
-	\ 'component_visible_condition': {
-	\ 	'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-	\ },
-	\ 'component_function': {
-	\ 	'current_branch': 'CurrentBranch',
-	\ },
-	\ 'component_expand': {
-	\ 	'indentation': 'MixedIndentationWarning',
-	\ 	'readonly': 'ReadOnly',
-	\ },
-	\ 'component_type': {
-	\ 	'indentation': 'error',
-	\ 	'readonly': 'error',
-	\ },
-	\ 'separator': {
-	\ 	'left': "\u2b80", 'right': "\u2b82"
-	\ },
-	\ 'subseparator': {
-	\ 	'left': "\u2b81", 'right': "\u2b83"
-	\ },
-	\ 'tabline': {
-	\ 	'left': [ [ 'tabs' ] ],
-	\ 	'right': [ [] ]
-	\ }
-\ }
+if neobundle#is_installed('lightline')
+	let g:lightline = {
+				\ 'colorscheme': 'powerline',
+				\ 'active': {
+				\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch', 'filename', 'modified', 'readonly' ] ],
+				\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
+				\ },
+				\ 'component': {
+				\ 	'rows'    : '%L',
+				\ 	'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+				\ },
+				\ 'component_visible_condition': {
+				\ 	'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+				\ },
+				\ 'component_function': {
+				\ 	'current_branch': 'CurrentBranch',
+				\ },
+				\ 'component_expand': {
+				\ 	'indentation': 'MixedIndentationWarning',
+				\ 	'readonly': 'ReadOnly',
+				\ },
+				\ 'component_type': {
+				\ 	'indentation': 'error',
+				\ 	'readonly': 'error',
+				\ },
+				\ 'separator': {
+				\ 	'left': "\u2b80", 'right': "\u2b82"
+				\ },
+				\ 'subseparator': {
+				\ 	'left': "\u2b81", 'right': "\u2b83"
+				\ },
+				\ 'tabline': {
+				\ 	'left': [ [ 'tabs' ] ],
+				\ 	'right': [ [] ]
+				\ }
+				\ }
 
-function! ReadOnly()
-	return &ft !~? 'help' && &ro ? '⭤' : ''
-endfunction
+	function! ReadOnly()
+		return &ft !~? 'help' && &ro ? '⭤' : ''
+	endfunction
 
-function! CurrentBranch()
-	try
-		if exists('*fugitive#head')
-			let _ = fugitive#head()
-			return strlen(_) ? '⭠ '._ : ''
-		endif
-	catch
-	endtry
-	return ''
-endfunction
-
-function! MixedIndentationWarning()
-	if (search('^\t', 'nw') != 0) && (search('^ ', 'nw') != 0)
-		return 'MixedIndentation'
-	else
+	function! CurrentBranch()
+		try
+			if exists('*fugitive#head')
+				let _ = fugitive#head()
+				return strlen(_) ? '⭠ '._ : ''
+			endif
+		catch
+		endtry
 		return ''
-	endif
-endfunction
+	endfunction
 
-function! UpdateExpandComponents()
-	call MixedIndentationWarning()
-	call lightline#update()
-endfunction
+	function! MixedIndentationWarning()
+		if (search('^\t', 'nw') != 0) && (search('^ ', 'nw') != 0)
+			return 'MixedIndentation'
+		else
+			return ''
+		endif
+	endfunction
 
-augroup AutoUpdateExpandComponents
-	autocmd BufWritePost * call UpdateExpandComponents()
-augroup END
+	function! UpdateExpandComponents()
+		call MixedIndentationWarning()
+		call lightline#update()
+	endfunction
+
+	augroup AutoUpdateExpandComponents
+		autocmd BufWritePost * call UpdateExpandComponents()
+	augroup END
+endif
 
 " JSON formatter
 if executable('jq')
