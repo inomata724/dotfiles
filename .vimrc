@@ -32,6 +32,7 @@ if has('gui_running')
 	NeoBundle 'itchyny/lightline.vim'
 endif
 NeoBundle 'cocopon/iceberg.vim'
+NeoBundle 'tomasr/molokai'
 
 NeoBundleLazy 'vim-ruby/vim-ruby', {
 	\ "autoload" : {"filetypes" :["ruby"]}
@@ -96,6 +97,7 @@ set nofoldenable
 set re=0
 set lazyredraw
 set ttyfast
+set tabstop=2
 if has('gui_running')
 	set colorcolumn=80
 	set cursorline
@@ -130,7 +132,12 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " Color
 set t_Co=256
-colorscheme iceberg
+if has('gui_running')
+	colorscheme iceberg
+else
+	let g:rehash256 = 1
+	colorscheme molokai
+endif
 
 " GUI
 set guifont=Ricty\ Regular\ For\ Powerline:h18
