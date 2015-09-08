@@ -263,43 +263,43 @@ let g:easytags_dynamic_files  = 1
 let g:easytags_async          = 1
 let g:easytags_on_cursorhold  = 1
 
+if neobundle#is_installed('lightline.vim')
 " lightline
-if neobundle#is_installed('lightline')
 	let g:lightline = {
-				\ 'colorscheme': 'powerline',
-				\ 'active': {
-				\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch', 'filename', 'modified', 'readonly' ] ],
-				\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
-				\ },
-				\ 'component': {
-				\ 	'rows'    : '%L',
-				\ 	'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-				\ },
-				\ 'component_visible_condition': {
-				\ 	'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-				\ },
-				\ 'component_function': {
-				\ 	'current_branch': 'CurrentBranch',
-				\ },
-				\ 'component_expand': {
-				\ 	'indentation': 'MixedIndentationWarning',
-				\ 	'readonly': 'ReadOnly',
-				\ },
-				\ 'component_type': {
-				\ 	'indentation': 'error',
-				\ 	'readonly': 'error',
-				\ },
-				\ 'separator': {
-				\ 	'left': "\u2b80", 'right': "\u2b82"
-				\ },
-				\ 'subseparator': {
-				\ 	'left': "\u2b81", 'right': "\u2b83"
-				\ },
-				\ 'tabline': {
-				\ 	'left': [ [ 'tabs' ] ],
-				\ 	'right': [ [] ]
-				\ }
-				\ }
+		\ 'colorscheme': 'powerline',
+		\ 'active': {
+		\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch', 'filename', 'modified', 'readonly' ] ],
+		\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
+		\ },
+		\ 'component': {
+		\ 	'rows'    : '%L',
+		\ 	'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+		\ },
+		\ 'component_visible_condition': {
+		\ 	'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+		\ },
+		\ 'component_function': {
+		\ 	'current_branch': 'CurrentBranch',
+		\ },
+		\ 'component_expand': {
+		\ 	'indentation': 'MixedIndentationWarning',
+		\ 	'readonly': 'ReadOnly',
+		\ },
+		\ 'component_type': {
+		\ 	'indentation': 'error',
+		\ 	'readonly': 'error',
+		\ },
+		\ 'separator': {
+		\ 	'left': "\u2b80", 'right': "\u2b82"
+		\ },
+		\ 'subseparator': {
+		\ 	'left': "\u2b81", 'right': "\u2b83"
+		\ },
+		\ 'tabline': {
+		\ 	'left': [ [ 'tabs' ] ],
+		\ 	'right': [ [] ]
+		\ }
+		\ }
 
 	function! ReadOnly()
 		return &ft !~? 'help' && &ro ? '⭤' : ''
