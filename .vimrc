@@ -97,7 +97,7 @@ set nofoldenable
 set re=0
 set lazyredraw
 set ttyfast
-set tabstop=2
+set tabstop=4
 if has('gui_running')
 	set colorcolumn=80
 	set cursorline
