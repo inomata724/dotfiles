@@ -251,7 +251,7 @@ let g:ctrlp_prompt_mappings = {
 let g:syntastic_enable_signs  = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_mode_map = {
-	\ 'mode': 'active',
+	\ 'mode': 'passive',
 	\ 'active_filetypes': ['ruby']
 \ }
 if executable('rubocop')
