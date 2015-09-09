@@ -108,7 +108,7 @@ syntax enable
 filetype plugin indent on
 
 " delete trailing spaces
-autocmd BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s/\s\+$//e
+au BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s/\s\+$//e
 
 " netrw
 let g:netrw_liststyle = 3
@@ -330,7 +330,7 @@ if neobundle#is_installed('lightline.vim')
 	endfunction
 
 	augroup AutoUpdateExpandComponents
-		autocmd BufWritePost * call UpdateExpandComponents()
+		au BufWritePost * call UpdateExpandComponents()
 	augroup END
 endif
 
@@ -359,13 +359,13 @@ au FileType eruby set sw=2 ts=2 sts=2 expandtab
 let ruby_space_errors = 1
 
 " Python
-autocmd FileType python setl autoindent
-autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+au FileType python setl autoindent
+au FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+au FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
 " CoffeeScript
 au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
-autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
+au FileType coffee     setlocal sw=2 sts=2 ts=2 et
 
 " Apache config file
 au BufRead,BufNewFile,BufReadPre *etc/httpd/conf/*,*etc/httpd/conf.d/*,/etc/apache2/apache2.conf set filetype=apache
@@ -382,6 +382,7 @@ let g:riv_disable_folding = 1
 
 " Go
 au BufRead,BufNewFile,BufReadPre *.go set filetype=go
+au FileType go set ts=8
 let g:go_highlight_functions         = 1
 let g:go_highlight_methods           = 1
 let g:go_highlight_structs           = 1
