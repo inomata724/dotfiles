@@ -250,13 +250,6 @@ let g:ctrlp_prompt_mappings = {
 " Syntastic
 let g:syntastic_enable_signs  = 1
 let g:syntastic_auto_loc_list = 2
-let g:syntastic_mode_map = {
-	\ 'mode': 'passive',
-	\ 'active_filetypes': ['ruby']
-\ }
-if executable('rubocop')
-	let g:syntastic_ruby_checkers = ['rubocop']
-endif
 
 " vim-rooter
 let g:rooter_disable_map  = 1
