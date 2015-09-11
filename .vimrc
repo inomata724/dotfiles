@@ -27,6 +27,8 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'airblade/vim-rooter'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 
 if has('gui_running')
 	NeoBundle 'itchyny/lightline.vim'
@@ -125,6 +127,13 @@ function ExploreToggle()
 	endif
 endfunction
 
+" NERDTree
+let NERDTreeChDirMode   = 0
+let NERDTreeHijackNetrw = 0
+let NERDTreeWinSize     = 35
+let NERDTreeShowHidden  = 1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif"))"
+
 " Encoding
 set enc=utf-8
 set fenc=utf-8
@@ -153,6 +162,7 @@ nnoremap tc         :<C-u>tabnew<CR>
 nnoremap tn         gt
 nnoremap tp         gT
 nnoremap <Leader>e  :call ExploreToggle()<CR>
+nnoremap <Leader>n  :NERDTreeToggle<CR>
 nnoremap <Leader>f  :<C-u>CtrlP<CR>
 nnoremap <Leader>jf :call FormatJson()<CR>
 nnoremap <Leader>b  :Gblame<CR>
@@ -263,8 +273,8 @@ let g:easytags_dynamic_files  = 1
 let g:easytags_async          = 1
 let g:easytags_on_cursorhold  = 1
 
-if neobundle#is_installed('lightline.vim')
 " lightline
+if neobundle#is_installed('lightline.vim')
 	let g:lightline = {
 		\ 'colorscheme': 'powerline',
 		\ 'active': {
@@ -341,8 +351,16 @@ if executable('jq')
 	endfunction
 endif
 
+" FileTypes Definition
+au BufRead,BufNewFile,BufReadPre *.txt                   set filetype=text
+au BufRead,BufNewFile,BufReadPre *.rb                    set filetype=ruby
+au BufRead,BufNewFile,BufReadPre *.erb                   set filetype=eruby
+au BufRead,BufNewFile,BufReadPre *.coffee                set filetype=coffee
+au BufRead,BufNewFile,BufReadPre *.md,*.markdown,*.md.*  set filetype=markdown
+au BufRead,BufNewFile,BufReadPre *.go                    set filetype=go
+au BufRead,BufNewFile,BufReadPre *etc/httpd/conf/*,*etc/httpd/conf.d/*,/etc/apache2/apache2.conf set filetype=apache
+
 " Plain Text
-au BufRead,BufNewFile,BufReadPre *.txt set filetype=text
 au FileType text set sw=2 ts=2 sts=2 expandtab
 
 " HTML
@@ -354,36 +372,26 @@ let g:html5_microdata_attributes_complete     = 1
 let g:html5_aria_attributes_complete          = 1
 
 " Ruby
-au BufRead,BufNewFile *.rb set filetype=ruby
-au BufRead,BufNewFile *.erb set filetype=eruby
 au FileType ruby set sw=2 ts=2 sts=2 expandtab
 au FileType eruby set sw=2 ts=2 sts=2 expandtab
 let ruby_space_errors = 1
 
 " Python
-au FileType python setl autoindent
-au FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-au FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+au FileType python setl smartindent tabstop=8 expandtab shiftwidth=4 softtabstop=4 cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 " CoffeeScript
-au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
-au FileType coffee     setlocal sw=2 sts=2 ts=2 et
-
-" Apache config file
-au BufRead,BufNewFile,BufReadPre *etc/httpd/conf/*,*etc/httpd/conf.d/*,/etc/apache2/apache2.conf set filetype=apache
+au FileType coffee setlocal sw=2 sts=2 ts=2 et
 
 " Yaml
 au FileType yaml set expandtab ts=2 sw=2
 
 " Markdown
-au BufRead,BufNewFile,BufReadPre *.md,*.markdown,*.md.* set filetype=markdown
 au FileType markdown set sw=2 ts=2 sts=2 expandtab
 
 " reStructuredText
 let g:riv_disable_folding = 1
 
 " Go
-au BufRead,BufNewFile,BufReadPre *.go set filetype=go
 au FileType go set ts=8
 let g:go_highlight_functions         = 1
 let g:go_highlight_methods           = 1
