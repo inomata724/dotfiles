@@ -352,13 +352,13 @@ if executable('jq')
 endif
 
 " FileTypes Definition
-au BufRead,BufNewFile,BufReadPre *.txt                   set filetype=text
-au BufRead,BufNewFile,BufReadPre *.rb                    set filetype=ruby
-au BufRead,BufNewFile,BufReadPre *.erb                   set filetype=eruby
-au BufRead,BufNewFile,BufReadPre *.coffee                set filetype=coffee
-au BufRead,BufNewFile,BufReadPre *.md,*.markdown,*.md.*  set filetype=markdown
-au BufRead,BufNewFile,BufReadPre *.go                    set filetype=go
-au BufRead,BufNewFile,BufReadPre *etc/httpd/conf/*,*etc/httpd/conf.d/*,/etc/apache2/apache2.conf set filetype=apache
+au BufRead,BufNewFile *.txt                  set filetype=text
+au BufRead,BufNewFile *.rb                   set filetype=ruby
+au BufRead,BufNewFile *.erb                  set filetype=eruby
+au BufRead,BufNewFile *.coffee               set filetype=coffee
+au BufRead,BufNewFile *.md,*.markdown,*.md.* set filetype=markdown
+au BufRead,BufNewFile *.go                   set filetype=go
+au BufRead,BufNewFile *etc/httpd/conf/*,*etc/httpd/conf.d/*,/etc/apache2/apache2.conf set filetype=apache
 
 " Plain Text
 au FileType text set sw=2 ts=2 sts=2 expandtab
