@@ -11,10 +11,10 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/vimproc', {
-	\'build': {
-	\	'mac': 'make -f make_mac.mak',
-	\	'unix': 'make -f make_unix.mak',
-	\},
+	\ 'build': {
+	\ 	'mac': 'make -f make_mac.mak',
+	\ 	'unix': 'make -f make_unix.mak',
+	\ },
 \}
 
 NeoBundle 'scrooloose/syntastic'
@@ -68,6 +68,7 @@ NeoBundleLazy 'Rykka/riv.vim', {
 NeoBundle 'othree/html5.vim'
 
 NeoBundleCheck
+NeoBundleClean
 call neobundle#end()
 
 set nocompatible
@@ -142,10 +143,14 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 " Color
 set t_Co=256
 if has('gui_running')
-	colorscheme iceberg
+	if neobundle#is_installed('iceberg.vim')
+		colorscheme iceberg
+	endif
 else
-	let g:rehash256 = 1
-	colorscheme molokai
+	if neobundle#is_installed('iceberg.vim')
+		let g:rehash256 = 1
+		colorscheme molokai
+	endif
 endif
 
 " GUI
