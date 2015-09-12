@@ -68,7 +68,6 @@ NeoBundleLazy 'Rykka/riv.vim', {
 NeoBundle 'othree/html5.vim'
 
 NeoBundleCheck
-NeoBundleClean
 call neobundle#end()
 
 set nocompatible
