@@ -388,7 +388,7 @@ au FileType markdown set sw=2 ts=2 sts=2 expandtab
 let g:riv_disable_folding = 1
 
 " Go
-au FileType go set ts=8
+au FileType go set ts=8 sw=8 noexpandtab
 let g:go_highlight_functions         = 1
 let g:go_highlight_methods           = 1
 let g:go_highlight_structs           = 1
