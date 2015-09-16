@@ -34,7 +34,6 @@ if has('gui_running')
 	NeoBundle 'itchyny/lightline.vim'
 endif
 NeoBundle 'cocopon/iceberg.vim'
-NeoBundle 'tomasr/molokai'
 
 NeoBundleLazy 'vim-ruby/vim-ruby', {
 	\ "autoload" : {"filetypes" :["ruby"]}
@@ -141,15 +140,8 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " Color
 set t_Co=256
-if has('gui_running')
-	if neobundle#is_installed('iceberg.vim')
-		colorscheme iceberg
-	endif
-else
-	if neobundle#is_installed('iceberg.vim')
-		let g:rehash256 = 1
-		colorscheme molokai
-	endif
+if neobundle#is_installed('iceberg.vim')
+	colorscheme iceberg
 endif
 
 " GUI
