@@ -38,32 +38,49 @@ NeoBundle 'cocopon/iceberg.vim'
 NeoBundleLazy 'vim-ruby/vim-ruby', {
 	\ "autoload" : {"filetypes" :["ruby"]}
 \ }
+
 NeoBundleLazy 'tpope/vim-rails', {
 	\ "autoload" : {"filetypes" :["ruby"]}
 \ }
+
 NeoBundleLazy 'tpope/vim-endwise', {
 	\ "autoload" : {"filetypes" :["ruby"]}
 \ }
+
 if has('ruby')
 	NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
 		\ "autoload" : {"filetypes" :["ruby"]}
 	\ }
 endif
+
+if executable('rsense')
+	NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
+		\ 'autoload' : {
+			\ 'insert' : 1,
+			\ 'filetypes': ['ruby'],
+		\ }
+	\ }
+endif
+
 NeoBundleLazy 'fatih/vim-go', {
 	\ 'autoload' : {
 	\ 	'filetypes' : 'go',
 	\ 	'commands' : ['GoInstallBinaries', 'GoUpdateBinaries'],
 	\ }
 \ }
+
 NeoBundleLazy 'pangloss/vim-javascript', {
 	\ "autoload" : {"filetypes" :["javascript"]}
 \ }
+
 NeoBundleLazy 'kchmck/vim-coffee-script', {
 	\ "autoload" : {"filetypes" :["coffee"]}
 	\ }
+
 NeoBundleLazy 'Rykka/riv.vim', {
 	\ "autoload" : {"filetypes" :["rst"]}
 \ }
+
 NeoBundle 'othree/html5.vim'
 
 NeoBundleCheck
