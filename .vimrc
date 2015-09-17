@@ -183,6 +183,9 @@ nnoremap <Leader>t  :UpdateTags -R .<CR>
 nnoremap <C-]> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
+" monster
+let g:monster#completion#rcodetools#backend = "async_rct_complete"
+
 " neocomplete / neocomplcache
 if neobundle#is_installed('neocomplete')
 	let g:neocomplete#enable_at_startup                 = 1
@@ -200,7 +203,7 @@ if neobundle#is_installed('neocomplete')
 	if !exists('g:neocomplete#sources#omni#input_patterns')
 		let g:neocomplete#sources#omni#input_patterns = {}
 	endif
-	let g:neocomplete#sources#omni#input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+	let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 	let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
 elseif neobundle#is_installed('neocomplcache')
 	let g:neocomplcache_enable_at_startup              = 1
