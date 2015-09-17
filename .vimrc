@@ -53,12 +53,9 @@ if has('ruby')
 	\ }
 endif
 
-if executable('rsense')
-	NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
-		\ 'autoload' : {
-			\ 'insert' : 1,
-			\ 'filetypes': ['ruby'],
-		\ }
+if executable('rct-complete')
+	NeoBundleLazy 'osyo-manga/vim-monster', {
+		\ 'autoload' : { 'filetypes': ['ruby'] }
 	\ }
 endif
 
