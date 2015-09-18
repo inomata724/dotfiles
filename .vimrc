@@ -115,9 +115,6 @@ set lazyredraw
 set ttyfast
 set tabstop=4
 set cursorline
-if has('gui_running')
-	set colorcolumn=80
-endif
 
 "set guicursor+=n-v-c:blinkon0
 syntax enable
