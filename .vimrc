@@ -301,6 +301,7 @@ if neobundle#is_installed('lightline.vim')
 		\ },
 		\ 'component_function': {
 		\ 	'current_branch': 'CurrentBranch',
+		\ 	'filename': 'Filename',
 		\ },
 		\ 'component_expand': {
 		\ 	'indentation': 'MixedIndentationWarning',
@@ -343,6 +344,10 @@ if neobundle#is_installed('lightline.vim')
 		else
 			return ''
 		endif
+	endfunction
+
+	function! Filename()
+			return expand('%:p:h')
 	endfunction
 
 	function! UpdateExpandComponents()
