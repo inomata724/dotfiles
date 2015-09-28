@@ -289,7 +289,7 @@ if neobundle#is_installed('lightline.vim')
 	let g:lightline = {
 		\ 'colorscheme': 'powerline',
 		\ 'active': {
-		\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch', 'filename', 'modified', 'readonly' ] ],
+		\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filename', 'modified', 'readonly' ] ],
 		\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
 		\ },
 		\ 'component': {
