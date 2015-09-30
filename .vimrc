@@ -53,12 +53,6 @@ if has('ruby')
 	\ }
 endif
 
-if executable('rct-complete')
-	NeoBundleLazy 'osyo-manga/vim-monster', {
-		\ 'autoload' : { 'filetypes': ['ruby'] }
-	\ }
-endif
-
 NeoBundleLazy 'fatih/vim-go', {
 	\ 'autoload' : {
 	\ 	'filetypes' : 'go',
@@ -186,9 +180,6 @@ nnoremap <Leader>d  :Gdiff<CR>
 nnoremap <Leader>t  :UpdateTags -R .<CR>
 nnoremap <C-]> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 vmap     <Enter>    <Plug>(EasyAlign)
-
-" monster
-let g:monster#completion#rcodetools#backend = "async_rct_complete"
 
 " neocomplete / neocomplcache
 if neobundle#is_installed('neocomplete')
