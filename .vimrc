@@ -123,6 +123,12 @@ filetype plugin indent on
 " delete trailing spaces
 au BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s/\s\+$//e
 
+" auto read
+augroup vimrc-checktime
+	autocmd!
+	autocmd BufEnter * checktime
+augroup END
+
 " netrw
 let g:netrw_liststyle = 3
 
