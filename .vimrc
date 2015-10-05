@@ -376,7 +376,7 @@ endif
 au BufRead,BufNewFile *.txt                  set filetype=text
 au BufRead,BufNewFile *.rb                   set filetype=ruby
 au BufRead,BufNewFile *.erb                  set filetype=eruby
-au BufRead,BufNewFile *.coffee               set filetype=coffee
+au BufRead,BufNewFile *.coffee               set filetype=coffeescript
 au BufRead,BufNewFile *.md,*.markdown,*.md.* set filetype=markdown
 au BufRead,BufNewFile *.go                   set filetype=go
 au BufRead,BufNewFile *etc/httpd/conf/*,*etc/httpd/conf.d/*,/etc/apache2/apache2.conf set filetype=apache
@@ -393,15 +393,18 @@ let g:html5_microdata_attributes_complete     = 1
 let g:html5_aria_attributes_complete          = 1
 
 " Ruby
-au FileType ruby set sw=2 ts=2 sts=2 expandtab
-au FileType eruby set sw=2 ts=2 sts=2 expandtab
+au FileType ruby set sw=2 ts=2 sts=2 et
+au FileType eruby set sw=2 ts=2 sts=2 et
 let ruby_space_errors = 1
 
 " Python
 au FileType python setl smartindent tabstop=8 expandtab shiftwidth=4 softtabstop=4 cinwords=if,elif,else,for,while,try,except,finally,def,class
 
+" JavaScript
+au FileType javascript setlocal sw=2 sts=2 ts=2 et
+
 " CoffeeScript
-au FileType coffee setlocal sw=2 sts=2 ts=2 et
+au FileType coffeescript setlocal sw=2 sts=2 ts=2 et
 
 " Yaml
 au FileType yaml set expandtab ts=2 sw=2
