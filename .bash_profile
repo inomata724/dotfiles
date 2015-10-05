@@ -97,7 +97,9 @@ else
 		export PS1='\[\e[0;32m\][\u@\h:\W]\$ \[\e[m\]'
 	fi
 
-	eval $(dircolors ~/.dircolors)
+	if [ -x $(which gdircolors 2> /dev/null) ]; then
+		eval $(dircolors ~/.dircolors)
+	fi
 fi
 
 alias lv='lv -c'
