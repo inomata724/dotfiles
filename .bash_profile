@@ -78,7 +78,7 @@ if [ "x$(uname)" = "xDarwin" ]; then
 		alias ls='gls --color=auto'
 	fi
 
-	if [ -x $(which gdircolors 2> /dev/null) ]; then
+	if [ -x $(which gdircolors 2> /dev/null) -a -f ~/.dircolors ]; then
 		eval $(gdircolors ~/.dircolors)
 	fi
 
@@ -97,7 +97,7 @@ else
 		export PS1='\[\e[0;32m\][\u@\h:\W]\$ \[\e[m\]'
 	fi
 
-	if [ -x $(which gdircolors 2> /dev/null) ]; then
+	if [ -x $(which dircolors 2> /dev/null) -a -f ~/.dircolors ]; then
 		eval $(dircolors ~/.dircolors)
 	fi
 fi
