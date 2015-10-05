@@ -65,7 +65,7 @@ NeoBundleLazy 'pangloss/vim-javascript', {
 \ }
 
 NeoBundleLazy 'kchmck/vim-coffee-script', {
-	\ "autoload" : {"filetypes" :["coffee"]}
+	\ "autoload" : {"filetypes" :["coffeescript"]}
 	\ }
 
 NeoBundleLazy 'Rykka/riv.vim', {
