@@ -72,7 +72,14 @@ NeoBundleLazy 'Rykka/riv.vim', {
 	\ "autoload" : {"filetypes" :["rst"]}
 \ }
 
-NeoBundle 'othree/html5.vim'
+NeoBundle 'othree/html5.vim', {
+	\ "autoload" : {"filetypes" :["html"]}
+\ }
+
+NeoBundle 'gregsexton/MatchTag', {
+	\ "autoload" : {"filetypes" :["html"]}
+\ }
+
 
 NeoBundleCheck
 call neobundle#end()
@@ -382,10 +389,10 @@ au BufRead,BufNewFile *.go                   set filetype=go
 au BufRead,BufNewFile *etc/httpd/conf/*,*etc/httpd/conf.d/*,/etc/apache2/apache2.conf set filetype=apache
 
 " Plain Text
-au FileType text set sw=2 ts=2 sts=2 expandtab
+au FileType text set sw=2 sts=2 ts=2 et
 
 " HTML
-au FileType html set ts=4
+au FileType html set sw=2 sts=2 ts=2 et
 
 let g:html5_event_handler_attributes_complete = 1
 let g:html5_rdfa_attributes_complete          = 1
@@ -398,7 +405,7 @@ au FileType eruby set sw=2 ts=2 sts=2 et
 let ruby_space_errors = 1
 
 " Python
-au FileType python setl smartindent tabstop=8 expandtab shiftwidth=4 softtabstop=4 cinwords=if,elif,else,for,while,try,except,finally,def,class
+au FileType python setl smartindent sw=4 sts=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 " JavaScript
 au FileType javascript setlocal sw=2 sts=2 ts=2 et
@@ -407,16 +414,16 @@ au FileType javascript setlocal sw=2 sts=2 ts=2 et
 au FileType coffeescript setlocal sw=2 sts=2 ts=2 et
 
 " Yaml
-au FileType yaml set expandtab ts=2 sw=2
+au FileType yaml set sw=2 sts=2 ts=2 et
 
 " Markdown
-au FileType markdown set sw=2 ts=2 sts=2 expandtab
+au FileType markdown set sw=2 sts=2 ts=2 et
 
 " reStructuredText
 let g:riv_disable_folding = 1
 
 " Go
-au FileType go set ts=8 sw=8 noexpandtab
+au FileType go set sw=8 sts=8 ts=8 noet
 let g:go_highlight_functions         = 1
 let g:go_highlight_methods           = 1
 let g:go_highlight_structs           = 1
