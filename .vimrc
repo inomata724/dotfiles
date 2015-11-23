@@ -192,10 +192,7 @@ if neobundle#is_installed('neocomplete')
 	let g:neocomplete#enable_at_startup                 = 1
 	let g:neocomplete#enable_ignore_case                = 1
 	let g:neocomplete#enable_smart_case                 = 1
-	let g:neocomplete#auto_completion_start_length      = 2
 	let g:neocomplete#manual_completion_start_length    = 0
-	let g:neocomplete#sources#syntax#min_keyword_length = 3
-	let g:neocomplete#min_keyword_length                = 2
 	let g:neocomplete#lock_buffer_name_pattern          = '\*ku\*'
 	let g:neocomplete#max_list                          = 20
 	let g:neocomplete#enable_prefetch                   = 1
@@ -208,16 +205,13 @@ if neobundle#is_installed('neocomplete')
 	if !exists('g:neocomplete#sources#omni#input_patterns')
 		let g:neocomplete#sources#omni#input_patterns = {}
 	endif
-	let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+	let g:neocomplete#sources#omni#input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 	let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
 elseif neobundle#is_installed('neocomplcache')
 	let g:neocomplcache_enable_at_startup              = 1
 	let g:neocomplcache_enable_ignore_case             = 1
 	let g:neocomplcache_enable_smart_case              = 1
 	let g:neocomplcache_manual_completion_start_length = 0
-	let g:neocomplcache_auto_completion_start_length   = 2
-	let g:neocomplcache_min_syntax_length              = 3
-	let g:neocomplcache_min_keyword_length             = 2
 	let g:neocomplcache_lock_buffer_name_pattern       = '\*ku\*'
 	let g:neocomplcache_max_list                       = 20
 	let g:neocomplcache_enable_prefetch                = 1

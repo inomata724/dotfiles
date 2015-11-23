@@ -12,7 +12,7 @@
 	default = simple
 [core]
 	excludesfile = ~/.gitignore
-	pager = lv -c
+	pager = less -R
 [user]
 	name = Ryo Inomata
 	email = inomata724@gmail.com
