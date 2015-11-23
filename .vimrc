@@ -26,7 +26,6 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'airblade/vim-rooter'
 NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-easytags'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 
@@ -292,14 +291,6 @@ let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
 " vim-rooter
 let g:rooter_disable_map  = 1
 let g:rooter_silent_chdir = 1
-
-" vim-easytags
-let g:easytags_always_enabled = 1
-let g:easytags_auto_update    = 1
-let g:easytags_auto_highlight = 0
-let g:easytags_dynamic_files  = 1
-let g:easytags_async          = 1
-let g:easytags_on_cursorhold  = 1
 
 " lightline
 if neobundle#is_installed('lightline.vim')
