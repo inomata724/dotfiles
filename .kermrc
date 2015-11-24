@@ -1,4 +1,4 @@
-set line /dev/cu.usbserial-FTB3L68B
+set line /dev/tty.usbserial-FTY4V9GT
 set speed 9600
 set stop-bits 1
 set flow-control none
