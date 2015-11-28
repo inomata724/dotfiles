@@ -33,6 +33,7 @@ if has('gui_running')
 	NeoBundle 'itchyny/lightline.vim'
 endif
 NeoBundle 'cocopon/iceberg.vim'
+NeoBundle 'tomasr/molokai'
 
 NeoBundleLazy 'vim-ruby/vim-ruby', {
 	\ "autoload" : {"filetypes" :["ruby"]}
