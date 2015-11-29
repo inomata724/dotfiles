@@ -64,6 +64,10 @@ NeoBundleLazy 'pangloss/vim-javascript', {
 	\ "autoload" : {"filetypes" :["javascript"]}
 \ }
 
+NeoBundleLazy 'jelera/vim-javascript-syntax', {
+	\ 'autoload': {'filetypes':['javascript']}
+\ }
+
 NeoBundleLazy 'kchmck/vim-coffee-script', {
 	\ "autoload" : {"filetypes" :["coffeescript"]}
 	\ }
