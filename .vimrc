@@ -120,6 +120,7 @@ set lazyredraw
 set ttyfast
 set tabstop=4
 set cursorline
+set ambiwidth=double
 
 "set guicursor+=n-v-c:blinkon0
 syntax enable
