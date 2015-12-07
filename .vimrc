@@ -197,8 +197,8 @@ vmap     <Enter>    <Plug>(EasyAlign)
 " neocomplete / neocomplcache
 if neobundle#is_installed('neocomplete')
 	let g:neocomplete#enable_at_startup                 = 1
-	let g:neocomplete#enable_ignore_case                = 1
-	let g:neocomplete#enable_smart_case                 = 1
+	let g:neocomplete#enable_ignore_case                = 0
+	let g:neocomplete#enable_smart_case                 = 0
 	let g:neocomplete#manual_completion_start_length    = 3
 	let g:neocomplete#sources#syntax#min_keyword_length = 3
 	let g:neocomplete#lock_buffer_name_pattern          = '\*ku\*'
@@ -217,8 +217,8 @@ if neobundle#is_installed('neocomplete')
 	let g:neocomplete#sources#force_omni_input_patterns.go = '\h\w\.\w*'
 elseif neobundle#is_installed('neocomplcache')
 	let g:neocomplcache_enable_at_startup              = 1
-	let g:neocomplcache_enable_ignore_case             = 1
-	let g:neocomplcache_enable_smart_case              = 1
+	let g:neocomplcache_enable_ignore_case             = 0
+	let g:neocomplcache_enable_smart_case              = 0
 	let g:neocomplcache_manual_completion_start_length = 3
 	let g:neocomplcache_min_keyword_length             = 3
 	let g:neocomplcache_lock_buffer_name_pattern       = '\*ku\*'
