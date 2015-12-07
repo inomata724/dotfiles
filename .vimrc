@@ -210,11 +210,11 @@ if neobundle#is_installed('neocomplete')
 	endif
 	let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-	if !exists('g:neocomplete#sources#omni#input_patterns')
-		let g:neocomplete#sources#omni#input_patterns = {}
+	if !exists('g:neocomplete#sources#force_omni_input_patterns')
+		let g:neocomplete#sources#force_omni_input_patterns = {}
 	endif
-	let g:neocomplete#sources#omni#input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-	let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
+	let g:neocomplete#sources#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+	let g:neocomplete#sources#force_omni_input_patterns.go = '\h\w\.\w*'
 elseif neobundle#is_installed('neocomplcache')
 	let g:neocomplcache_enable_at_startup              = 1
 	let g:neocomplcache_enable_ignore_case             = 1
@@ -233,7 +233,7 @@ elseif neobundle#is_installed('neocomplcache')
 	if !exists('g:neocomplcache_force_omni_patterns')
 		let g:neocomplcache_force_omni_patterns = {}
 	endif
-	let g:neocomplcache_force_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+	let g:neocomplcache_force_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 	let g:neocomplcache_force_omni_patterns.go = '\h\w\.\w*'
 endif
 
