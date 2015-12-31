@@ -121,6 +121,7 @@ set ttyfast
 set tabstop=4
 set cursorline
 set ambiwidth=double
+set nobackup
 
 " disable plugins
 let g:loaded_gzip              = 1
