@@ -28,6 +28,7 @@ NeoBundle 'airblade/vim-rooter'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'Shougo/neocomplcache-rsense.vim'
 
 if has('gui_running')
 	NeoBundle 'itchyny/lightline.vim'
