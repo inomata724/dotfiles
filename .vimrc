@@ -29,6 +29,7 @@ NeoBundle 'xolox/vim-misc'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'Shougo/neocomplcache-rsense.vim'
+NeoBundle 'whatyouhide/vim-gotham'
 
 if has('gui_running')
 	NeoBundle 'itchyny/lightline.vim'
@@ -179,9 +180,10 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " Color
 set t_Co=256
-let g:rehash256=1
-if neobundle#is_installed('iceberg.vim') && has('gui_running')
+if has('gui_running')
 	colorscheme iceberg
+else
+	colorscheme gotham
 endif
 
 " GUI
