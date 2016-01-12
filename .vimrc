@@ -180,7 +180,7 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 " Color
 set t_Co=256
 let g:rehash256=1
-if neobundle#is_installed('iceberg.vim')
+if neobundle#is_installed('iceberg.vim') && has('gui_running')
 	colorscheme iceberg
 endif
 
