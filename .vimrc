@@ -180,11 +180,7 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " Color
 set t_Co=256
-if has('gui_running')
-	colorscheme iceberg
-else
-	colorscheme gotham
-endif
+colorscheme iceberg
 
 " GUI
 set guifont=Ricty\ Regular\ For\ Powerline:h18
