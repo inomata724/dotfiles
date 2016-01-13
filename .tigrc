@@ -1,7 +1,5 @@
 set main-view         = id date author commit-title:graph=yes,refs=yes
 set vertical-split    = no
-set horizontal-scroll = 20%
-set line-graphics     = utf-8
 
 bind generic g move-first-line
 bind generic G move-last-line
