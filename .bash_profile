@@ -99,6 +99,7 @@ else
 fi
 
 alias lv='lv -c'
+alias less='less -R'
 alias vi='vim'
 alias be='bundle exec'
 alias ge='goop exec'
