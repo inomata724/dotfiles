@@ -183,7 +183,7 @@ set t_Co=256
 colorscheme iceberg
 
 " GUI
-set guifont=Ricty\ Discord\ For\ Powerline:h18
+set guifont=Ricty\ Regular\ For\ Powerline:h18
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
