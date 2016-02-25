@@ -151,20 +151,9 @@ augroup vimrc-checktime
 	autocmd BufEnter * checktime
 augroup END
 
-" netrw
-let g:netrw_liststyle = 3
-
-let g:last_bufnr = ''
-function ExploreToggle()
-	if &filetype == 'netrw'
-		if g:last_bufnr != ''
-			exe ':b' . g:last_bufnr
-		endif
-	else
-		let g:last_bufnr = bufnr('%')
-		Explore .
-	endif
-endfunction
+" disable netrw
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
 
 " NERDTree
 let NERDTreeChDirMode   = 0
@@ -195,7 +184,6 @@ let mapleader = ";"
 nnoremap tc         :<C-u>tabnew<CR>
 nnoremap tn         gt
 nnoremap tp         gT
-nnoremap <Leader>e  :call ExploreToggle()<CR>
 nnoremap <Leader>n  :NERDTreeToggle<CR>
 nnoremap <Leader>f  :<C-u>CtrlP<CR>
 nnoremap <Leader>jf :call FormatJson()<CR>
