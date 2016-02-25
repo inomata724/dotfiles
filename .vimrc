@@ -30,10 +30,9 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'Shougo/neocomplcache-rsense.vim'
 NeoBundle 'whatyouhide/vim-gotham'
+NeoBundle 'dbakker/vim-projectroot'
 
-if has('gui_running')
-	NeoBundle 'itchyny/lightline.vim'
-endif
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'tomasr/molokai'
 
@@ -151,9 +150,20 @@ augroup vimrc-checktime
 	autocmd BufEnter * checktime
 augroup END
 
-" disable netrw
-let g:loaded_netrw       = 1
-let g:loaded_netrwPlugin = 1
+" netrw
+let g:netrw_liststyle = 3
+
+let g:last_bufnr = ''
+function ExploreToggle()
+	if &filetype == 'netrw'
+		if g:last_bufnr != ''
+			exe ':b' . g:last_bufnr
+		endif
+	else
+		let g:last_bufnr = bufnr('%')
+		Explore .
+	endif
+endfunction
 
 " NERDTree
 let NERDTreeChDirMode   = 0
@@ -310,8 +320,15 @@ if neobundle#is_installed('lightline.vim')
 		\ 'tabline': {
 		\ 	'left': [ [ 'tabs' ] ],
 		\ 	'right': [ [] ]
+		\ },
+		\ 'tab': {
+		\ 	'active': [ 'title' ],
+		\ 	'inactive': [ 'title' ]
+		\ },
+		\ 'tab_component_function': {
+		\ 	"title": "TabTitle"
 		\ }
-		\ }
+	\ }
 
 	function! ReadOnly()
 		return &ft !~? 'help' && &ro ? '⭤' : ''
@@ -338,6 +355,31 @@ if neobundle#is_installed('lightline.vim')
 
 	function! Filename()
 			return expand('%:t')
+	endfunction
+
+	function! TabFilePath(n)
+		let buflist = tabpagebuflist(a:n)
+		let winnr = tabpagewinnr(a:n)
+		let _ = expand('#'.buflist[winnr - 1].':p')
+		return strlen(_) ? _ : '[No Name]'
+	endfunction
+
+	function! TabProjectName(n)
+		return fnamemodify(ProjectRootGet(TabFilePath(a:n)), ':t')
+	endfunction
+
+	function! TabTitle(n)
+		let prefix = a:n . " "
+		let projectname = TabProjectName(a:n)
+		let filename = lightline#tab#filename(a:n)
+
+		if ( projectname == filename )
+			return prefix . projectname
+		elseif( projectname != '' )
+			return prefix . projectname . ":" . filename
+		endif
+
+		return prefix . filename
 	endfunction
 
 	function! UpdateExpandComponents()
