@@ -349,7 +349,7 @@ if neobundle#is_installed('lightline.vim')
 	endfunction
 
 	function! Filename()
-			return expand('%')
+			return expand('%:t')
 	endfunction
 
 	function! UpdateExpandComponents()
