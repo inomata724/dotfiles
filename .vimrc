@@ -376,7 +376,7 @@ if neobundle#is_installed('lightline.vim')
 		if ( projectname == filename )
 			return prefix . projectname
 		elseif( projectname != '' )
-			return prefix . projectname . ":" . filename
+			return prefix . projectname . ": " . filename
 		endif
 
 		return prefix . filename
