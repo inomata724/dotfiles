@@ -369,17 +369,16 @@ if neobundle#is_installed('lightline.vim')
 	endfunction
 
 	function! TabTitle(n)
-		let prefix = a:n . " "
 		let projectname = TabProjectName(a:n)
 		let filename = lightline#tab#filename(a:n)
 
 		if ( projectname == filename )
-			return prefix . projectname
+			return projectname
 		elseif( projectname != '' )
-			return prefix . projectname . ": " . filename
+			return projectname . ":" . filename
 		endif
 
-		return prefix . filename
+		return filename
 	endfunction
 
 	function! UpdateExpandComponents()
