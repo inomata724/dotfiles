@@ -18,7 +18,6 @@ NeoBundle 'Shougo/vimproc', {
 \}
 
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'jiangmiao/auto-pairs'
@@ -28,9 +27,14 @@ NeoBundle 'airblade/vim-rooter'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'Shougo/neocomplcache-rsense.vim'
 NeoBundle 'whatyouhide/vim-gotham'
 NeoBundle 'dbakker/vim-projectroot'
+
+if has('lua')
+	NeoBundle 'Shougo/neocomplete.vim'
+else
+	NeoBundle 'Shougo/neocomplcache'
+endif
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'cocopon/iceberg.vim'
@@ -205,26 +209,45 @@ nnoremap <Leader>t  :UpdateTags -R .<CR>
 nnoremap <C-]> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
-" neocomplcache
-let g:neocomplcache_enable_at_startup              = 1
-let g:neocomplcache_enable_ignore_case             = 0
-let g:neocomplcache_enable_smart_case              = 0
-let g:neocomplcache_manual_completion_start_length = 3
-let g:neocomplcache_min_keyword_length             = 3
-let g:neocomplcache_lock_buffer_name_pattern       = '\*ku\*'
-let g:neocomplcache_max_list                       = 20
-let g:neocomplcache_enable_prefetch                = 1
+" neocomplete /neocomplcache
+if has('lua')
+	let g:neocomplete#enable_at_startup                 = 1
+	let g:neocomplete#enable_smart_case                 = 1
+	let g:neocomplete#sources#syntax#min_keyword_length = 3
+	let g:neocomplete#lock_buffer_name_pattern          = '\*ku\*'
+	let g:neocomplete#max_list                          = 20
 
-if !exists('g:neocomplcache_keyword_patterns')
-	let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+	if !exists('g:neocomplete#keyword_patterns')
+	  let g:neocomplete#keyword_patterns = {}
+	endif
+	let g:neocomplete#keyword_patterns._ = '\h\w*'
 
-if !exists('g:neocomplcache_force_omni_patterns')
-	let g:neocomplcache_force_omni_patterns = {}
+	if !exists('g:neocomplete#force_omni_input_patterns')
+	  let g:neocomplete#force_omni_input_patterns = {}
+	endif
+	let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+	let g:neocomplete#force_omni_input_patterns.go = '\h\w\.\w*'
+else
+	let g:neocomplcache_enable_at_startup              = 1
+	let g:neocomplcache_enable_ignore_case             = 0
+	let g:neocomplcache_enable_smart_case              = 0
+	let g:neocomplcache_manual_completion_start_length = 3
+	let g:neocomplcache_min_keyword_length             = 3
+	let g:neocomplcache_lock_buffer_name_pattern       = '\*ku\*'
+	let g:neocomplcache_max_list                       = 20
+	let g:neocomplcache_enable_prefetch                = 1
+
+	if !exists('g:neocomplcache_keyword_patterns')
+			let g:neocomplcache_keyword_patterns = {}
+	endif
+	let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+	if !exists('g:neocomplcache_force_omni_patterns')
+			let g:neocomplcache_force_omni_patterns = {}
+	endif
+	let g:neocomplcache_force_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+	let g:neocomplcache_force_omni_patterns.go = '\h\w\.\w*'
 endif
-let g:neocomplcache_force_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-let g:neocomplcache_force_omni_patterns.go = '\h\w\.\w*'
 
 " CtrlP
 let g:ctrlp_map             = '<Nop>'
