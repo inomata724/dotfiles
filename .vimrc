@@ -30,6 +30,7 @@ NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'whatyouhide/vim-gotham'
 NeoBundle 'dbakker/vim-projectroot'
 NeoBundle 'xolox/vim-easytags'
+NeoBundle 'majutsushi/tagbar'
 
 if has('lua')
 	NeoBundle 'Shougo/neocomplete.vim'
@@ -210,7 +211,8 @@ nnoremap <Leader>b  :Gblame<CR>
 nnoremap <Leader>s  :Gstatus<CR>
 nnoremap <Leader>c  :Gcommit<CR>
 nnoremap <Leader>d  :Gdiff<CR>
-nnoremap <Leader>t  :UpdateTags -R .<CR>
+nnoremap <Leader>u  :UpdateTags -R .<CR>
+nnoremap <Leader>t  :TagbarToggle<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
