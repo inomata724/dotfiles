@@ -222,6 +222,8 @@ if has('lua')
 	endif
 	let g:neocomplete#keyword_patterns._ = '\h\w*'
 
+	autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+
 	if !exists('g:neocomplete#force_omni_input_patterns')
 	  let g:neocomplete#force_omni_input_patterns = {}
 	endif
