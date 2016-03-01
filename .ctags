@@ -1,6 +1,6 @@
 --html-kinds=af
---ruby-kinds=cfm
 
+--ruby-kinds=cfm
 --langmap=ruby:+.rake
 --regex-ruby=/(^|[:;])[ \t ]*([A-Z][[:alnum:]_]+) *=/\2/c,class,constant/
 --regex-ruby=/(^|;)[ \t ]*(has_many|belongs_to|has_one|has_and_belongs_to_many)\(? *:([[:alnum:]_]+)/\3/f,function,association/
@@ -9,3 +9,17 @@
 --regex-ruby=/(^|;)[ \t ]*event\(? *:([[:alnum:]_]+)/\2/f,function,aasm_event/
 --regex-ruby=/(^|;)[ \t ]*event\(? *:([[:alnum:]_]+)/\2!/f,function,aasm_event/
 --regex-ruby=/(^|;)[ \t ]*event\(? *:([[:alnum:]_]+)/\2?/f,function,aasm_event/
+
+--langdef=markdown
+--langmap=markdown:.mkd
+--regex-markdown=/^#[ \t ]+(.*)/\1/h,Heading_L1/
+--regex-markdown=/^##[ \t ]+(.*)/\1/i,Heading_L2/
+--regex-markdown=/^###[ \t ]+(.*)/\1/k,Heading_L3/
+
+--langdef=js
+--langmap=js:.js
+--regex-JavaScript=/([A-Za-z0-9._$]+)[ \t]*[:=][ \t]*\{/\1/o,object/
+--regex-JavaScript=/([A-Za-z0-9._$'"()]+)[ \t]*[:][ \t]*function[ \t]*\([^)]*\)/\1/f,function/
+--regex-JavaScript=/([A-Za-z0-9._$]+)[ \t]*[:=][ \t]*\[/\1/a,array/
+--regex-JavaScript=/([^= ]+)[ \t]*=[ \t]*'[^']*'/\1/s,string/
+--regex-JavaScript=/([^= ]+)[ \t]*=[ \t]*"[^"]*"/\1/s,string/
