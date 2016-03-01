@@ -29,6 +29,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'whatyouhide/vim-gotham'
 NeoBundle 'dbakker/vim-projectroot'
+NeoBundle 'xolox/vim-easytags'
 
 if has('lua')
 	NeoBundle 'Shougo/neocomplete.vim'
@@ -117,7 +118,7 @@ set backspace=indent,eol,start
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
-set tags=./tags,tags,~/.vimtags
+set tags=tags;/
 set autoread
 set nofoldenable
 set re=0
@@ -168,6 +169,11 @@ function ExploreToggle()
 		Explore .
 	endif
 endfunction
+
+" EasyTags
+let g:easytags_dynamic_files = 1
+let g:easytags_async=1
+let g:easytags_events = ['BufWritePost']
 
 " NERDTree
 let NERDTreeChDirMode   = 0
