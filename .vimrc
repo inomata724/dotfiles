@@ -118,7 +118,7 @@ set backspace=indent,eol,start
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
-set tags=tags;/
+set tags=./.tags;,~/.vimtags
 set autoread
 set nofoldenable
 set re=0
@@ -171,9 +171,8 @@ function ExploreToggle()
 endfunction
 
 " EasyTags
-let g:easytags_dynamic_files = 1
-let g:easytags_async=1
-let g:easytags_events = ['BufWritePost']
+let g:easytags_async         = 1
+let g:easytags_events        = ['BufWritePost']
 
 " NERDTree
 let NERDTreeChDirMode   = 0
