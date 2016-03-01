@@ -211,7 +211,7 @@ nnoremap <Leader>s  :Gstatus<CR>
 nnoremap <Leader>c  :Gcommit<CR>
 nnoremap <Leader>d  :Gdiff<CR>
 nnoremap <Leader>t  :UpdateTags -R .<CR>
-nnoremap <C-]> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
 " neocomplete /neocomplcache
