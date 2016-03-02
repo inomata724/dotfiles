@@ -183,6 +183,7 @@ let NERDTreeShowHidden  = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif"))"
 
 " Tagbar
+let g:tagbar_sort = 0
 let g:tagbar_type_ruby = {
     \ 'kinds' : [
         \ 'm:modules',
