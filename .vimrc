@@ -172,8 +172,9 @@ function ExploreToggle()
 endfunction
 
 " EasyTags
-let g:easytags_async  = 1
-let g:easytags_events = ['BufWritePost']
+let g:easytags_async          = 1
+let g:easytags_events         = ['BufWritePost']
+let b:easytags_auto_highlight = 0
 
 " NERDTree
 let NERDTreeChDirMode   = 0
