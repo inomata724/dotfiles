@@ -172,8 +172,8 @@ function ExploreToggle()
 endfunction
 
 " EasyTags
-let g:easytags_async         = 1
-let g:easytags_events        = ['BufWritePost']
+let g:easytags_async  = 1
+let g:easytags_events = ['BufWritePost']
 
 " NERDTree
 let NERDTreeChDirMode   = 0
@@ -186,12 +186,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:tagbar_sort = 0
 let g:tagbar_type_ruby = {
 	\ 'kinds' : [
-	\ 'm:modules',
-	\ 'c:classes',
-	\ 'd:describes',
-	\ 'C:contexts',
-	\ 'f:methods',
-	\ 'F:singleton methods'
+		\ 'm:modules',
+		\ 'c:classes',
+		\ 'd:describes',
+		\ 'C:contexts',
+		\ 'f:methods',
+		\ 'F:singleton methods'
 	\ ]
 \ }
 let g:tagbar_type_go = {
