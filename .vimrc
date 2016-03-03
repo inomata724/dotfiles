@@ -91,7 +91,6 @@ NeoBundle 'gregsexton/MatchTag', {
 	\ "autoload" : {"filetypes" :["html"]}
 \ }
 
-
 NeoBundleCheck
 call neobundle#end()
 
@@ -173,6 +172,7 @@ endfunction
 
 " EasyTags
 let g:easytags_async          = 1
+let g:easytags_autorecurse    = 0
 let g:easytags_auto_highlight = 0
 
 " NERDTree
@@ -244,6 +244,7 @@ nnoremap <Leader>c  :Gcommit<CR>
 nnoremap <Leader>d  :Gdiff<CR>
 nnoremap <Leader>u  :UpdateTags -R .<CR>
 nnoremap <Leader>t  :TagbarToggle<CR>
+nnoremap <Leader>h  :noh<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
