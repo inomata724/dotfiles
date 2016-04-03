@@ -31,6 +31,8 @@ NeoBundle 'whatyouhide/vim-gotham'
 NeoBundle 'dbakker/vim-projectroot'
 NeoBundle 'xolox/vim-easytags'
 NeoBundle 'majutsushi/tagbar'
+NeoBundle 'itchyny/vim-parenmatch'
+NeoBundle 'itchyny/vim-cursorword'
 
 if has('lua')
 	NeoBundle 'Shougo/neocomplete.vim'
@@ -141,6 +143,7 @@ let g:loaded_vimball           = 1
 let g:loaded_vimballPlugin     = 1
 let g:loaded_getscript         = 1
 let g:loaded_getscriptPlugin   = 1
+let g:loaded_matchparen        = 1
 
 "set guicursor+=n-v-c:blinkon0
 syntax enable
