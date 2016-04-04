@@ -56,12 +56,6 @@ NeoBundleLazy 'tpope/vim-endwise', {
 	\ "autoload" : {"filetypes" :["ruby"]}
 \ }
 
-if has('ruby')
-	NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
-		\ "autoload" : {"filetypes" :["ruby"]}
-	\ }
-endif
-
 NeoBundleLazy 'fatih/vim-go', {
 	\ 'autoload' : {
 	\ 	'filetypes' : 'go',
@@ -508,6 +502,9 @@ au FileType markdown set sw=2 sts=2 ts=2 et
 
 " reStructuredText
 let g:riv_disable_folding = 1
+
+" liquid
+au FileType liquid set sw=2 ts=2 sts=2 et
 
 " Go
 au FileType go set sw=8 sts=8 ts=8 noet
