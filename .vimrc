@@ -252,7 +252,7 @@ if has('lua')
 	let g:neocomplete#enable_smart_case                 = 0
 	let g:neocomplete#sources#syntax#min_keyword_length = 3
 	let g:neocomplete#lock_buffer_name_pattern          = '\*ku\*'
-	let g:neocomplete#max_list                          = 20
+	let g:neocomplete#max_list                          = 100
 
 	if !exists('g:neocomplete#keyword_patterns')
 	  let g:neocomplete#keyword_patterns = {}
@@ -273,7 +273,7 @@ else
 	let g:neocomplcache_manual_completion_start_length = 3
 	let g:neocomplcache_min_keyword_length             = 3
 	let g:neocomplcache_lock_buffer_name_pattern       = '\*ku\*'
-	let g:neocomplcache_max_list                       = 20
+	let g:neocomplcache_max_list                       = 100
 	let g:neocomplcache_enable_prefetch                = 1
 
 	if !exists('g:neocomplcache_keyword_patterns')
