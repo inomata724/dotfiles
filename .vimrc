@@ -36,6 +36,7 @@ if has("gui_running")
 	let g:loaded_matchparen = 1
 	NeoBundle 'itchyny/vim-cursorword'
 	NeoBundle 'itchyny/vim-parenmatch'
+	NeoBundle 'itchyny/lightline.vim'
 endif
 
 if has('lua')
@@ -44,7 +45,6 @@ else
 	NeoBundle 'Shougo/neocomplcache'
 endif
 
-NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'tomasr/molokai'
 
