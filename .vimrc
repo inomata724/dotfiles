@@ -31,8 +31,12 @@ NeoBundle 'whatyouhide/vim-gotham'
 NeoBundle 'dbakker/vim-projectroot'
 NeoBundle 'xolox/vim-easytags'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'itchyny/vim-parenmatch'
-NeoBundle 'itchyny/vim-cursorword'
+
+if has("gui_running")
+	let g:loaded_matchparen = 1
+	NeoBundle 'itchyny/vim-cursorword'
+	NeoBundle 'itchyny/vim-parenmatch'
+endif
 
 if has('lua')
 	NeoBundle 'Shougo/neocomplete.vim'
@@ -121,9 +125,12 @@ set re=0
 set lazyredraw
 set ttyfast
 set tabstop=4
-set cursorline
 set ambiwidth=double
 set nobackup
+
+if has("gui_running")
+	set cursorline
+endif
 
 " disable plugins
 let g:loaded_gzip              = 1
@@ -137,7 +144,6 @@ let g:loaded_vimball           = 1
 let g:loaded_vimballPlugin     = 1
 let g:loaded_getscript         = 1
 let g:loaded_getscriptPlugin   = 1
-let g:loaded_matchparen        = 1
 
 "set guicursor+=n-v-c:blinkon0
 syntax enable
