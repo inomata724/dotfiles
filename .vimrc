@@ -20,7 +20,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'cohama/lexima.vim'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'airblade/vim-rooter'
