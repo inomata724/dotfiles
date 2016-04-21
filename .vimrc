@@ -258,7 +258,7 @@ if has('lua')
 	let g:neocomplete#enable_smart_case                 = 0
 	let g:neocomplete#sources#syntax#min_keyword_length = 3
 	let g:neocomplete#lock_buffer_name_pattern          = '\*ku\*'
-	let g:neocomplete#max_list                          = 100
+	let g:neocomplete#max_list                          = 50
 
 	if !exists('g:neocomplete#keyword_patterns')
 	  let g:neocomplete#keyword_patterns = {}
@@ -279,7 +279,7 @@ else
 	let g:neocomplcache_manual_completion_start_length = 3
 	let g:neocomplcache_min_keyword_length             = 3
 	let g:neocomplcache_lock_buffer_name_pattern       = '\*ku\*'
-	let g:neocomplcache_max_list                       = 100
+	let g:neocomplcache_max_list                       = 50
 	let g:neocomplcache_enable_prefetch                = 1
 
 	if !exists('g:neocomplcache_keyword_patterns')
@@ -295,9 +295,12 @@ else
 endif
 
 " CtrlP
-let g:ctrlp_map             = '<Nop>'
-let g:ctrlp_use_caching     = 0
-let g:ctrlp_show_hidden     = 1
+let g:ctrlp_map                 = '<Nop>'
+let g:ctrlp_use_caching         = 0
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_show_hidden         = 1
+let g:ctrlp_jump_to_buffer      = 2
+let g:ctrlp_match_window        = 'bottom,order:btt,min:1,max:20,results:20'
 if executable('ag')
 	let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ".git" --ignore ".svn" --ignore ".hg" --hidden -g ""'
 	let g:ctrlp_max_depth    = 20
