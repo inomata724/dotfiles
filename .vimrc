@@ -16,11 +16,9 @@ NeoBundle 'Shougo/vimproc', {
 	\ 	'unix': 'make -f make_unix.mak',
 	\ },
 \}
-
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'cohama/lexima.vim'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'airblade/vim-rooter'
@@ -249,6 +247,15 @@ nnoremap <Leader>u  :UpdateTags -R .<CR>
 nnoremap <Leader>t  :TagbarToggle<CR>
 nnoremap <Leader>h  :noh<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+inoremap ` ``<LEFT>
+inoremap { {}<Left>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap ( ()<ESC>i
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap [ []<ESC>i
+inoremap [<Enter> []<Left><CR><ESC><S-o>
 vmap     <Enter>    <Plug>(EasyAlign)
 
 " neocomplete /neocomplcache
