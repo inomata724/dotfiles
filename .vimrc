@@ -62,6 +62,12 @@ NeoBundleLazy 'tpope/vim-endwise', {
 	\ "autoload" : {"filetypes" :["ruby"]}
 \ }
 
+if executable('rct-complete')
+	NeoBundleLazy 'osyo-manga/vim-monster', {
+		\ "autoload" : {"filetypes" :["ruby"]}
+	\ }
+endif
+
 NeoBundleLazy 'fatih/vim-go', {
 	\ 'autoload' : {
 	\ 	'filetypes' : 'go',
@@ -271,6 +277,10 @@ if has('lua')
 	let g:neocomplete#lock_buffer_name_pattern          = '\*ku\*'
 	let g:neocomplete#max_list                          = 50
 
+	if executable('rct-complete')
+		let g:monster#completion#rcodetools#backend = "async_rct_complete"
+	endif
+
 	if !exists('g:neocomplete#keyword_patterns')
 	  let g:neocomplete#keyword_patterns = {}
 	endif
@@ -278,11 +288,11 @@ if has('lua')
 
 	autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
-	if !exists('g:neocomplete#force_omni_input_patterns')
-	  let g:neocomplete#force_omni_input_patterns = {}
+	if !exists('g:neocomplete#sources#omni#input_patterns')
+	  let g:neocomplete#sources#omni#input_patterns = {}
 	endif
-	let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-	let g:neocomplete#force_omni_input_patterns.go = '\h\w\.\w*'
+	let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+	let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
 else
 	let g:neocomplcache_enable_at_startup              = 1
 	let g:neocomplcache_enable_ignore_case             = 0
