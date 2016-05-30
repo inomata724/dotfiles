@@ -31,9 +31,6 @@ NeoBundle 'xolox/vim-easytags'
 NeoBundle 'majutsushi/tagbar'
 
 if has("gui_running")
-	let g:loaded_matchparen = 1
-	NeoBundle 'itchyny/vim-cursorword'
-	NeoBundle 'itchyny/vim-parenmatch'
 	NeoBundle 'itchyny/lightline.vim'
 endif
 
