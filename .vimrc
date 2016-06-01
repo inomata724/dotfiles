@@ -30,6 +30,7 @@ NeoBundle 'dbakker/vim-projectroot'
 NeoBundle 'xolox/vim-easytags'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'itchyny/vim-cursorword'
 
 if has("gui_running")
 	NeoBundle 'itchyny/lightline.vim'
