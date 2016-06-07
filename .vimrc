@@ -44,6 +44,7 @@ endif
 
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'tomasr/molokai'
+NeoBundle 'atelierbram/vim-colors_duotones'
 
 NeoBundleLazy 'vim-ruby/vim-ruby', {
 	\ "autoload" : {"filetypes" :["ruby"]}
@@ -230,7 +231,12 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " Color
 set t_Co=256
-colorscheme iceberg
+if has("gui_running")
+	set background=dark
+	colorscheme duotone-dark
+else
+	colorscheme iceberg
+endif
 
 " GUI
 set guifont=Ricty\ Regular\ For\ Powerline:h18
