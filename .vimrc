@@ -31,7 +31,6 @@ NeoBundle 'xolox/vim-easytags'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'itchyny/vim-cursorword'
-NeoBundle 'atelierbram/vim-colors_atelier-schemes'
 
 if has("gui_running")
 	NeoBundle 'itchyny/lightline.vim'
@@ -232,8 +231,10 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " Color
 set t_Co=256
-set background=dark
-colorscheme iceberg
+if has("gui_running")
+	set background=dark
+	colorscheme iceberg
+endif
 
 " GUI
 set guifont=Ricty\ Regular\ For\ Powerline:h18
