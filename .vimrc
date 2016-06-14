@@ -237,7 +237,7 @@ if has("gui_running")
 endif
 
 " GUI
-set guifont=Ricty\ Regular\ For\ Powerline:h17
+set guifont=Ricty\ Regular\ For\ Powerline:h18
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
