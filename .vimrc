@@ -136,6 +136,7 @@ set ttyfast
 set tabstop=4
 set ambiwidth=double
 set nobackup
+set visualbell t_vb=
 
 if has("gui_running")
 	set cursorline
