@@ -31,6 +31,7 @@ NeoBundle 'xolox/vim-easytags'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'itchyny/vim-cursorword'
+NeoBundle 'dhruvasagar/vim-table-mode'
 
 if has("gui_running")
 	NeoBundle 'itchyny/lightline.vim'
@@ -258,6 +259,7 @@ nnoremap <Leader>d  :Gdiff<CR>
 nnoremap <Leader>u  :UpdateTags -R .<CR>
 nnoremap <Leader>t  :TagbarToggle<CR>
 nnoremap <Leader>h  :noh<CR>
+nnoremap <Leader>tm :TableModeToggle<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
@@ -522,6 +524,7 @@ au FileType yaml set sw=2 sts=2 ts=2 et
 
 " Markdown
 au FileType markdown set sw=2 sts=2 ts=2 et
+au FileType markdown TableModeEnable
 
 " reStructuredText
 let g:riv_disable_folding = 1
