@@ -142,17 +142,19 @@ if has("gui_running")
 endif
 
 " disable plugins
-let g:loaded_gzip              = 1
-let g:loaded_tar               = 1
-let g:loaded_tarPlugin         = 1
-let g:loaded_zip               = 1
-let g:loaded_zipPlugin         = 1
-let g:loaded_rrhelper          = 1
-let g:loaded_2html_plugin      = 1
-let g:loaded_vimball           = 1
-let g:loaded_vimballPlugin     = 1
-let g:loaded_getscript         = 1
-let g:loaded_getscriptPlugin   = 1
+let g:loaded_gzip            = 1
+let g:loaded_tar             = 1
+let g:loaded_tarPlugin       = 1
+let g:loaded_zip             = 1
+let g:loaded_zipPlugin       = 1
+let g:loaded_rrhelper        = 1
+let g:loaded_2html_plugin    = 1
+let g:loaded_vimball         = 1
+let g:loaded_vimballPlugin   = 1
+let g:loaded_getscript       = 1
+let g:loaded_getscriptPlugin = 1
+let g:loaded_netrw           = 1
+let g:loaded_netrwPlugin     = 1
 
 "set guicursor+=n-v-c:blinkon0
 syntax enable
@@ -166,22 +168,6 @@ augroup vimrc-checktime
 	autocmd!
 	autocmd BufEnter * checktime
 augroup END
-
-" netrw
-let g:loaded_netrw       = 1
-let g:loaded_netrwPlugin = 1
-
-let g:last_bufnr = ''
-function ExploreToggle()
-	if &filetype == 'netrw'
-		if g:last_bufnr != ''
-			exe ':b' . g:last_bufnr
-		endif
-	else
-		let g:last_bufnr = bufnr('%')
-		Explore .
-	endif
-endfunction
 
 " EasyTags
 let g:easytags_async          = 1
