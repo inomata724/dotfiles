@@ -168,7 +168,8 @@ augroup vimrc-checktime
 augroup END
 
 " netrw
-let g:netrw_liststyle = 3
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
 
 let g:last_bufnr = ''
 function ExploreToggle()
