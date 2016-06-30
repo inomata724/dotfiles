@@ -189,6 +189,7 @@ let g:easytags_autorecurse    = 0
 let g:easytags_auto_highlight = 0
 
 " NERDTree
+autocmd BufEnter * lcd %:p:h
 let NERDTreeChDirMode   = 0
 let NERDTreeHijackNetrw = 0
 let NERDTreeWinSize     = 35
