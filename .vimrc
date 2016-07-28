@@ -32,6 +32,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'dhruvasagar/vim-table-mode'
+NeoBundle 'Yggdroot/indentLine'
 
 if has("gui_running")
 	NeoBundle 'itchyny/lightline.vim'
