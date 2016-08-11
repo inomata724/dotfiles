@@ -78,12 +78,8 @@ NeoBundleLazy 'fatih/vim-go', {
 	\ }
 \ }
 
-NeoBundleLazy 'pangloss/vim-javascript', {
+NeoBundleLazy 'othree/yajs.vim', {
 	\ "autoload" : {"filetypes" :["javascript"]}
-\ }
-
-NeoBundleLazy 'jelera/vim-javascript-syntax', {
-	\ 'autoload': {'filetypes':['javascript']}
 \ }
 
 NeoBundleLazy 'kchmck/vim-coffee-script', {
