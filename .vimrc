@@ -33,6 +33,7 @@ NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'elzr/vim-json'
 
 if has("gui_running")
 	NeoBundle 'itchyny/lightline.vim'
@@ -157,6 +158,9 @@ let g:loaded_getscript       = 1
 let g:loaded_getscriptPlugin = 1
 let g:loaded_netrw           = 1
 let g:loaded_netrwPlugin     = 1
+
+" vim-json
+let g:vim_json_syntax_conceal = 0
 
 "set guicursor+=n-v-c:blinkon0
 syntax enable
