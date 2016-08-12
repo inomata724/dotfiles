@@ -309,9 +309,9 @@ let g:ctrlp_jump_to_buffer      = 2
 let g:ctrlp_match_window        = 'bottom,order:btt,min:1,max:20,results:20'
 if executable('ag')
 	let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ".git" --ignore ".svn" --ignore ".hg" --hidden -g ""'
-	let g:ctrlp_max_depth    = 20
+	let g:ctrlp_max_depth    = 10
 else
-	let g:ctrlp_max_depth = 10
+	let g:ctrlp_max_depth = 5
 endif
 let g:ctrlp_prompt_mappings = {
 	\ 'PrtBS()':              ['<bs>'],
