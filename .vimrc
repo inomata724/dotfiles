@@ -25,6 +25,7 @@ NeoBundle 'airblade/vim-rooter'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'EvanDotPro/nerdtree-chmod'
 NeoBundle 'whatyouhide/vim-gotham'
 NeoBundle 'dbakker/vim-projectroot'
 NeoBundle 'xolox/vim-easytags'
@@ -34,10 +35,10 @@ NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'elzr/vim-json'
-NeoBundle 'popkirby/lightline-iceberg'
 
 if has("gui_running")
 	NeoBundle 'itchyny/lightline.vim'
+	NeoBundle 'popkirby/lightline-iceberg'
 endif
 
 if has('lua')
