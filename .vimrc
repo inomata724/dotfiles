@@ -263,6 +263,8 @@ if has('lua')
 	let g:neocomplete#sources#syntax#min_keyword_length = 3
 	let g:neocomplete#lock_buffer_name_pattern          = '\*ku\*'
 	let g:neocomplete#max_list                          = 50
+	let g:neocomplete#enable_underbar_completion        = 1
+	let g:neocomplete#enable_camel_case_completion      = 1
 
 	if executable('rct-complete')
 		let g:monster#completion#rcodetools#backend = "async_rct_complete"
@@ -289,6 +291,8 @@ else
 	let g:neocomplcache_lock_buffer_name_pattern       = '\*ku\*'
 	let g:neocomplcache_max_list                       = 50
 	let g:neocomplcache_enable_prefetch                = 1
+	let g:neocomplcache_enable_underbar_completion     = 1
+	let g:neocomplcache_enable_camel_case_completion   = 1
 
 	if !exists('g:neocomplcache_keyword_patterns')
 			let g:neocomplcache_keyword_patterns = {}
