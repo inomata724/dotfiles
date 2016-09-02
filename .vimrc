@@ -35,6 +35,7 @@ NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'elzr/vim-json'
+NeoBundle 'hashivim/vim-terraform'
 
 if has("gui_running")
 	NeoBundle 'itchyny/lightline.vim'
