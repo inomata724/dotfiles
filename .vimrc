@@ -504,7 +504,8 @@ let g:html5_aria_attributes_complete          = 1
 " Ruby
 au FileType ruby set sw=2 ts=2 sts=2 et
 au FileType eruby set sw=2 ts=2 sts=2 et
-let ruby_space_errors = 1
+let ruby_space_errors         = 1
+let g:ruby_indent_block_style = 'do'
 
 " Python
 au FileType python setl smartindent sw=4 sts=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
