@@ -36,6 +36,7 @@ NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'hashivim/vim-terraform'
+NeoBundle 'rakr/vim-two-firewatch'
 
 if has("gui_running")
 	NeoBundle 'itchyny/lightline.vim'
@@ -226,7 +227,7 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 " Color
 set t_Co=256
 set background=dark
-colorscheme iceberg
+colorscheme two-firewatch
 hi NonText guifg=bg
 
 " GUI
