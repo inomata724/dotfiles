@@ -51,7 +51,7 @@ endif
 
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'tomasr/molokai'
-NeoBundle 'atelierbram/vim-colors_duotones'
+NeoBundle 'atelierbram/Base2Tone-vim'
 
 NeoBundleLazy 'vim-ruby/vim-ruby', {
 	\ "autoload" : {"filetypes" :["ruby"]}
