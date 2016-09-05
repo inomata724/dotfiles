@@ -26,7 +26,6 @@ NeoBundle 'xolox/vim-misc'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'EvanDotPro/nerdtree-chmod'
-NeoBundle 'whatyouhide/vim-gotham'
 NeoBundle 'dbakker/vim-projectroot'
 NeoBundle 'xolox/vim-easytags'
 NeoBundle 'majutsushi/tagbar'
@@ -36,7 +35,8 @@ NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'hashivim/vim-terraform'
-NeoBundle 'rakr/vim-two-firewatch'
+NeoBundle 'cocopon/iceberg.vim'
+NeoBundle 'rhysd/try-colorscheme.vim'
 
 if has("gui_running")
 	NeoBundle 'itchyny/lightline.vim'
@@ -48,10 +48,6 @@ if has('lua')
 else
 	NeoBundle 'Shougo/neocomplcache'
 endif
-
-NeoBundle 'cocopon/iceberg.vim'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'atelierbram/Base2Tone-vim'
 
 NeoBundleLazy 'vim-ruby/vim-ruby', {
 	\ "autoload" : {"filetypes" :["ruby"]}
@@ -227,11 +223,7 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 " Color
 set t_Co=256
 set background=dark
-if has("gui_running")
-	colorscheme gotham256
-else
-	colorscheme iceberg
-endif
+colorscheme iceberg
 hi NonText guifg=bg
 
 " GUI
