@@ -34,7 +34,6 @@ NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'elzr/vim-json'
-NeoBundle 'hashivim/vim-terraform'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'rakr/vim-two-firewatch'
 NeoBundle 'rhysd/try-colorscheme.vim'
@@ -97,6 +96,10 @@ NeoBundle 'othree/html5.vim', {
 
 NeoBundle 'gregsexton/MatchTag', {
 	\ "autoload" : {"filetypes" :["html"]}
+\ }
+
+NeoBundle 'hashivim/vim-terraform', {
+	\ "autoload" : {"filetypes" :["terraform"]}
 \ }
 
 NeoBundleCheck
@@ -227,6 +230,9 @@ set background=dark
 if has("gui_running")
 	let g:two_firewatch_italics=1
 	colorscheme two-firewatch
+	hi VertSplit    guibg=#202329 guifg=#202329
+	hi LineNr       guibg=#24272e guifg=#3d4148
+	hi CursorLineNr guibg=#24272e guifg=#3d4148
 else
 	colorscheme iceberg
 endif
@@ -492,6 +498,7 @@ au BufRead,BufNewFile *.erb                  set filetype=eruby
 au BufRead,BufNewFile *.coffee               set filetype=coffeescript
 au BufRead,BufNewFile *.md,*.markdown,*.md.* set filetype=markdown
 au BufRead,BufNewFile *.go                   set filetype=go
+au BufRead,BufNewFile *.tf                   set filetype=terraform
 au BufRead,BufNewFile *etc/httpd/conf/*,*etc/httpd/conf.d/*,/etc/apache2/apache2.conf set filetype=apache
 
 " Plain Text
@@ -542,3 +549,6 @@ let g:go_highlight_operators         = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command                 = 'goimports'
 let g:go_fmt_autosave                = 1
+
+" Terraform
+au FileType terraform set sw=2 ts=2 sts=2 et
