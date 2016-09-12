@@ -139,6 +139,7 @@ set tabstop=4
 set ambiwidth=double
 set nobackup
 set visualbell t_vb=
+set guicursor=a:ver1
 
 if has("gui_running")
 	set cursorline
