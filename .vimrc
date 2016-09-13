@@ -228,15 +228,7 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 " Color
 set t_Co=256
 set background=dark
-if has("gui_running")
-	let g:two_firewatch_italics=1
-	colorscheme two-firewatch
-	hi VertSplit    guibg=#202329 guifg=#202329
-	hi LineNr       guibg=#24272e guifg=#3d4148
-	hi CursorLineNr guibg=#24272e guifg=#3d4148
-else
-	colorscheme iceberg
-endif
+colorscheme iceberg
 hi NonText guifg=bg
 
 " GUI
@@ -383,7 +375,7 @@ let g:rooter_silent_chdir = 1
 " lightline
 if neobundle#is_installed('lightline.vim')
 	let g:lightline = {
-		\ 'colorscheme': 'powerline',
+		\ 'colorscheme': 'iceberg',
 		\ 'active': {
 		\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filename', 'modified', 'readonly' ] ],
 		\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
