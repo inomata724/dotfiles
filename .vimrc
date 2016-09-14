@@ -35,6 +35,7 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'rhysd/try-colorscheme.vim'
+NeoBundle 'vim-scripts/tracwiki'
 
 if has("gui_running")
 	NeoBundle 'itchyny/lightline.vim'
