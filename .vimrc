@@ -35,7 +35,6 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'rhysd/try-colorscheme.vim'
-NeoBundle 'vim-scripts/tracwiki'
 
 if has("gui_running")
 	NeoBundle 'itchyny/lightline.vim'
@@ -90,16 +89,20 @@ NeoBundleLazy 'Rykka/riv.vim', {
 	\ "autoload" : {"filetypes" :["rst"]}
 \ }
 
-NeoBundle 'othree/html5.vim', {
+NeoBundleLazy 'othree/html5.vim', {
 	\ "autoload" : {"filetypes" :["html"]}
 \ }
 
-NeoBundle 'gregsexton/MatchTag', {
+NeoBundleLazy 'gregsexton/MatchTag', {
 	\ "autoload" : {"filetypes" :["html"]}
 \ }
 
-NeoBundle 'hashivim/vim-terraform', {
+NeoBundleLazy 'hashivim/vim-terraform', {
 	\ "autoload" : {"filetypes" :["terraform"]}
+\ }
+
+NeoBundleLazy 'vim-scripts/tracwiki', {
+	\ "autoload" : {"filetypes" :["tracwiki"]}
 \ }
 
 NeoBundleCheck
@@ -491,6 +494,7 @@ au BufRead,BufNewFile *.erb                           set filetype=eruby
 au BufRead,BufNewFile *.coffee                        set filetype=coffeescript
 au BufRead,BufNewFile *.md,*.markdown,*.md.*          set filetype=markdown
 au BufRead,BufNewFile *.go                            set filetype=go
+au BufRead,BufNewFile *.tracwiki                      set filetype=tracwiki
 au BufRead,BufNewFile *.tf,*.tfstate,*.tfstate.backup set filetype=terraform
 au BufRead,BufNewFile *etc/httpd/conf/*,*etc/httpd/conf.d/*,/etc/apache2/apache2.conf set filetype=apache
 
