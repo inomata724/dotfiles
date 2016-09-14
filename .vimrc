@@ -139,6 +139,7 @@ set ambiwidth=double
 set nobackup
 set visualbell t_vb=
 set guicursor=a:ver1
+set completeopt=menuone
 
 if has("gui_running")
 	set cursorline
