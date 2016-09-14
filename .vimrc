@@ -30,17 +30,16 @@ NeoBundle 'dbakker/vim-projectroot'
 NeoBundle 'xolox/vim-easytags'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'cocopon/iceberg.vim'
-NeoBundle 'rakr/vim-two-firewatch'
 NeoBundle 'rhysd/try-colorscheme.vim'
 
 if has("gui_running")
 	NeoBundle 'itchyny/lightline.vim'
 	NeoBundle 'popkirby/lightline-iceberg'
+	NeoBundle 'itchyny/vim-cursorword'
 endif
 
 if has('lua')
@@ -258,41 +257,39 @@ nnoremap <Leader>tm :TableModeToggle<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
+" vim-monster
+if executable('rct-complete')
+	let g:monster#completion#rcodetools#backend = "async_rct_complete"
+endif
+
 " neocomplete /neocomplcache
 if has('lua')
 	let g:neocomplete#enable_at_startup                 = 1
 	let g:neocomplete#enable_ignore_case                = 0
 	let g:neocomplete#enable_smart_case                 = 0
 	let g:neocomplete#sources#syntax#min_keyword_length = 3
-	let g:neocomplete#auto_completion_start_length      = 1
+	let g:neocomplete#auto_completion_start_length      = 2
 	let g:neocomplete#lock_buffer_name_pattern          = '\*ku\*'
 	let g:neocomplete#max_list                          = 50
 	let g:neocomplete#enable_underbar_completion        = 1
 	let g:neocomplete#enable_camel_case_completion      = 1
-
-	if executable('rct-complete')
-		let g:monster#completion#rcodetools#backend = "async_rct_complete"
-	endif
 
 	if !exists('g:neocomplete#keyword_patterns')
 	  let g:neocomplete#keyword_patterns = {}
 	endif
 	let g:neocomplete#keyword_patterns._ = '\h\w*'
 
-	autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-
-	if !exists('g:neocomplete#sources#omni#input_patterns')
-	  let g:neocomplete#sources#omni#input_patterns = {}
-	endif
-	let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-	let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
+	let g:neocomplete#sources#omni#input_patterns = {
+		\ "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+		\ "go"   : '\h\w\.\w*'
+	\ }
 else
 	let g:neocomplcache_enable_at_startup              = 1
 	let g:neocomplcache_enable_ignore_case             = 0
 	let g:neocomplcache_enable_smart_case              = 0
 	let g:neocomplcache_manual_completion_start_length = 2
 	let g:neocomplcache_min_keyword_length             = 3
-	let g:neocomplete#auto_completion_start_length     = 1
+	let g:neocomplete#auto_completion_start_length     = 2
 	let g:neocomplcache_lock_buffer_name_pattern       = '\*ku\*'
 	let g:neocomplcache_max_list                       = 50
 	let g:neocomplcache_enable_prefetch                = 1
@@ -304,11 +301,10 @@ else
 	endif
 	let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-	if !exists('g:neocomplcache_force_omni_patterns')
-			let g:neocomplcache_force_omni_patterns = {}
-	endif
-	let g:neocomplcache_force_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-	let g:neocomplcache_force_omni_patterns.go = '\h\w\.\w*'
+	let g:neocomplcache_force_omni_patterns = {
+		\ "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+		\ "go"   : '\h\w\.\w*'
+	\ }
 endif
 
 " CtrlP
