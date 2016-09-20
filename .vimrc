@@ -176,8 +176,10 @@ au BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s/\s\+
 
 " auto read
 augroup vimrc-checktime
-	autocmd!
-	autocmd BufEnter * checktime
+	if filereadable(expand("%:p"))
+		autocmd!
+		autocmd BufEnter * checktime
+	endif
 augroup END
 
 " EasyTags
