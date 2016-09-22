@@ -31,7 +31,6 @@ NeoBundle 'xolox/vim-easytags'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'dhruvasagar/vim-table-mode'
-NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'rhysd/try-colorscheme.vim'
@@ -51,10 +50,6 @@ endif
 NeoBundleLazy 'vim-ruby/vim-ruby', {
 	\ "autoload" : {"filetypes" :["ruby"]}
 \ }
-
-"NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
-"	\ "autoload" : {"filetypes" :["ruby"]}
-"\ }
 
 NeoBundleLazy 'tpope/vim-rails', {
 	\ "autoload" : {"filetypes" :["ruby"]}
