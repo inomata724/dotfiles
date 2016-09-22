@@ -52,9 +52,9 @@ NeoBundleLazy 'vim-ruby/vim-ruby', {
 	\ "autoload" : {"filetypes" :["ruby"]}
 \ }
 
-NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
-	\ "autoload" : {"filetypes" :["ruby"]}
-\ }
+"NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
+"	\ "autoload" : {"filetypes" :["ruby"]}
+"\ }
 
 NeoBundleLazy 'tpope/vim-rails', {
 	\ "autoload" : {"filetypes" :["ruby"]}
