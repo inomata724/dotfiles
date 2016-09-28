@@ -538,7 +538,8 @@ au FileType liquid set sw=2 ts=2 sts=2 et
 au FileType go set sw=8 sts=8 ts=8 noet
 let g:go_highlight_functions         = 1
 let g:go_highlight_methods           = 1
-let g:go_highlight_structs           = 1
+let g:go_highlight_fields            = 1
+let g:go_highlight_types             = 1
 let g:go_highlight_operators         = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command                 = 'goimports'
