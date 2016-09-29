@@ -234,8 +234,8 @@ if has('gui_running')
 	colorscheme gotham256
 else
 	colorscheme iceberg
-	hi NonText guifg=bg
 endif
+hi NonText guifg=bg
 
 " GUI
 set guifont=Ricty\ Regular\ For\ Powerline:h18
