@@ -32,15 +32,10 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'elzr/vim-json'
-NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'whatyouhide/vim-gotham'
 NeoBundle 'rhysd/try-colorscheme.vim'
-
-if has("gui_running")
-	NeoBundle 'itchyny/lightline.vim'
-	NeoBundle 'popkirby/lightline-iceberg'
-	NeoBundle 'itchyny/vim-cursorword'
-endif
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'itchyny/vim-cursorword'
 
 if has('lua')
 	NeoBundle 'Shougo/neocomplete.vim'
@@ -233,7 +228,7 @@ set background=dark
 if has('gui_running')
 	colorscheme gotham256
 else
-	colorscheme iceberg
+	colorscheme gotham
 endif
 hi NonText guifg=bg
 
@@ -378,7 +373,6 @@ let g:rooter_silent_chdir = 1
 " lightline
 if neobundle#is_installed('lightline.vim')
 	let g:lightline = {
-		\ 'colorscheme': 'gotham256',
 		\ 'active': {
 		\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filename', 'modified', 'readonly' ] ],
 		\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
@@ -420,6 +414,12 @@ if neobundle#is_installed('lightline.vim')
 		\ 	"title": "TabTitle"
 		\ }
 	\ }
+
+	if has('gui_running')
+		let g:lightline.colorscheme = 'gotham256'
+	else
+		let g:lightline.colorscheme = 'gotham'
+	endif
 
 	function! ReadOnly()
 		return &ft !~? 'help' && &ro ? '⭤' : ''
