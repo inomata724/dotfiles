@@ -115,7 +115,7 @@ set matchtime=1
 set showtabline=2
 set noswapfile
 set scrolloff=10
-set sidescrolloff=999
+set sidescrolloff=16
 set noshowmode
 set laststatus=2
 set hlsearch
