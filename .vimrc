@@ -518,6 +518,9 @@ au FileType python setl smartindent sw=4 sts=4 ts=4 et cinwords=if,elif,else,for
 " JavaScript
 au FileType javascript setlocal sw=2 sts=2 ts=2 et
 
+" JSON
+au FileType javascript setlocal sw=2 sts=2 ts=2 et
+
 " CoffeeScript
 au FileType coffeescript setlocal sw=2 sts=2 ts=2 et
 
