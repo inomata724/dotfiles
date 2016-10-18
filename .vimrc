@@ -59,12 +59,6 @@ NeoBundleLazy 'tpope/vim-endwise', {
 	\ "autoload" : {"filetypes" :["ruby"]}
 \ }
 
-if executable('rct-complete')
-	NeoBundleLazy 'osyo-manga/vim-monster', {
-		\ "autoload" : {"filetypes" :["ruby"]}
-	\ }
-endif
-
 NeoBundleLazy 'fatih/vim-go', {
 	\ 'autoload' : {
 	\ 	'filetypes' : 'go',
@@ -258,11 +252,6 @@ nnoremap <Leader>h  :noh<CR>
 nnoremap <Leader>tm :TableModeToggle<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
-
-" vim-monster
-if executable('rct-complete')
-	let g:monster#completion#rcodetools#backend = "async_rct_complete"
-endif
 
 " neocomplete /neocomplcache
 if has('lua')
