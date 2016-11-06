@@ -255,13 +255,15 @@ vmap     <Enter>    <Plug>(EasyAlign)
 
 " neocomplete /neocomplcache
 if has('lua')
+	let g:neocomplete#release_cache_time                = 120
+	let g:neocomplete#sources#buffer#cache_limit_size   = 50000
 	let g:neocomplete#enable_at_startup                 = 1
 	let g:neocomplete#enable_ignore_case                = 0
 	let g:neocomplete#enable_smart_case                 = 0
 	let g:neocomplete#sources#syntax#min_keyword_length = 3
 	let g:neocomplete#auto_completion_start_length      = 2
 	let g:neocomplete#lock_buffer_name_pattern          = '\*ku\*'
-	let g:neocomplete#max_list                          = 50
+	let g:neocomplete#max_list                          = 10
 	let g:neocomplete#enable_underbar_completion        = 1
 	let g:neocomplete#enable_camel_case_completion      = 1
 
@@ -282,7 +284,7 @@ else
 	let g:neocomplcache_min_keyword_length             = 3
 	let g:neocomplete#auto_completion_start_length     = 2
 	let g:neocomplcache_lock_buffer_name_pattern       = '\*ku\*'
-	let g:neocomplcache_max_list                       = 50
+	let g:neocomplcache_max_list                       = 10
 	let g:neocomplcache_enable_prefetch                = 1
 	let g:neocomplcache_enable_underbar_completion     = 1
 	let g:neocomplcache_enable_camel_case_completion   = 1
