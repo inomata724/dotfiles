@@ -37,7 +37,6 @@ NeoBundle 'rhysd/try-colorscheme.vim'
 
 if has('gui_running')
 	NeoBundle 'itchyny/lightline.vim'
-	NeoBundle 'popkirby/lightline-iceberg'
 	NeoBundle 'itchyny/vim-cursorword'
 endif
 
@@ -364,7 +363,7 @@ let g:rooter_silent_chdir = 1
 " lightline
 if neobundle#is_installed('lightline.vim')
 	let g:lightline = {
-		\ 'colorscheme': 'iceberg',
+		\ 'colorscheme': 'powerline',
 		\ 'active': {
 		\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filename', 'modified', 'readonly' ] ],
 		\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
