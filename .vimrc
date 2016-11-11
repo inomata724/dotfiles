@@ -227,7 +227,7 @@ colorscheme iceberg
 hi NonText guifg=bg
 
 " GUI
-set guifont=Ricty\ Regular\ For\ Powerline:h18
+set guifont=Ricty\ Regular\ For\ Powerline:h17
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
