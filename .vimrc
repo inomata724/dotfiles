@@ -224,6 +224,15 @@ set t_Co=256
 set background=dark
 colorscheme iceberg
 hi NonText guifg=bg
+hi Normal ctermbg=NONE
+hi NonText ctermbg=NONE
+hi TabLine ctermbg=NONE
+hi TabLineSel ctermbg=NONE
+hi TabLineFill ctermbg=NONE
+hi LineNr ctermbg=NONE
+hi CursorLineNr ctermbg=NONE
+hi Comment ctermbg=NONE
+hi SpecialKey ctermbg=NONE
 
 " GUI
 set guifont=Ricty\ Regular\ For\ Powerline:h17
