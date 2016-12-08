@@ -37,8 +37,8 @@ endif
 
 NeoBundle 'Valloric/YouCompleteMe', {
 	\ 'build': {
-	\	'mac': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --all"',
-	\	'unix': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --all"',
+	\	'mac': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer --gocode-completer --tern-completer"',
+	\	'unix': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer --gocode-completer --tern-completer"',
 	\ },
 \}
 
