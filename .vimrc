@@ -10,12 +10,6 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'Shougo/vimproc', {
-	\ 'build': {
-	\ 	'mac': 'make -f make_mac.mak',
-	\ 	'unix': 'make -f make_unix.mak',
-	\ },
-\}
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
@@ -41,11 +35,12 @@ if has('gui_running')
 	NeoBundle 'itchyny/vim-cursorword'
 endif
 
-if has('lua')
-	NeoBundle 'Shougo/neocomplete.vim'
-else
-	NeoBundle 'Shougo/neocomplcache'
-endif
+NeoBundle 'Valloric/YouCompleteMe', {
+	\ 'build': {
+	\	'mac': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --all"',
+	\	'unix': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --all"',
+	\ },
+\}
 
 NeoBundleLazy 'vim-ruby/vim-ruby', {
 	\ "autoload" : {"filetypes" :["ruby"]}
@@ -250,53 +245,6 @@ nnoremap <Leader>h  :noh<CR>
 nnoremap <Leader>tm :TableModeToggle<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
-
-" neocomplete /neocomplcache
-if has('lua')
-	let g:neocomplete#release_cache_time                = 120
-	let g:neocomplete#sources#buffer#cache_limit_size   = 50000
-	let g:neocomplete#enable_at_startup                 = 1
-	let g:neocomplete#enable_ignore_case                = 0
-	let g:neocomplete#enable_smart_case                 = 0
-	let g:neocomplete#sources#syntax#min_keyword_length = 3
-	let g:neocomplete#auto_completion_start_length      = 2
-	let g:neocomplete#lock_buffer_name_pattern          = '\*ku\*'
-	let g:neocomplete#max_list                          = 10
-	let g:neocomplete#enable_underbar_completion        = 1
-	let g:neocomplete#enable_camel_case_completion      = 1
-
-	if !exists('g:neocomplete#keyword_patterns')
-	  let g:neocomplete#keyword_patterns = {}
-	endif
-	let g:neocomplete#keyword_patterns._ = '\h\w*'
-
-	let g:neocomplete#sources#omni#input_patterns = {
-		\ "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-		\ "go"   : '\h\w\.\w*'
-	\ }
-else
-	let g:neocomplcache_enable_at_startup              = 1
-	let g:neocomplcache_enable_ignore_case             = 0
-	let g:neocomplcache_enable_smart_case              = 0
-	let g:neocomplcache_manual_completion_start_length = 2
-	let g:neocomplcache_min_keyword_length             = 3
-	let g:neocomplete#auto_completion_start_length     = 2
-	let g:neocomplcache_lock_buffer_name_pattern       = '\*ku\*'
-	let g:neocomplcache_max_list                       = 10
-	let g:neocomplcache_enable_prefetch                = 1
-	let g:neocomplcache_enable_underbar_completion     = 1
-	let g:neocomplcache_enable_camel_case_completion   = 1
-
-	if !exists('g:neocomplcache_keyword_patterns')
-			let g:neocomplcache_keyword_patterns = {}
-	endif
-	let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-	let g:neocomplcache_force_omni_patterns = {
-		\ "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-		\ "go"   : '\h\w\.\w*'
-	\ }
-endif
 
 " CtrlP
 let g:ctrlp_map                 = '<Nop>'
