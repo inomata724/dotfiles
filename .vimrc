@@ -246,6 +246,9 @@ nnoremap <Leader>tm :TableModeToggle<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
+" YouCompleteMe
+let g:ycm_min_num_of_chars_for_completion = 1
+
 " CtrlP
 let g:ctrlp_map                 = '<Nop>'
 let g:ctrlp_use_caching         = 0
