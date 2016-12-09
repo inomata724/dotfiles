@@ -299,13 +299,14 @@ let g:ctrlp_prompt_mappings = {
 \ }
 
 " Syntastic
-let g:syntastic_enable_signs  = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_mode_map      = { 'mode': 'active',
+let g:syntastic_enable_signs            = 1
+let g:syntastic_auto_loc_list           = 2
+let g:syntastic_mode_map                = { 'mode': 'active',
 	\ 'active_filetypes': [],
 	\ 'passive_filetypes': ['html']
 \ }
 let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
+let g:syntastic_go_checkers             = ['go', 'errcheck']
 
 " vim-rooter
 let g:rooter_disable_map  = 1
