@@ -248,6 +248,7 @@ vmap     <Enter>    <Plug>(EasyAlign)
 
 " YouCompleteMe
 let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_seed_identifiers_with_syntax    = 1
 
 " CtrlP
 let g:ctrlp_map                 = '<Nop>'
@@ -447,10 +448,13 @@ let g:html5_microdata_attributes_complete     = 1
 let g:html5_aria_attributes_complete          = 1
 
 " Ruby
-au FileType ruby set sw=2 ts=2 sts=2 et
-au FileType eruby set sw=2 ts=2 sts=2 et
-let ruby_space_errors         = 1
-let g:ruby_indent_block_style = 'do'
+au FileType ruby,eruby set sw=2 ts=2 sts=2 et omnifunc=rubycomplete#Complete
+let ruby_space_errors                   = 1
+let g:ruby_indent_block_style           = 'do'
+let g:rubycomplete_buffer_loading       = 1
+let g:rubycomplete_classes_in_global    = 1
+let g:rubycomplete_include_object       = 1
+let g:rubycomplete_include_object_space = 1
 
 " Python
 au FileType python setl smartindent sw=4 sts=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
