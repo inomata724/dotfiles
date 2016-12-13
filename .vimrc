@@ -28,11 +28,11 @@ NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'rhysd/try-colorscheme.vim'
+NeoBundle 'itchyny/vim-cursorword'
 
 if has('gui_running')
 	NeoBundle 'itchyny/lightline.vim'
 	NeoBundle 'popkirby/lightline-iceberg'
-	NeoBundle 'itchyny/vim-cursorword'
 endif
 
 NeoBundle 'Valloric/YouCompleteMe', {
