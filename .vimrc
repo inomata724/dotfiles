@@ -27,7 +27,6 @@ NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'cocopon/iceberg.vim'
-NeoBundle 'whatyouhide/vim-gotham'
 NeoBundle 'rhysd/try-colorscheme.vim'
 NeoBundle 'itchyny/vim-cursorword'
 
@@ -218,13 +217,7 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 " Color
 set t_Co=256
 set background=dark
-if has('gui_running')
-	colorscheme gotham256
-	hi NonText guifg=bg
-	hi VertSplit guifg=#11151c guibg=#11151c
-else
-	colorscheme iceberg
-endif
+colorscheme iceberg
 
 " GUI
 set guifont=Ricty\ Regular\ For\ Powerline:h17
@@ -322,6 +315,7 @@ let g:rooter_silent_chdir = 1
 " lightline
 if neobundle#is_installed('lightline.vim')
 	let g:lightline = {
+		\ 'colorscheme': 'iceberg',
 		\ 'active': {
 		\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filename', 'modified', 'readonly' ] ],
 		\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
@@ -363,12 +357,6 @@ if neobundle#is_installed('lightline.vim')
 		\ 	"title": "TabTitle"
 		\ }
 	\ }
-
-	if has('gui_running')
-		let g:lightline.colorscheme = 'gotham256'
-	else
-		let g:lightline.colorscheme = 'iceberg'
-	endif
 
 	function! ReadOnly()
 		return &ft !~? 'help' && &ro ? '⭤' : ''
