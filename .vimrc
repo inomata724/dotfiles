@@ -316,6 +316,10 @@ if neobundle#is_installed('lightline.vim')
 		\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filepath', 'modified', 'readonly' ] ],
 		\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
 		\ },
+		\ 'inactive': {
+		\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filepath', 'modified', 'readonly' ] ],
+		\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
+		\ },
 		\ 'component': {
 		\ 	'rows'    : '%L',
 		\ 	'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
