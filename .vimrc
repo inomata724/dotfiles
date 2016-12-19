@@ -313,7 +313,7 @@ if neobundle#is_installed('lightline.vim')
 	let g:lightline = {
 		\ 'colorscheme': 'iceberg',
 		\ 'active': {
-		\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filename', 'modified', 'readonly' ] ],
+		\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filepath', 'modified', 'readonly' ] ],
 		\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
 		\ },
 		\ 'component': {
@@ -326,6 +326,7 @@ if neobundle#is_installed('lightline.vim')
 		\ 'component_function': {
 		\ 	'current_branch': 'CurrentBranch',
 		\ 	'filename': 'Filename',
+		\ 	'filepath': 'Filepath'
 		\ },
 		\ 'component_expand': {
 		\ 	'indentation': 'MixedIndentationWarning',
@@ -379,6 +380,10 @@ if neobundle#is_installed('lightline.vim')
 
 	function! Filename()
 			return expand('%:t')
+	endfunction
+
+	function! Filepath()
+			return expand('%:p')
 	endfunction
 
 	function! TabFilePath(n)
