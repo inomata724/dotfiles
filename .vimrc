@@ -387,7 +387,7 @@ if neobundle#is_installed('lightline.vim')
 	endfunction
 
 	function! Filepath()
-			return expand('%:p')
+			return expand('%')
 	endfunction
 
 	function! TabFilePath(n)
