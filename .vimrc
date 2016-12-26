@@ -214,6 +214,8 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 set t_Co=256
 set background=dark
 colorscheme iceberg
+hi NonText ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
 " GUI
 set guifont=Ricty\ Regular\ For\ Powerline:h17
