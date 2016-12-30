@@ -11,7 +11,7 @@
 [push]
 	default = simple
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore_global
 	pager = less -R
 [user]
 	name = Ryo Inomata
