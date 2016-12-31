@@ -250,8 +250,9 @@ nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
 " YouCompleteMe
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_seed_identifiers_with_syntax    = 1
+let g:ycm_min_num_of_chars_for_completion     = 1
+let g:ycm_seed_identifiers_with_syntax        = 1
+let g:ycm_collect_identifiers_from_tags_files = 0
 
 " CtrlP
 let g:ctrlp_map                 = '<Nop>'
