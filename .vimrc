@@ -112,6 +112,7 @@ set backspace=indent,eol,start
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
+set cpoptions+=d
 set tags=./tags;,~/.vimtags
 set autoread
 set nofoldenable
@@ -165,10 +166,10 @@ augroup END
 let g:easytags_always_enabled = 1
 let g:easytags_auto_update    = 1
 let g:easytags_async          = 1
-let g:easytags_dynamic_files  = 1
+let g:easytags_dynamic_files  = 2
 let g:easytags_autorecurse    = 1
 let g:easytags_auto_highlight = 0
-let g:easytags_on_cursorhold  = 1
+let g:easytags_on_cursorhold  = 0
 
 " NERDTree
 autocmd BufEnter * lcd %:p:h
