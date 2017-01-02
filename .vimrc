@@ -113,7 +113,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
 set cpoptions+=d
-set tags=./tags;,~/.vimtags
+set tags=./tags;
 set autoread
 set nofoldenable
 set re=0
@@ -462,7 +462,7 @@ let g:html5_microdata_attributes_complete     = 1
 let g:html5_aria_attributes_complete          = 1
 
 " Ruby
-au FileType ruby,eruby set sw=2 ts=2 sts=2 et omnifunc=rubycomplete#Complete
+au FileType ruby,eruby set sw=2 ts=2 sts=2 et
 let ruby_space_errors                   = 1
 let g:ruby_indent_block_style           = 'do'
 let g:rubycomplete_buffer_loading       = 1
