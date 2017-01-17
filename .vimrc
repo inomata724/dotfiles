@@ -163,7 +163,7 @@ augroup vimrc-checktime
 augroup END
 
 " EasyTags
-let g:easytags_always_enabled = 1
+let g:easytags_always_enabled = 0
 let g:easytags_auto_update    = 1
 let g:easytags_async          = 1
 let g:easytags_dynamic_files  = 2

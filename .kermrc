@@ -1,4 +1,5 @@
-set line /dev/tty.usbserial-FTY4V9GT
+#set line /dev/tty.usbserial-FTY4V9GT
+set line /dev/tty.usbserial-A504CUYE
 set speed 9600
 set stop-bits 1
 set flow-control none
