@@ -65,6 +65,10 @@ NeoBundleLazy 'kchmck/vim-coffee-script', {
 	\ "autoload" : {"filetypes" :["coffeescript"]}
 	\ }
 
+NeoBundleLazy 'leafgarland/typescript-vim', {
+	\ "autoload" : {"filetypes" :["typescript"]}
+	\ }
+
 NeoBundleLazy 'Rykka/riv.vim', {
 	\ "autoload" : {"filetypes" :["rst"]}
 \ }
