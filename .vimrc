@@ -179,7 +179,7 @@ let g:easytags_on_cursorhold  = 0
 autocmd BufEnter * lcd %:p:h
 let NERDTreeChDirMode   = 0
 let NERDTreeHijackNetrw = 0
-let NERDTreeWinSize     = 35
+let NERDTreeWinSize     = 50
 let NERDTreeShowHidden  = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif"))"
 
