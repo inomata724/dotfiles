@@ -315,6 +315,7 @@ let g:syntastic_mode_map                = { 'mode': 'active',
 \ }
 let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
 let g:syntastic_go_checkers             = ['go', 'errcheck']
+let g:syntastic_typescript_checkers     = ['tslint']
 
 " vim-rooter
 let g:rooter_disable_map  = 1
