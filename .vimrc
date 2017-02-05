@@ -176,12 +176,12 @@ let g:easytags_auto_highlight = 0
 let g:easytags_on_cursorhold  = 0
 
 " NERDTree
-autocmd BufEnter * lcd %:p:h
+"autocmd BufEnter * lcd %:p:h
 let NERDTreeChDirMode   = 0
 let NERDTreeHijackNetrw = 0
 let NERDTreeWinSize     = 40
 let NERDTreeShowHidden  = 1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif"))"
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif"))"
 
 " Tagbar
 let g:tagbar_sort = 0
