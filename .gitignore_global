@@ -6,3 +6,4 @@
 .svn
 *.swp
 tags
+!tags/
