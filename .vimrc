@@ -128,10 +128,7 @@ set ambiwidth=double
 set nobackup
 set visualbell t_vb=
 set completeopt=menuone
-
-if has('gui_running')
-	set cursorline
-endif
+set cursorline
 
 " disable plugins
 let g:loaded_gzip            = 1
