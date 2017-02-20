@@ -497,7 +497,6 @@ au FileType yaml set sw=2 sts=2 ts=2 et
 
 " Markdown
 au FileType markdown set sw=2 sts=2 ts=2 et
-au FileType markdown TableModeEnable
 
 " reStructuredText
 let g:riv_disable_folding = 1
