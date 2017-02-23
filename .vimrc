@@ -31,6 +31,13 @@ NeoBundle 'rhysd/try-colorscheme.vim'
 NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'itchyny/lightline.vim'
 
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'mac' : 'make',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 NeoBundle 'Valloric/YouCompleteMe', {
 	\ 'build': {
 	\	'mac': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer --gocode-completer --tern-completer"',
@@ -61,13 +68,25 @@ NeoBundleLazy 'othree/yajs.vim', {
 	\ "autoload" : {"filetypes" :["javascript"]}
 \ }
 
+NeoBundleLazy 'Quramy/vim-js-pretty-template', {
+	\ "autoload" : {"filetypes" :["javascript", "typescript"]}
+\ }
+
+NeoBundleLazy 'jason0x43/vim-js-indent', {
+	\ "autoload" : {"filetypes": ["javascript", "typescript"]}
+\ }
+
 NeoBundleLazy 'kchmck/vim-coffee-script', {
 	\ "autoload" : {"filetypes" :["coffeescript"]}
-	\ }
+\ }
 
 NeoBundleLazy 'leafgarland/typescript-vim', {
 	\ "autoload" : {"filetypes" :["typescript"]}
-	\ }
+\ }
+
+NeoBundleLazy 'Quramy/tsuquyomi', {
+	\ "autoload" : {"filetypes" :["typescript"]}
+\ }
 
 NeoBundleLazy 'Rykka/riv.vim', {
 	\ "autoload" : {"filetypes" :["rst"]}
@@ -491,6 +510,8 @@ au FileType coffeescript setlocal sw=2 sts=2 ts=2 et
 
 " TypeScript
 au FileType typescript setlocal sw=2 sts=2 ts=2 et
+autocmd FileType typescript JsPreTmpl html
+autocmd FileType typescript syn clear foldBraces
 
 " Yaml
 au FileType yaml set sw=2 sts=2 ts=2 et
