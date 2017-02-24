@@ -508,8 +508,8 @@ au FileType coffeescript setlocal sw=2 sts=2 ts=2 et
 
 " TypeScript
 au FileType typescript setlocal sw=2 sts=2 ts=2 et
-autocmd FileType typescript JsPreTmpl html
-autocmd FileType typescript syn clear foldBraces
+au FileType typescript JsPreTmpl html
+au FileType typescript syn clear foldBraces
 
 " Yaml
 au FileType yaml set sw=2 sts=2 ts=2 et
