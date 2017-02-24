@@ -1,10 +1,10 @@
 if has('vim_starting')
-	set nocompatible
-	if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
-		echo "Installing neobundle..."
-		call system("git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim")
-	endif
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
+		set nocompatible
+		if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
+				echo "Installing neobundle..."
+				call system("git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim")
+		endif
+		set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -32,81 +32,81 @@ NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'itchyny/lightline.vim'
 
 NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'mac' : 'make',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
+						\ 'build': {
+						\     'mac': 'make',
+						\     'linux': 'make',
+						\     'unix': 'gmake',
+						\    },
+						\ }
 NeoBundle 'Valloric/YouCompleteMe', {
-	\ 'build': {
-	\	'mac': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer --gocode-completer --tern-completer"',
-	\	'unix': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer --gocode-completer --tern-completer"',
-	\ },
-\}
+						\ 'build': {
+						\	'mac': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer --gocode-completer --tern-completer"',
+						\	'unix': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer --gocode-completer --tern-completer"',
+						\ },
+						\}
 
 NeoBundleLazy 'vim-ruby/vim-ruby', {
-	\ "autoload" : {"filetypes" :["ruby"]}
-\ }
+						\ "autoload": {"filetypes": ["ruby"]}
+						\ }
 
 NeoBundleLazy 'tpope/vim-rails', {
-	\ "autoload" : {"filetypes" :["ruby"]}
-\ }
+						\ "autoload": {"filetypes": ["ruby"]}
+						\ }
 
 NeoBundleLazy 'tpope/vim-endwise', {
-	\ "autoload" : {"filetypes" :["ruby"]}
-\ }
+						\ "autoload": {"filetypes": ["ruby"]}
+						\ }
 
 NeoBundleLazy 'fatih/vim-go', {
-	\ 'autoload' : {
-	\ 	'filetypes' : 'go',
-	\ 	'commands' : ['GoInstallBinaries', 'GoUpdateBinaries'],
-	\ }
-\ }
+						\ 'autoload': {
+						\ 	'filetypes': 'go',
+						\ 	'commands': ['GoInstallBinaries', 'GoUpdateBinaries'],
+						\ }
+						\ }
 
 NeoBundleLazy 'othree/yajs.vim', {
-	\ "autoload" : {"filetypes" :["javascript"]}
-\ }
+						\ "autoload": {"filetypes": ["javascript"]}
+						\ }
 
 NeoBundleLazy 'Quramy/vim-js-pretty-template', {
-	\ "autoload" : {"filetypes" :["javascript", "typescript"]}
-\ }
+						\ "autoload": {"filetypes": ["javascript", "typescript"]}
+						\ }
 
 NeoBundleLazy 'jason0x43/vim-js-indent', {
-	\ "autoload" : {"filetypes": ["javascript", "typescript"]}
-\ }
+						\ "autoload": {"filetypes": ["javascript", "typescript"]}
+						\ }
 
 NeoBundleLazy 'kchmck/vim-coffee-script', {
-	\ "autoload" : {"filetypes" :["coffeescript"]}
-\ }
+						\ "autoload": {"filetypes": ["coffeescript"]}
+						\ }
 
 NeoBundleLazy 'leafgarland/typescript-vim', {
-	\ "autoload" : {"filetypes" :["typescript"]}
-\ }
+						\ "autoload": {"filetypes": ["typescript"]}
+						\ }
 
 NeoBundleLazy 'Quramy/tsuquyomi', {
-	\ "autoload" : {"filetypes" :["typescript"]}
-\ }
+						\ "autoload": {"filetypes": ["typescript"]}
+						\ }
 
 NeoBundleLazy 'Rykka/riv.vim', {
-	\ "autoload" : {"filetypes" :["rst"]}
-\ }
+						\ "autoload": {"filetypes": ["rst"]}
+						\ }
 
 NeoBundleLazy 'othree/html5.vim', {
-	\ "autoload" : {"filetypes" :["html"]}
-\ }
+						\ "autoload": {"filetypes": ["html"]}
+						\ }
 
 NeoBundleLazy 'gregsexton/MatchTag', {
-	\ "autoload" : {"filetypes" :["html"]}
-\ }
+						\ "autoload": {"filetypes": ["html"]}
+						\ }
 
 NeoBundleLazy 'hashivim/vim-terraform', {
-	\ "autoload" : {"filetypes" :["terraform"]}
-\ }
+						\ "autoload": {"filetypes": ["terraform"]}
+						\ }
 
 NeoBundleLazy 'vim-scripts/tracwiki', {
-	\ "autoload" : {"filetypes" :["tracwiki"]}
-\ }
+						\ "autoload": {"filetypes": ["tracwiki"]}
+						\ }
 
 NeoBundleCheck
 call neobundle#end()
@@ -176,8 +176,8 @@ au BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s/\s\+
 
 " auto read
 augroup vimrc-checktime
-  autocmd!
-  autocmd WinEnter * checktime
+		autocmd!
+		autocmd WinEnter * checktime
 augroup END
 
 " EasyTags
@@ -200,33 +200,33 @@ let NERDTreeShowHidden  = 1
 " Tagbar
 let g:tagbar_sort = 0
 let g:tagbar_type_ruby = {
-	\ 'kinds' : [
-		\ 'm:modules',
-		\ 'c:classes',
-		\ 'd:describes',
-		\ 'C:contexts',
-		\ 'f:methods',
-		\ 'F:singleton methods'
-	\ ]
-\ }
+						\ 'kinds' : [
+						\ 'm:modules',
+						\ 'c:classes',
+						\ 'd:describes',
+						\ 'C:contexts',
+						\ 'f:methods',
+						\ 'F:singleton methods'
+						\ ]
+						\ }
 let g:tagbar_type_go = {
-	\ 'ctagstype': 'go',
-	\ 'kinds' : [
-		\'p:package',
-		\'f:function',
-		\'v:variables',
-		\'t:type',
-		\'c:const'
-	\]
-\}
+						\ 'ctagstype': 'go',
+						\ 'kinds' : [
+						\'p:package',
+						\'f:function',
+						\'v:variables',
+						\'t:type',
+						\'c:const'
+						\]
+						\}
 let g:tagbar_type_markdown = {
-	\ 'ctagstype' : 'markdown',
-	\ 'kinds' : [
-		\ 'h:Heading_L1',
-		\ 'i:Heading_L2',
-		\ 'k:Heading_L3'
-	\ ]
-\ }
+						\ 'ctagstype' : 'markdown',
+						\ 'kinds' : [
+						\ 'h:Heading_L1',
+						\ 'i:Heading_L2',
+						\ 'k:Heading_L3'
+						\ ]
+						\ }
 
 " Encoding
 set enc=utf-8
@@ -238,9 +238,9 @@ set t_Co=256
 set background=dark
 colorscheme iceberg
 if ($TERM_PROGRAM == 'iTerm.app')
-	set termguicolors
-	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum""]"
+		set termguicolors
+		let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+		let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum""]"
 endif
 hi NonText ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
@@ -285,53 +285,53 @@ let g:ctrlp_show_hidden         = 1
 let g:ctrlp_jump_to_buffer      = 2
 let g:ctrlp_match_window        = 'bottom,order:btt,min:1,max:10'
 if executable('ag')
-	let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ".git" --ignore ".svn" --ignore ".hg" --hidden -g ""'
-	let g:ctrlp_max_depth    = 10
+		let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ".git" --ignore ".svn" --ignore ".hg" --hidden -g ""'
+		let g:ctrlp_max_depth    = 10
 else
-	let g:ctrlp_max_depth = 5
+		let g:ctrlp_max_depth = 5
 endif
 let g:ctrlp_prompt_mappings = {
-	\ 'PrtBS()':              ['<bs>'],
-	\ 'PrtDeleteWord()':      ['<del>'],
-	\ 'PrtCurEnd()':          ['<c-e>'],
-	\ 'PrtCurLeft()':         ['<c-b>'],
-	\ 'PrtCurRight()':        ['<c-f>'],
-	\ 'PrtSelectMove("j")':   ['<c-n>'],
-	\ 'PrtSelectMove("k")':   ['<c-p>'],
-	\ 'PrtHistory(-1)':       ['nop'],
-	\ 'PrtHistory(1)':        ['nop'],
-	\ 'AcceptSelection("e")': ['<cr>'],
-	\ 'ToggleRegex()':        ['<c-r>'],
-	\ 'ToggleByFname()':      ['<c-d>'],
-	\ 'PrtExit()':            ['<c-l>', '<esc>', '<c-c>'],
-	\ 'ToggleFocus()':        ['<nop>'],
-	\ 'PrtExpandDir()':       ['<nop>'],
-	\ 'AcceptSelection("h")': ['<nop>'],
-	\ 'AcceptSelection("t")': ['<nop>'],
-	\ 'AcceptSelection("v")': ['<nop>'],
-	\ 'ToggleType(1)':        ['<nop>'],
-	\ 'ToggleType(-1)':       ['<nop>'],
-	\ 'PrtInsert()':          ['<nop>'],
-	\ 'PrtCurStart()':        ['<nop>'],
-	\ 'PrtClearCache()':      ['<nop>'],
-	\ 'PrtDeleteEnt()':       ['<nop>'],
-	\ 'CreateNewFile()':      ['<nop>'],
-	\ 'MarkToOpen()':         ['<nop>'],
-	\ 'OpenMulti()':          ['<nop>'],
-	\ 'PrtDelete()':          ['<nop>'],
-	\ 'PrtSelectMove("t")':   ['<nop>'],
-	\ 'PrtSelectMove("b")':   ['<nop>'],
-	\ 'PrtSelectMove("u")':   ['<nop>'],
-	\ 'PrtSelectMove("d")':   ['<nop>'],
-\ }
+						\ 'PrtBS()':              ['<bs>'],
+						\ 'PrtDeleteWord()':      ['<del>'],
+						\ 'PrtCurEnd()':          ['<c-e>'],
+						\ 'PrtCurLeft()':         ['<c-b>'],
+						\ 'PrtCurRight()':        ['<c-f>'],
+						\ 'PrtSelectMove("j")':   ['<c-n>'],
+						\ 'PrtSelectMove("k")':   ['<c-p>'],
+						\ 'PrtHistory(-1)':       ['nop'],
+						\ 'PrtHistory(1)':        ['nop'],
+						\ 'AcceptSelection("e")': ['<cr>'],
+						\ 'ToggleRegex()':        ['<c-r>'],
+						\ 'ToggleByFname()':      ['<c-d>'],
+						\ 'PrtExit()':            ['<c-l>', '<esc>', '<c-c>'],
+						\ 'ToggleFocus()':        ['<nop>'],
+						\ 'PrtExpandDir()':       ['<nop>'],
+						\ 'AcceptSelection("h")': ['<nop>'],
+						\ 'AcceptSelection("t")': ['<nop>'],
+						\ 'AcceptSelection("v")': ['<nop>'],
+						\ 'ToggleType(1)':        ['<nop>'],
+						\ 'ToggleType(-1)':       ['<nop>'],
+						\ 'PrtInsert()':          ['<nop>'],
+						\ 'PrtCurStart()':        ['<nop>'],
+						\ 'PrtClearCache()':      ['<nop>'],
+						\ 'PrtDeleteEnt()':       ['<nop>'],
+						\ 'CreateNewFile()':      ['<nop>'],
+						\ 'MarkToOpen()':         ['<nop>'],
+						\ 'OpenMulti()':          ['<nop>'],
+						\ 'PrtDelete()':          ['<nop>'],
+						\ 'PrtSelectMove("t")':   ['<nop>'],
+						\ 'PrtSelectMove("b")':   ['<nop>'],
+						\ 'PrtSelectMove("u")':   ['<nop>'],
+						\ 'PrtSelectMove("d")':   ['<nop>'],
+						\ }
 
 " Syntastic
 let g:syntastic_enable_signs            = 1
 let g:syntastic_auto_loc_list           = 2
 let g:syntastic_mode_map                = { 'mode': 'active',
-	\ 'active_filetypes': [],
-	\ 'passive_filetypes': ['html']
-\ }
+						\ 'active_filetypes': [],
+						\ 'passive_filetypes': ['html']
+						\ }
 let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
 let g:syntastic_go_checkers             = ['go', 'errcheck']
 let g:syntastic_typescript_checkers     = ['tslint']
@@ -342,125 +342,125 @@ let g:rooter_silent_chdir = 1
 
 " lightline
 if neobundle#is_installed('lightline.vim')
-	let g:lightline = {
-		\ 'colorscheme': 'iceberg',
-		\ 'active': {
-		\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filepath', 'modified', 'readonly' ] ],
-		\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
-		\ },
-		\ 'inactive': {
-		\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filepath', 'modified', 'readonly' ] ],
-		\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
-		\ },
-		\ 'component': {
-		\ 	'rows'    : '%L',
-		\ 	'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-		\ },
-		\ 'component_visible_condition': {
-		\ 	'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-		\ },
-		\ 'component_function': {
-		\ 	'current_branch': 'CurrentBranch',
-		\ 	'filename': 'Filename',
-		\ 	'filepath': 'Filepath'
-		\ },
-		\ 'component_expand': {
-		\ 	'indentation': 'MixedIndentationWarning',
-		\ 	'readonly': 'ReadOnly',
-		\ },
-		\ 'component_type': {
-		\ 	'indentation': 'error',
-		\ 	'readonly': 'error',
-		\ },
-		\ 'separator': {
-		\ 	'left': "\u2b80", 'right': "\u2b82"
-		\ },
-		\ 'subseparator': {
-		\ 	'left': "\u2b81", 'right': "\u2b83"
-		\ },
-		\ 'tabline': {
-		\ 	'left': [ [ 'tabs' ] ],
-		\ 	'right': [ [] ]
-		\ },
-		\ 'tab': {
-		\ 	'active': [ 'title' ],
-		\ 	'inactive': [ 'title' ]
-		\ },
-		\ 'tab_component_function': {
-		\ 	"title": "TabTitle"
-		\ }
-	\ }
+		let g:lightline = {
+								\ 'colorscheme': 'iceberg',
+								\ 'active': {
+								\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filepath', 'modified', 'readonly' ] ],
+								\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
+								\ },
+								\ 'inactive': {
+								\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filepath', 'modified', 'readonly' ] ],
+								\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
+								\ },
+								\ 'component': {
+								\ 	'rows'    : '%L',
+								\ 	'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+								\ },
+								\ 'component_visible_condition': {
+								\ 	'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+								\ },
+								\ 'component_function': {
+								\ 	'current_branch': 'CurrentBranch',
+								\ 	'filename': 'Filename',
+								\ 	'filepath': 'Filepath'
+								\ },
+								\ 'component_expand': {
+								\ 	'indentation': 'MixedIndentationWarning',
+								\ 	'readonly': 'ReadOnly',
+								\ },
+								\ 'component_type': {
+								\ 	'indentation': 'error',
+								\ 	'readonly': 'error',
+								\ },
+								\ 'separator': {
+								\ 	'left': "\u2b80", 'right': "\u2b82"
+								\ },
+								\ 'subseparator': {
+								\ 	'left': "\u2b81", 'right': "\u2b83"
+								\ },
+								\ 'tabline': {
+								\ 	'left': [ [ 'tabs' ] ],
+								\ 	'right': [ [] ]
+								\ },
+								\ 'tab': {
+								\ 	'active': [ 'title' ],
+								\ 	'inactive': [ 'title' ]
+								\ },
+								\ 'tab_component_function': {
+								\ 	"title": "TabTitle"
+								\ }
+								\ }
 
-	function! ReadOnly()
-		return &ft !~? 'help' && &ro ? '⭤' : ''
-	endfunction
+		function! ReadOnly()
+				return &ft !~? 'help' && &ro ? '⭤' : ''
+		endfunction
 
-	function! CurrentBranch()
-		try
-			if exists('*fugitive#head')
-				let _ = fugitive#head()
-				return strlen(_) ? '⭠ '._ : ''
-			endif
-		catch
-		endtry
-		return ''
-	endfunction
+		function! CurrentBranch()
+				try
+						if exists('*fugitive#head')
+								let _ = fugitive#head()
+								return strlen(_) ? '⭠ '._ : ''
+						endif
+				catch
+				endtry
+				return ''
+		endfunction
 
-	function! MixedIndentationWarning()
-		if (search('^\t', 'nw') != 0) && (search('^ ', 'nw') != 0)
-			return 'MixedIndentation'
-		else
-			return ''
-		endif
-	endfunction
+		function! MixedIndentationWarning()
+				if (search('^\t', 'nw') != 0) && (search('^ ', 'nw') != 0)
+						return 'MixedIndentation'
+				else
+						return ''
+				endif
+		endfunction
 
-	function! Filename()
-			return expand('%:t')
-	endfunction
+		function! Filename()
+				return expand('%:t')
+		endfunction
 
-	function! Filepath()
-			return expand('%')
-	endfunction
+		function! Filepath()
+				return expand('%')
+		endfunction
 
-	function! TabFilePath(n)
-		let buflist = tabpagebuflist(a:n)
-		let winnr = tabpagewinnr(a:n)
-		let _ = expand('#'.buflist[winnr - 1].':p')
-		return strlen(_) ? _ : '[No Name]'
-	endfunction
+		function! TabFilePath(n)
+				let buflist = tabpagebuflist(a:n)
+				let winnr = tabpagewinnr(a:n)
+				let _ = expand('#'.buflist[winnr - 1].':p')
+				return strlen(_) ? _ : '[No Name]'
+		endfunction
 
-	function! TabProjectName(n)
-		return fnamemodify(ProjectRootGet(TabFilePath(a:n)), ':t')
-	endfunction
+		function! TabProjectName(n)
+				return fnamemodify(ProjectRootGet(TabFilePath(a:n)), ':t')
+		endfunction
 
-	function! TabTitle(n)
-		let projectname = TabProjectName(a:n)
-		let filename = lightline#tab#filename(a:n)
+		function! TabTitle(n)
+				let projectname = TabProjectName(a:n)
+				let filename = lightline#tab#filename(a:n)
 
-		if ( projectname == filename )
-			return projectname
-		elseif( projectname != '' )
-			return projectname . ":" . filename
-		endif
+				if ( projectname == filename )
+						return projectname
+				elseif( projectname != '' )
+						return projectname . ":" . filename
+				endif
 
-		return filename
-	endfunction
+				return filename
+		endfunction
 
-	function! UpdateExpandComponents()
-		call MixedIndentationWarning()
-		call lightline#update()
-	endfunction
+		function! UpdateExpandComponents()
+				call MixedIndentationWarning()
+				call lightline#update()
+		endfunction
 
-	augroup AutoUpdateExpandComponents
-		au BufWritePost * call UpdateExpandComponents()
-	augroup END
+		augroup AutoUpdateExpandComponents
+				au BufWritePost * call UpdateExpandComponents()
+		augroup END
 endif
 
 " JSON formatter
 if executable('jq')
-	function! FormatJson()
-		execute "%!jq '.'"
-	endfunction
+		function! FormatJson()
+				execute "%!jq '.'"
+		endfunction
 endif
 
 " FileTypes Definition
