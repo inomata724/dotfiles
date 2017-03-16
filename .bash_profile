@@ -71,6 +71,7 @@ if [ "x$(uname)" = "xDarwin" ]; then
 	export LANG=ja_JP.UTF-8
 	export CLICOLOR=1
 	export PGDATA=/usr/local/var/postgres
+	export PATH=$PATH:/usr/local/opt/postgresql/bin
 	export PATH=$PATH:$HOME/Library/Python/2.7/bin
 
 	source /usr/local/etc/bash_completion.d/git-prompt.sh
