@@ -108,6 +108,10 @@ NeoBundleLazy 'vim-scripts/tracwiki', {
 						\ "autoload": {"filetypes": ["tracwiki"]}
 						\ }
 
+NeoBundleLazy 'saltstack/salt-vim', {
+						\ "autoload": {"filetypes": ["sls"]}
+						\ }
+
 NeoBundleCheck
 call neobundle#end()
 
@@ -513,6 +517,9 @@ au FileType typescript syn clear foldBraces
 
 " Yaml
 au FileType yaml set sw=2 sts=2 ts=2 et
+
+" SLS
+au FileType sls set sw=2 sts=2 ts=2 et
 
 " Markdown
 au FileType markdown set sw=2 sts=2 ts=2 et
