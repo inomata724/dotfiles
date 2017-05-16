@@ -31,13 +31,16 @@ NeoBundle 'rhysd/try-colorscheme.vim'
 NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'itchyny/lightline.vim'
 
-NeoBundle 'Shougo/vimproc.vim', {
-						\ 'build': {
-						\     'mac': 'make',
-						\     'linux': 'make',
-						\     'unix': 'gmake',
-						\    },
-						\ }
+if v:version < 800
+		NeoBundle 'Shougo/vimproc.vim', {
+								\ 'build': {
+								\     'mac': 'make',
+								\     'linux': 'make',
+								\     'unix': 'gmake',
+								\    },
+								\ }
+endif
+
 NeoBundle 'Valloric/YouCompleteMe', {
 						\ 'build': {
 						\	'mac': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer --gocode-completer --tern-completer"',
