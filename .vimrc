@@ -76,7 +76,7 @@ NeoBundleLazy 'Quramy/vim-js-pretty-template', {
 						\ }
 
 NeoBundleLazy 'jason0x43/vim-js-indent', {
-						\ "autoload": {"filetypes": ["javascript", "typescript"]}
+						\ "autoload": {"filetypes": ["javascript", "typescript", "html"]}
 						\ }
 
 NeoBundleLazy 'kchmck/vim-coffee-script', {
@@ -517,6 +517,7 @@ au FileType coffeescript setlocal sw=2 sts=2 ts=2 et
 au FileType typescript setlocal sw=2 sts=2 ts=2 et
 au FileType typescript JsPreTmpl html
 au FileType typescript syn clear foldBraces
+let g:js_indent_typescript = 1
 
 " Yaml
 au FileType yaml set sw=2 sts=2 ts=2 et
