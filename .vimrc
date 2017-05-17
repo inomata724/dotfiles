@@ -31,16 +31,6 @@ NeoBundle 'rhysd/try-colorscheme.vim'
 NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'itchyny/lightline.vim'
 
-if v:version < 800
-		NeoBundle 'Shougo/vimproc.vim', {
-								\ 'build': {
-								\     'mac': 'make',
-								\     'linux': 'make',
-								\     'unix': 'gmake',
-								\    },
-								\ }
-endif
-
 NeoBundle 'Valloric/YouCompleteMe', {
 						\ 'build': {
 						\	'mac': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer --gocode-completer --tern-completer"',
@@ -84,10 +74,6 @@ NeoBundleLazy 'kchmck/vim-coffee-script', {
 						\ }
 
 NeoBundleLazy 'leafgarland/typescript-vim', {
-						\ "autoload": {"filetypes": ["typescript"]}
-						\ }
-
-NeoBundleLazy 'Quramy/tsuquyomi', {
 						\ "autoload": {"filetypes": ["typescript"]}
 						\ }
 
