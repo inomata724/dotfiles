@@ -18,3 +18,5 @@
 	email = inomata724@gmail.com
 [fetch]
 	prune = true
+[color "grep"]
+	match = red
