@@ -69,6 +69,10 @@ NeoBundleLazy 'othree/yajs.vim', {
 "						\ "autoload": {"filetypes": ["javascript", "typescript"]}
 "						\ }
 
+NeoBundleLazy 'alessioalex/syntastic-local-tslint.vim', {
+						\ "autoload": {"filetypes": ["typescript"]}
+						\ }
+
 NeoBundleLazy 'jason0x43/vim-js-indent', {
 						\ "autoload": {"filetypes": ["javascript", "typescript", "html"]}
 						\ }
