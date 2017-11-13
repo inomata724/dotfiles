@@ -65,9 +65,13 @@ NeoBundleLazy 'othree/yajs.vim', {
 						\ "autoload": {"filetypes": ["javascript"]}
 						\ }
 
-"NeoBundleLazy 'Quramy/vim-js-pretty-template', {
-"						\ "autoload": {"filetypes": ["javascript", "typescript"]}
-"						\ }
+NeoBundleLazy 'Quramy/tsuquyomi', {
+						\ "autoload": {"filetypes": ["typescript"]}
+						\ }
+
+NeoBundleLazy 'Quramy/vim-js-pretty-template', {
+						\ "autoload": {"filetypes": ["javascript", "typescript"]}
+						\ }
 
 NeoBundleLazy 'alessioalex/syntastic-local-tslint.vim', {
 						\ "autoload": {"filetypes": ["typescript"]}
@@ -509,8 +513,8 @@ au FileType coffeescript setlocal sw=2 sts=2 ts=2 et
 
 " TypeScript
 au FileType typescript setlocal sw=2 sts=2 ts=2 et
-"au FileType typescript JsPreTmpl html
-"au FileType typescript syn clear foldBraces
+au FileType typescript JsPreTmpl html
+au FileType typescript syn clear foldBraces
 let g:js_indent_typescript = 1
 
 " Yaml
