@@ -8,10 +8,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-if v:version < 800
-		Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-endif
-
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -461,6 +458,7 @@ au FileType coffeescript setlocal sw=2 sts=2 ts=2 et
 au FileType typescript setlocal sw=2 sts=2 ts=2 et
 let g:js_indent_typescript=1
 let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_use_vimproc=1
 
 " Yaml
 au FileType yaml set sw=2 sts=2 ts=2 et
