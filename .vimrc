@@ -216,6 +216,7 @@ nnoremap <Leader>tm :TableModeToggle<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 inoremap { {}<Left>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap ( ()<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
