@@ -21,7 +21,6 @@ Plug 'EvanDotPro/nerdtree-chmod'
 Plug 'dbakker/vim-projectroot'
 Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
-Plug 'jiangmiao/auto-pairs'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'elzr/vim-json'
 Plug 'cocopon/iceberg.vim'
@@ -216,6 +215,10 @@ nnoremap <Leader>h  :noh<CR>
 nnoremap <Leader>tm :TableModeToggle<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
+inoremap { {}<Left>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap ( ()<ESC>i
+inoremap (<Enter> ()<Left><CR><ESC><S-o>))}}
 
 " YouCompleteMe
 let g:ycm_min_num_of_chars_for_completion     = 1
