@@ -216,9 +216,10 @@ nnoremap <Leader>tm :TableModeToggle<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 inoremap { {}<Left>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap ( ()<ESC>i
-inoremap (<Enter> ()<Left><CR><ESC><S-o>))}}
+inoremap ( ()<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap ` ``<Left>
 
 " YouCompleteMe
 let g:ycm_min_num_of_chars_for_completion     = 1
