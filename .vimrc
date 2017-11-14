@@ -8,7 +8,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -38,7 +37,6 @@ Plug 'fatih/vim-go',                           { 'for': 'go', 'do': [':GoInstall
 Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
 Plug 'jason0x43/vim-js-indent',                { 'for': ['javascript', 'typescript', 'html'] }
 Plug 'alessioalex/syntastic-local-tslint.vim', { 'for': 'typescript' }
-Plug 'Quramy/tsuquyomi',                       { 'for': 'typescript' }
 Plug 'HerringtonDarkholme/yats.vim',           { 'for': 'typescript' }
 Plug 'kchmck/vim-coffee-script',               { 'for': 'coffeescript' }
 Plug 'Rykka/riv.vim',                          { 'for': 'rst' }
@@ -281,7 +279,7 @@ let g:syntastic_mode_map                = { 'mode': 'active',
 						\ }
 let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
 let g:syntastic_go_checkers             = ['go', 'errcheck']
-let g:syntastic_typescript_checkers     = ['tslint', 'tsuquyomi']
+let g:syntastic_typescript_checkers     = ['tslint', 'tsc']
 
 
 " vim-rooter
@@ -457,8 +455,6 @@ au FileType coffeescript setlocal sw=2 sts=2 ts=2 et
 " TypeScript
 au FileType typescript setlocal sw=2 sts=2 ts=2 et
 let g:js_indent_typescript=1
-let g:tsuquyomi_disable_quickfix = 1
-let g:tsuquyomi_use_vimproc=1
 
 " Yaml
 au FileType yaml set sw=2 sts=2 ts=2 et
