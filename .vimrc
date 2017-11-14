@@ -31,6 +31,16 @@ NeoBundle 'rhysd/try-colorscheme.vim'
 NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'itchyny/lightline.vim'
 
+if v:version < 800
+		NeoBundle 'Shougo/vimproc.vim', {
+								\ 'build': {
+								\     'mac': 'make',
+								\     'linux': 'make',
+								\     'unix': 'gmake',
+								\    },
+								\ }
+endif
+
 NeoBundle 'Valloric/YouCompleteMe', {
 						\ 'build': {
 						\	'mac': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer --gocode-completer --tern-completer"',
@@ -65,6 +75,10 @@ NeoBundleLazy 'othree/yajs.vim', {
 						\ "autoload": {"filetypes": ["javascript"]}
 						\ }
 
+NeoBundleLazy 'jason0x43/vim-js-indent', {
+						\ "autoload": {"filetypes": ["javascript", "typescript", "html"]}
+						\ }
+
 NeoBundleLazy 'alessioalex/syntastic-local-tslint.vim', {
 						\ "autoload": {"filetypes": ["typescript"]}
 						\ }
@@ -73,16 +87,12 @@ NeoBundleLazy 'Quramy/tsuquyomi', {
 						\ "autoload": {"filetypes": ["typescript"]}
 						\ }
 
-NeoBundleLazy 'jason0x43/vim-js-indent', {
-						\ "autoload": {"filetypes": ["javascript", "typescript", "html"]}
+NeoBundleLazy 'HerringtonDarkholme/yats.vim', {
+						\ "autoload": {"filetypes": ["typescript"]}
 						\ }
 
 NeoBundleLazy 'kchmck/vim-coffee-script', {
 						\ "autoload": {"filetypes": ["coffeescript"]}
-						\ }
-
-NeoBundleLazy 'HerringtonDarkholme/yats.vim', {
-						\ "autoload": {"filetypes": ["typescript"]}
 						\ }
 
 NeoBundleLazy 'Rykka/riv.vim', {
@@ -335,7 +345,8 @@ let g:syntastic_mode_map                = { 'mode': 'active',
 						\ }
 let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
 let g:syntastic_go_checkers             = ['go', 'errcheck']
-let g:syntastic_typescript_checkers     = ['tslint']
+let g:syntastic_typescript_checkers     = ['tslint', 'tsuquyomi']
+
 
 " vim-rooter
 let g:rooter_disable_map  = 1
@@ -509,7 +520,8 @@ au FileType coffeescript setlocal sw=2 sts=2 ts=2 et
 
 " TypeScript
 au FileType typescript setlocal sw=2 sts=2 ts=2 et
-let g:js_indent_typescript = 1
+let g:js_indent_typescript=1
+let g:tsuquyomi_disable_quickfix = 1
 
 " Yaml
 au FileType yaml set sw=2 sts=2 ts=2 et
