@@ -1,126 +1,65 @@
 if has('vim_starting')
 		set nocompatible
-		if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
-				echo "Installing neobundle..."
-				call system("git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim")
+		if !filereadable(expand("~/.vim/autoload/plug.vim"))
+				echo "Installing vim-plug..."
+				call system("curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
 		endif
-		set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'airblade/vim-rooter'
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'EvanDotPro/nerdtree-chmod'
-NeoBundle 'dbakker/vim-projectroot'
-NeoBundle 'xolox/vim-easytags'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'dhruvasagar/vim-table-mode'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'cocopon/iceberg.vim'
-NeoBundle 'rhysd/try-colorscheme.vim'
-NeoBundle 'itchyny/vim-cursorword'
-NeoBundle 'itchyny/lightline.vim'
+call plug#begin('~/.vim/plugged')
 
 if v:version < 800
-		NeoBundle 'Shougo/vimproc.vim', {
-								\ 'build': {
-								\     'mac': 'make',
-								\     'linux': 'make',
-								\     'unix': 'gmake',
-								\    },
-								\ }
+		Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 endif
 
-NeoBundle 'Valloric/YouCompleteMe', {
-						\ 'build': {
-						\	'mac': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer --gocode-completer --tern-completer"',
-						\	'unix': 'sh -c "cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer --gocode-completer --tern-completer"',
-						\ },
-						\}
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/vim-easy-align'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'airblade/vim-rooter'
+Plug 'xolox/vim-misc'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'EvanDotPro/nerdtree-chmod'
+Plug 'dbakker/vim-projectroot'
+Plug 'xolox/vim-easytags'
+Plug 'majutsushi/tagbar'
+Plug 'jiangmiao/auto-pairs'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'elzr/vim-json'
+Plug 'cocopon/iceberg.vim'
+Plug 'rhysd/try-colorscheme.vim'
+Plug 'itchyny/vim-cursorword'
+Plug 'itchyny/lightline.vim'
+Plug 'Valloric/YouCompleteMe',                 { 'do': './install.py --clang-completer --gocode-completer --tern-completer' }
+Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
+Plug 'todesking/ruby_hl_lvar.vim',             { 'for': 'ruby' }
+Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
+Plug 'tpope/vim-endwise',                      { 'for': 'ruby' }
+Plug 'fatih/vim-go',                           { 'for': 'go', 'do': [':GoInstallBinaries', ':GoUpdateBinaries'] }
+Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
+Plug 'jason0x43/vim-js-indent',                { 'for': ['javascript', 'typescript', 'html'] }
+Plug 'alessioalex/syntastic-local-tslint.vim', { 'for': 'typescript' }
+Plug 'Quramy/tsuquyomi',                       { 'for': 'typescript' }
+Plug 'HerringtonDarkholme/yats.vim',           { 'for': 'typescript' }
+Plug 'kchmck/vim-coffee-script',               { 'for': 'coffeescript' }
+Plug 'Rykka/riv.vim',                          { 'for': 'rst' }
+Plug 'othree/html5.vim',                       { 'for': 'html' }
+Plug 'gregsexton/MatchTag',                    { 'for': 'html' }
+Plug 'hashivim/vim-terraform',                 { 'for': 'terraform' }
+Plug 'vim-scripts/tracwiki',                   { 'for': 'tracwiki' }
+Plug 'saltstack/salt-vim',                     { 'for': 'sls' }
 
-NeoBundleLazy 'vim-ruby/vim-ruby', {
-						\ "autoload": {"filetypes": ["ruby"]}
-						\ }
+call plug#end()
 
-NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
-						\ "autoload": {"filetypes": ["ruby"]}
-						\ }
-
-NeoBundleLazy 'tpope/vim-rails', {
-						\ "autoload": {"filetypes": ["ruby"]}
-						\ }
-
-NeoBundleLazy 'tpope/vim-endwise', {
-						\ "autoload": {"filetypes": ["ruby"]}
-						\ }
-
-NeoBundleLazy 'fatih/vim-go', {
-						\ 'autoload': {
-						\ 	'filetypes': 'go',
-						\ 	'commands': ['GoInstallBinaries', 'GoUpdateBinaries'],
-						\ }
-						\ }
-
-NeoBundleLazy 'othree/yajs.vim', {
-						\ "autoload": {"filetypes": ["javascript"]}
-						\ }
-
-NeoBundleLazy 'jason0x43/vim-js-indent', {
-						\ "autoload": {"filetypes": ["javascript", "typescript", "html"]}
-						\ }
-
-NeoBundleLazy 'alessioalex/syntastic-local-tslint.vim', {
-						\ "autoload": {"filetypes": ["typescript"]}
-						\ }
-
-NeoBundleLazy 'Quramy/tsuquyomi', {
-						\ "autoload": {"filetypes": ["typescript"]}
-						\ }
-
-NeoBundleLazy 'HerringtonDarkholme/yats.vim', {
-						\ "autoload": {"filetypes": ["typescript"]}
-						\ }
-
-NeoBundleLazy 'kchmck/vim-coffee-script', {
-						\ "autoload": {"filetypes": ["coffeescript"]}
-						\ }
-
-NeoBundleLazy 'Rykka/riv.vim', {
-						\ "autoload": {"filetypes": ["rst"]}
-						\ }
-
-NeoBundleLazy 'othree/html5.vim', {
-						\ "autoload": {"filetypes": ["html"]}
-						\ }
-
-NeoBundleLazy 'gregsexton/MatchTag', {
-						\ "autoload": {"filetypes": ["html"]}
-						\ }
-
-NeoBundleLazy 'hashivim/vim-terraform', {
-						\ "autoload": {"filetypes": ["terraform"]}
-						\ }
-
-NeoBundleLazy 'vim-scripts/tracwiki', {
-						\ "autoload": {"filetypes": ["tracwiki"]}
-						\ }
-
-NeoBundleLazy 'saltstack/salt-vim', {
-						\ "autoload": {"filetypes": ["sls"]}
-						\ }
-
-NeoBundleCheck
-call neobundle#end()
+function s:is_plugged(name)
+		if exists('g:plugs') && has_key(g:plugs, a:name) && isdirectory(g:plugs[a:name].dir)
+				return 1
+		else
+				return 0
+		endif
+endfunction
 
 set nocompatible
 set nowrap
@@ -353,7 +292,7 @@ let g:rooter_disable_map  = 1
 let g:rooter_silent_chdir = 1
 
 " lightline
-if neobundle#is_installed('lightline.vim')
+if s:is_plugged('lightline.vim')
 		let g:lightline = {
 								\ 'colorscheme': 'iceberg',
 								\ 'active': {
