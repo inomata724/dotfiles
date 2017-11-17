@@ -27,6 +27,8 @@ Plug 'cocopon/iceberg.vim'
 Plug 'rhysd/try-colorscheme.vim'
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/lightline.vim'
+Plug 'jiangmiao/auto-pairs'
+
 Plug 'Valloric/YouCompleteMe',                 { 'do': './install.py --clang-completer --gocode-completer --tern-completer' }
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
 "Plug 'todesking/ruby_hl_lvar.vim',             { 'for': 'ruby' }
@@ -215,12 +217,6 @@ nnoremap <Leader>h  :noh<CR>
 nnoremap <Leader>tm :TableModeToggle<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
-inoremap { {}<Left>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap ( ()<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
-inoremap ` ``<Left>
 
 " YouCompleteMe
 let g:ycm_min_num_of_chars_for_completion     = 1
