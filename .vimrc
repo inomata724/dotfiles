@@ -182,14 +182,17 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 " Color
 set t_Co=256
 set background=dark
-colorscheme iceberg
-if ($TERM_PROGRAM == 'iTerm.app')
-		set termguicolors
-		let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-		let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum""]"
+
+if (s:is_plugged('lightline.vim'))
+  colorscheme iceberg
+  if ($TERM_PROGRAM == 'iTerm.app')
+    set termguicolors
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum""]"
+  endif
+  hi NonText ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+  hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 endif
-hi NonText ctermbg=bg ctermfg=bg guibg=bg guifg=bg
-hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
 " GUI
 set guifont=Ricty\ Regular\ For\ Powerline:h17
