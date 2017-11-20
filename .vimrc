@@ -127,7 +127,7 @@ augroup vimrc-checktime
 augroup END
 
 " AutoPairs
-"let g:AutoPairsMultilineClose=0
+let g:AutoPairsMultilineClose=0
 
 " EasyTags
 let g:easytags_always_enabled = 0
