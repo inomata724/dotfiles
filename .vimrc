@@ -126,6 +126,9 @@ augroup vimrc-checktime
 		autocmd WinEnter * checktime
 augroup END
 
+" AutoPairs
+"let g:AutoPairsMultilineClose=0
+
 " EasyTags
 let g:easytags_always_enabled = 0
 let g:easytags_auto_update    = 0
