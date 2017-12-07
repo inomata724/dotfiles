@@ -3,6 +3,7 @@
 rbenv_dir=~/.rbenv
 
 if [ ! -d $rbenv_dir ]; then
-    git clone git://github.com/sstephenson/rbenv.git $rbenv_dir
-    git clone git://github.com/sstephenson/ruby-build.git $rbenv_dir/plugins/ruby-build
+	git clone https://github.com/rbenv/rbenv.git $rbenv_dir
+	git clone https://github.com/sstephenson/ruby-build.git $rbenv_dir/plugins/ruby-build
+	git clone https://github.com/rkh/rbenv-update.git $rbenv_dir/plugins/rbenv-update
 fi
