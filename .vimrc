@@ -26,7 +26,7 @@ Plug 'elzr/vim-json'
 Plug 'cocopon/iceberg.vim'
 Plug 'rhysd/try-colorscheme.vim'
 Plug 'itchyny/vim-cursorword'
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'Valloric/YouCompleteMe',                 { 'do': './install.py --clang-completer --gocode-completer --tern-completer' }
@@ -186,7 +186,7 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 set t_Co=256
 set background=dark
 
-if (s:is_plugged('lightline.vim'))
+if (s:is_plugged('iceberg.vim'))
   colorscheme iceberg
   if ($TERM_PROGRAM == 'iTerm.app')
     set termguicolors
