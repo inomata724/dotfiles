@@ -26,7 +26,7 @@ Plug 'elzr/vim-json'
 Plug 'cocopon/iceberg.vim'
 Plug 'rhysd/try-colorscheme.vim'
 Plug 'itchyny/vim-cursorword'
-"Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'Valloric/YouCompleteMe',                 { 'do': './install.py --clang-completer --gocode-completer --tern-completer' }
@@ -187,14 +187,14 @@ set t_Co=256
 set background=dark
 
 if (s:is_plugged('iceberg.vim'))
-  colorscheme iceberg
-  if ($TERM_PROGRAM == 'iTerm.app')
-    set termguicolors
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum""]"
-  endif
-  hi NonText ctermbg=bg ctermfg=bg guibg=bg guifg=bg
-  hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+		colorscheme iceberg
+		if ($TERM_PROGRAM == 'iTerm.app')
+				set termguicolors
+				let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+				let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum""]"
+		endif
+		hi NonText ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+		hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 endif
 
 " GUI
@@ -326,10 +326,10 @@ if s:is_plugged('lightline.vim')
 								\ 	'readonly': 'error',
 								\ },
 								\ 'separator': {
-								\ 	'left': "\u2b80", 'right': "\u2b82"
+								\ 	'left': "\ue0b0",
 								\ },
 								\ 'subseparator': {
-								\ 	'left': "\u2b81", 'right': "\u2b83"
+								\ 	'left': '\ue0b1',
 								\ },
 								\ 'tabline': {
 								\ 	'left': [ [ 'tabs' ] ],
