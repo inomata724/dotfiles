@@ -198,7 +198,7 @@ if (s:is_plugged('iceberg.vim'))
 endif
 
 " GUI
-set guifont=Ricty\ Regular\ For\ Powerline:h17
+set guifont=Ricty:h17
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
@@ -325,12 +325,6 @@ if s:is_plugged('lightline.vim')
 								\ 	'indentation': 'error',
 								\ 	'readonly': 'error',
 								\ },
-								\ 'separator': {
-								\ 	'left': "\ue0b0",
-								\ },
-								\ 'subseparator': {
-								\ 	'left': '\ue0b1',
-								\ },
 								\ 'tabline': {
 								\ 	'left': [ [ 'tabs' ] ],
 								\ 	'right': [ [] ]
@@ -352,7 +346,7 @@ if s:is_plugged('lightline.vim')
 				try
 						if exists('*fugitive#head')
 								let _ = fugitive#head()
-								return strlen(_) ? '⭠ '._ : ''
+								return strlen(_) ? _ : ''
 						endif
 				catch
 				endtry
