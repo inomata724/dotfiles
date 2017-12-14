@@ -38,7 +38,7 @@ Plug 'fatih/vim-go',                           { 'for': 'go', 'do': ':GoUpdateBi
 Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
 Plug 'jason0x43/vim-js-indent',                { 'for': ['javascript', 'typescript', 'html'] }
 Plug 'alessioalex/syntastic-local-tslint.vim', { 'for': 'typescript' }
-Plug 'HerringtonDarkholme/yats.vim',           { 'for': 'typescript' }
+Plug 'leafgarland/typescript-vim',             { 'for': 'typescript' }
 Plug 'kchmck/vim-coffee-script',               { 'for': 'coffeescript' }
 Plug 'Rykka/riv.vim',                          { 'for': 'rst' }
 Plug 'othree/html5.vim',                       { 'for': 'html' }
