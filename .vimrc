@@ -29,7 +29,10 @@ Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'Valloric/YouCompleteMe',                 { 'do': './install.py --clang-completer --gocode-completer --tern-completer' }
+if v:version >= 800
+	Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --tern-completer' }
+end
+
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
 "Plug 'todesking/ruby_hl_lvar.vim',             { 'for': 'ruby' }
 Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
