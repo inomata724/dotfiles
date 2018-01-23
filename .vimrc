@@ -42,7 +42,7 @@ Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
 Plug 'jason0x43/vim-js-indent',                { 'for': ['javascript', 'typescript', 'html'] }
 Plug 'alessioalex/syntastic-local-tslint.vim', { 'for': 'typescript' }
 Plug 'HerringtonDarkholme/yats.vim',           { 'for': 'typescript' }
-Plug 'kchmck/vim-coffee-script',               { 'for': 'coffeescript' }
+Plug 'kchmck/vim-coffee-script',               { 'for': 'coffee' }
 Plug 'Rykka/riv.vim',                          { 'for': 'rst' }
 Plug 'othree/html5.vim',                       { 'for': 'html' }
 Plug 'gregsexton/MatchTag',                    { 'for': 'html' }
@@ -417,7 +417,6 @@ endif
 au BufRead,BufNewFile *.txt                           set filetype=text
 au BufRead,BufNewFile *.rb                            set filetype=ruby
 au BufRead,BufNewFile *.erb                           set filetype=eruby
-au BufRead,BufNewFile *.coffee                        set filetype=coffeescript
 au BufRead,BufNewFile *.md,*.markdown,*.md.*          set filetype=markdown
 au BufRead,BufNewFile *.go                            set filetype=go
 au BufRead,BufNewFile *.tracwiki                      set filetype=tracwiki
