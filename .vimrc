@@ -34,7 +34,7 @@ if v:version >= 800
 end
 
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
-"Plug 'todesking/ruby_hl_lvar.vim',             { 'for': 'ruby' }
+Plug 'todesking/ruby_hl_lvar.vim',             { 'for': 'ruby' }
 Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
 Plug 'tpope/vim-endwise',                      { 'for': 'ruby' }
 Plug 'fatih/vim-go',                           { 'for': 'go', 'do': ':GoUpdateBinaries' }
