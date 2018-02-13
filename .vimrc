@@ -308,7 +308,7 @@ let g:rooter_silent_chdir = 1
 " lightline
 if s:is_plugged('lightline.vim')
 		let g:lightline = {
-								\ 'colorscheme': 'iceberg',
+								\ 'colorscheme': g:colors_name,
 								\ 'active': {
 								\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filepath', 'modified', 'readonly' ] ],
 								\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
