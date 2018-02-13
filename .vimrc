@@ -50,6 +50,7 @@ Plug 'gregsexton/MatchTag',                    { 'for': 'html' }
 Plug 'hashivim/vim-terraform',                 { 'for': 'terraform' }
 Plug 'vim-scripts/tracwiki',                   { 'for': 'tracwiki' }
 Plug 'saltstack/salt-vim',                     { 'for': 'sls' }
+Plug 'glidenote/keepalived-syntax.vim',        { 'for': 'keepalived' }
 
 call plug#end()
 
@@ -496,3 +497,6 @@ let g:go_fmt_autosave                = 1
 
 " Terraform
 au FileType terraform set sw=2 ts=2 sts=2 et
+
+" keepalived.conf
+au BufRead,BufNewFile keepalived.conf setlocal ft=keepalived
