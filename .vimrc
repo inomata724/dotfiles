@@ -122,7 +122,7 @@ syntax enable
 filetype plugin indent on
 
 " delete trailing spaces
-au BufWritePre * if index(['markdown', 'diff', 'sql'], &filetype) < 0 | :%s/\s\+$//e
+au BufWritePre * if index(['markdown', 'diff', 'sql', 'case'], &filetype) < 0 | :%s/\s\+$//e
 
 " auto read
 augroup vimrc-checktime
@@ -425,6 +425,9 @@ au BufRead,BufNewFile *.go                            set filetype=go
 au BufRead,BufNewFile *.tracwiki                      set filetype=tracwiki
 au BufRead,BufNewFile *.tf,*.tfstate,*.tfstate.backup set filetype=terraform
 au BufRead,BufNewFile *etc/httpd/conf/*,*etc/httpd/conf.d/*,/etc/apache2/apache2.conf set filetype=apache
+au BufRead,BufNewFile keepalived.conf setlocal ft=keepalived
+au BufRead,BufNewFile *.case setlocal ft=case
+au BufRead,BufNewFile *.rule setlocal ft=rule
 
 " Plain Text
 au FileType text set sw=2 sts=2 ts=2 et
@@ -492,4 +495,3 @@ let g:go_fmt_autosave                = 1
 au FileType terraform set sw=2 ts=2 sts=2 et
 
 " keepalived.conf
-au BufRead,BufNewFile keepalived.conf setlocal ft=keepalived
