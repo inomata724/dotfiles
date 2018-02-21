@@ -16,6 +16,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-rooter'
 Plug 'xolox/vim-misc'
 Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'EvanDotPro/nerdtree-chmod'
 Plug 'dbakker/vim-projectroot'
@@ -150,6 +151,9 @@ let NERDTreeWinSize     = 40
 let NERDTreeShowHidden  = 1
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif"))"
 
+" NERDTreeTabs
+let g:nerdtree_tabs_open_on_gui_startup=0
+
 " Tagbar
 let g:tagbar_sort = 0
 let g:tagbar_type_ruby = {
@@ -216,7 +220,7 @@ let mapleader = ";"
 nnoremap tc         :<C-u>tabnew<CR>
 nnoremap tn         gt
 nnoremap tp         gT
-nnoremap <Leader>n  :NERDTreeToggle<CR>
+nnoremap <Leader>n  :NERDTreeTabsToggle<CR>
 nnoremap <Leader>f  :<C-u>CtrlP<CR>
 nnoremap <Leader>jf :call FormatJson()<CR>
 nnoremap <Leader>b  :Gblame<CR>

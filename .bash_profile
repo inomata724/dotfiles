@@ -92,7 +92,7 @@ if [ "x$(uname)" = "xDarwin" ]; then
 	alias flushdns='sudo killall -HUP mDNSResponder'
 	alias safari='open -a Safari'
 	alias chrome='open -a Google\ Chrome'
-	alias mvim='mvim --remote-tab-silent'
+	#alias mvim='mvim --remote-tab-silent'
 else
 	if [ -f $BASH_COMPLETION_DIR/git -o -f $BASH_COMPLETION_COMPAT_DIR/git-prompt ]; then
 		export PS1='\[\e[0;32m\][\u@\h:\W$(__git_ps1 " (%s)")]\$ \[\e[m\]'
