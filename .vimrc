@@ -195,23 +195,12 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 set t_Co=256
 set background=dark
 
-if has('gui_running')
-		if (s:is_plugged('vim-gotham'))
+if (s:is_plugged('vim-gotham'))
+		if has('gui_running')
 				colorscheme gotham256
+		else
+				colorscheme gotham
 		endif
-else
-		if (s:is_plugged('iceberg.vim'))
-				colorscheme iceberg
-		endif
-
-		if ($TERM_PROGRAM == 'iTerm.app')
-				set termguicolors
-				let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-				let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum""]"
-		endif
-
-		hi NonText ctermbg=bg ctermfg=bg guibg=bg guifg=bg
-		hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 endif
 
 " GUI
@@ -504,5 +493,3 @@ let g:go_fmt_autosave                = 1
 
 " Terraform
 au FileType terraform set sw=2 ts=2 sts=2 et
-
-" keepalived.conf
