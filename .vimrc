@@ -25,6 +25,7 @@ Plug 'majutsushi/tagbar'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'elzr/vim-json'
 Plug 'cocopon/iceberg.vim'
+Plug 'whatyouhide/vim-gotham'
 Plug 'rhysd/try-colorscheme.vim'
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/lightline.vim'
@@ -194,8 +195,14 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 set t_Co=256
 set background=dark
 
-if (s:is_plugged('iceberg.vim'))
-		colorscheme iceberg
+if has('gui_running')
+		if (s:is_plugged('vim-gotham'))
+				colorscheme gotham256
+		endif
+else
+		if (s:is_plugged('iceberg.vim'))
+				colorscheme iceberg
+		endif
 
 		if ($TERM_PROGRAM == 'iTerm.app')
 				set termguicolors
