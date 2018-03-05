@@ -196,6 +196,9 @@ set background=dark
 
 if (s:is_plugged('iceberg.vim'))
 		colorscheme iceberg
+
+		hi NonText ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+		hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 endif
 
 " GUI
