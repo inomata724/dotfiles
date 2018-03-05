@@ -94,7 +94,7 @@ set re=0
 set lazyredraw
 set ttyfast
 set tabstop=4
-set ambiwidth=auto
+"set ambiwidth=double
 set nobackup
 set visualbell t_vb=
 set completeopt=menuone
