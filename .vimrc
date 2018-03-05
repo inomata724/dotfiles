@@ -94,7 +94,7 @@ set re=0
 set lazyredraw
 set ttyfast
 set tabstop=4
-set ambiwidth=double
+set ambiwidth=auto
 set nobackup
 set visualbell t_vb=
 set completeopt=menuone
@@ -199,7 +199,7 @@ if (s:is_plugged('iceberg.vim'))
 endif
 
 " GUI
-set guifont=Ricty:h15
+set guifont=Ricty\ Regular\ for\ Powerline:h15
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
@@ -336,7 +336,9 @@ if s:is_plugged('lightline.vim')
 								\ },
 								\ 'tab_component_function': {
 								\ 	"title": "TabTitle"
-								\ }
+								\ },
+								\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+								\ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
 								\ }
 
 		function! ReadOnly()
