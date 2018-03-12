@@ -27,11 +27,16 @@ Plug 'elzr/vim-json'
 Plug 'cocopon/iceberg.vim'
 Plug 'rhysd/try-colorscheme.vim'
 Plug 'itchyny/vim-cursorword'
-Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 
-if v:version >= 800
-	Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --tern-completer' }
+if has('gui_running')
+	Plug 'itchyny/lightline.vim'
+endif
+
+if v:version >= 800 && has('python3')
+		Plug 'Shougo/deoplete.nvim'
+		Plug 'roxma/nvim-yarp'
+		Plug 'roxma/vim-hug-neovim-rpc'
 end
 
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
@@ -228,10 +233,10 @@ nnoremap <Leader>tm :TableModeToggle<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
-" YouCompleteMe
-let g:ycm_min_num_of_chars_for_completion     = 1
-let g:ycm_seed_identifiers_with_syntax        = 1
-let g:ycm_collect_identifiers_from_tags_files = 0
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#input_patterns.ruby = ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::']
 
 " CtrlP
 let g:ctrlp_map                 = '<Nop>'
