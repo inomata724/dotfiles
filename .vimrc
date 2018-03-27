@@ -154,6 +154,9 @@ let NERDTreeShowHidden  = 1
 " NERDTreeTabs
 let g:nerdtree_tabs_open_on_gui_startup=0
 
+" gitgutter
+let g:gitgutter_max_signs = 2000
+
 " Tagbar
 let g:tagbar_sort = 0
 let g:tagbar_type_ruby = {
