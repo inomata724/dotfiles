@@ -29,6 +29,7 @@ Plug 'rhysd/try-colorscheme.vim'
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'bronson/vim-trailing-whitespace'
 
 if v:version >= 800
 	Plug 'Valloric/YouCompleteMe', { 'do': 'YCM_CORES=1 ./install.py --clang-completer --gocode-completer --tern-completer' }
@@ -122,9 +123,6 @@ let g:vim_json_syntax_conceal = 0
 "set guicursor+=n-v-c:blinkon0
 syntax enable
 filetype plugin indent on
-
-" delete trailing spaces
-au BufWritePre * if index(['markdown', 'diff', 'sql', 'case'], &filetype) < 0 | :%s/\s\+$//e
 
 " auto read
 augroup vimrc-checktime
