@@ -101,6 +101,7 @@ set nobackup
 set visualbell t_vb=
 set completeopt=menuone
 set cursorline
+set updatetime=100
 
 " disable plugins
 let g:loaded_gzip            = 1
