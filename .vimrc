@@ -348,7 +348,7 @@ if s:is_plugged('lightline.vim')
 								\ }
 
 		function! ReadOnly()
-				return &ft !~? 'help' && &ro ? '⭤' : ''
+				return &ft !~? 'help' && &ro ? 'RO' : ''
 		endfunction
 
 		function! CurrentBranch()
