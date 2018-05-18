@@ -205,7 +205,7 @@ if (s:is_plugged('iceberg.vim'))
 endif
 
 " GUI
-set guifont=Ricty\ for\ Powerline:h15
+set guifont=Ricty\ Discord\ for\ Powerline:h17
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
