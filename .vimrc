@@ -30,12 +30,12 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'bronson/vim-trailing-whitespace'
 
 if has('gui_running')
-	Plug 'itchyny/lightline.vim'
-	Plug 'itchyny/vim-cursorword'
+		Plug 'itchyny/lightline.vim'
+		Plug 'itchyny/vim-cursorword'
 end
 
 if v:version >= 800
-	Plug 'Valloric/YouCompleteMe', { 'do': 'YCM_CORES=1 ./install.py --clang-completer --gocode-completer --tern-completer' }
+		Plug 'Valloric/YouCompleteMe', { 'do': 'YCM_CORES=1 ./install.py --clang-completer --gocode-completer --tern-completer' }
 end
 
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
@@ -106,8 +106,8 @@ set completeopt=menuone
 set updatetime=100
 
 if has('gui_running')
-	set cursorline
-	set relativenumber
+		set cursorline
+		set relativenumber
 end
 
 " disable plugins
