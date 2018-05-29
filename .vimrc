@@ -26,10 +26,13 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'elzr/vim-json'
 Plug 'cocopon/iceberg.vim'
 Plug 'rhysd/try-colorscheme.vim'
-Plug 'itchyny/vim-cursorword'
-Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'bronson/vim-trailing-whitespace'
+
+if has('gui_running')
+	Plug 'itchyny/lightline.vim'
+	Plug 'itchyny/vim-cursorword'
+end
 
 if v:version >= 800
 	Plug 'Valloric/YouCompleteMe', { 'do': 'YCM_CORES=1 ./install.py --clang-completer --gocode-completer --tern-completer' }
@@ -100,8 +103,12 @@ set tabstop=4
 set nobackup
 set visualbell t_vb=
 set completeopt=menuone
-set cursorline
 set updatetime=100
+
+if has('gui_running')
+	set cursorline
+	set relativenumber
+end
 
 " disable plugins
 let g:loaded_gzip            = 1
