@@ -107,7 +107,6 @@ set updatetime=100
 
 if has('gui_running')
 		set cursorline
-		set relativenumber
 end
 
 " disable plugins
