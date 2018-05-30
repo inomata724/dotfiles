@@ -39,7 +39,6 @@ if v:version >= 800
 end
 
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
-Plug 'todesking/ruby_hl_lvar.vim',             { 'for': 'ruby' }
 Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
 Plug 'tpope/vim-endwise',                      { 'for': 'ruby' }
 Plug 'fatih/vim-go',                           { 'for': 'go', 'do': ':GoUpdateBinaries' }
@@ -56,6 +55,10 @@ Plug 'hashivim/vim-terraform',                 { 'for': 'terraform' }
 Plug 'vim-scripts/tracwiki',                   { 'for': 'tracwiki' }
 Plug 'saltstack/salt-vim',                     { 'for': 'sls' }
 Plug 'glidenote/keepalived-syntax.vim',        { 'for': 'keepalived' }
+
+if has('gui_runnning')
+		Plug 'todesking/ruby_hl_lvar.vim', { 'for': 'ruby' }
+end
 
 call plug#end()
 
