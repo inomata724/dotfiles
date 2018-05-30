@@ -56,7 +56,7 @@ Plug 'vim-scripts/tracwiki',                   { 'for': 'tracwiki' }
 Plug 'saltstack/salt-vim',                     { 'for': 'sls' }
 Plug 'glidenote/keepalived-syntax.vim',        { 'for': 'keepalived' }
 
-if has('gui_runnning')
+if has('gui_running')
 		Plug 'todesking/ruby_hl_lvar.vim', { 'for': 'ruby' }
 end
 
