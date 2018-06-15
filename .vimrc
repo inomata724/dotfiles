@@ -45,7 +45,7 @@ Plug 'fatih/vim-go',                           { 'for': 'go', 'do': ':GoUpdateBi
 Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
 Plug 'jason0x43/vim-js-indent',                { 'for': ['javascript', 'typescript', 'html'] }
 Plug 'alessioalex/syntastic-local-tslint.vim', { 'for': 'typescript' }
-Plug 'leafgarland/typescript-vim',             { 'for': 'typescript' }
+Plug 'HerringtonDarkholme/yats.vim',           { 'for': 'typescript' }
 Plug 'kchmck/vim-coffee-script',               { 'for': 'coffee' }
 Plug 'Rykka/riv.vim',                          { 'for': 'rst' }
 Plug 'othree/html5.vim',                       { 'for': 'html' }
@@ -214,7 +214,7 @@ if (s:is_plugged('iceberg.vim'))
 endif
 
 " GUI
-set guifont=Ricty\ for\ Powerline:h15
+set guifont=Ricty\ Regular\ for\ Powerline:h15
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
@@ -466,6 +466,10 @@ au FileType python setl smartindent sw=4 sts=4 ts=4 et cinwords=if,elif,else,for
 
 " JavaScript
 au FileType javascript setlocal sw=2 sts=2 ts=2 et
+
+" CSS/SCSS
+au FileType css setlocal sw=2 sts=2 ts=2 et
+au FileType scss setlocal sw=2 sts=2 ts=2 et
 
 " JSON
 au FileType json setlocal sw=2 sts=2 ts=2 et
