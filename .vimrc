@@ -28,11 +28,11 @@ Plug 'cocopon/iceberg.vim'
 Plug 'rhysd/try-colorscheme.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'itchyny/lightline.vim'
 
 if has('gui_running')
-		Plug 'itchyny/lightline.vim'
 		Plug 'itchyny/vim-cursorword'
-end
+endif
 
 if v:version >= 800
 		Plug 'Valloric/YouCompleteMe', { 'do': 'YCM_CORES=1 ./install.py --clang-completer --gocode-completer --tern-completer' }
@@ -110,7 +110,7 @@ set updatetime=100
 
 if has('gui_running')
 		set cursorline
-end
+endif
 
 " disable plugins
 let g:loaded_gzip            = 1
@@ -205,6 +205,10 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 " Color
 set t_Co=256
 set background=dark
+
+if $COLORTERM == 'truecolor' && v:version >= 800
+		set termguicolors
+endif
 
 if (s:is_plugged('iceberg.vim'))
 		colorscheme iceberg
