@@ -206,8 +206,10 @@ set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 set t_Co=256
 set background=dark
 
-if $COLORTERM == 'truecolor' && v:version >= 800
+if $TERM_PROGRAM == 'iTerm.app'
 		set termguicolors
+		let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+		let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
 if (s:is_plugged('iceberg.vim'))
