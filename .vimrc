@@ -357,10 +357,8 @@ if s:is_plugged('lightline.vim')
 								\ },
 								\ 'tab_component_function': {
 								\ 	"title": "TabTitle"
-								\ },
-								\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-								\ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
 								\ }
+		\ }
 
 		function! ReadOnly()
 				return &ft !~? 'help' && &ro ? 'RO' : ''
