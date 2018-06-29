@@ -8,7 +8,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/vim-easy-align'
@@ -44,7 +44,6 @@ Plug 'tpope/vim-endwise',                      { 'for': 'ruby' }
 Plug 'fatih/vim-go',                           { 'for': 'go', 'do': ':GoUpdateBinaries' }
 Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
 Plug 'jason0x43/vim-js-indent',                { 'for': ['javascript', 'typescript', 'html'] }
-Plug 'alessioalex/syntastic-local-tslint.vim', { 'for': 'typescript' }
 Plug 'HerringtonDarkholme/yats.vim',           { 'for': 'typescript' }
 Plug 'kchmck/vim-coffee-script',               { 'for': 'coffee' }
 Plug 'Rykka/riv.vim',                          { 'for': 'rst' }
@@ -220,7 +219,7 @@ if (s:is_plugged('iceberg.vim'))
 endif
 
 " GUI
-set guifont=Ricty:h15
+set guifont=Ricty:h17
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
@@ -298,18 +297,6 @@ let g:ctrlp_prompt_mappings = {
 						\ 'PrtSelectMove("u")':   ['<nop>'],
 						\ 'PrtSelectMove("d")':   ['<nop>'],
 						\ }
-
-" Syntastic
-let g:syntastic_enable_signs            = 1
-let g:syntastic_auto_loc_list           = 2
-let g:syntastic_mode_map                = { 'mode': 'active',
-						\ 'active_filetypes': [],
-						\ 'passive_filetypes': ['html']
-						\ }
-let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
-let g:syntastic_go_checkers             = ['go', 'errcheck']
-let g:syntastic_typescript_checkers     = ['tslint', 'tsc']
-
 
 " vim-rooter
 let g:rooter_disable_map  = 1
