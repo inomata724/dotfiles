@@ -107,10 +107,6 @@ set visualbell t_vb=
 set completeopt=menuone
 set updatetime=100
 
-if has('gui_running')
-		set cursorline
-endif
-
 " disable plugins
 let g:loaded_gzip            = 1
 let g:loaded_tar             = 1
