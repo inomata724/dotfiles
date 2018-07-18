@@ -20,3 +20,5 @@
 	prune = true
 [color "grep"]
 	match = red
+[grep]
+	linenumber=true
