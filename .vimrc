@@ -1,3 +1,7 @@
+if has('python3')
+		silent! python3 1
+endif
+
 if has('vim_starting')
 		set nocompatible
 		if !filereadable(expand("~/.vim/autoload/plug.vim"))
@@ -16,7 +20,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-rooter'
 Plug 'xolox/vim-misc'
 Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'EvanDotPro/nerdtree-chmod'
 Plug 'dbakker/vim-projectroot'
@@ -154,9 +157,6 @@ let NERDTreeHijackNetrw = 0
 let NERDTreeWinSize     = 40
 let NERDTreeShowHidden  = 1
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif"))"
-
-" NERDTreeTabs
-let g:nerdtree_tabs_open_on_gui_startup=0
 
 " gitgutter
 let g:gitgutter_max_signs = 2000
@@ -340,7 +340,7 @@ if s:is_plugged('lightline.vim')
 								\ 'tab_component_function': {
 								\ 	"title": "TabTitle"
 								\ }
-		\ }
+								\ }
 
 		function! ReadOnly()
 				return &ft !~? 'help' && &ro ? 'RO' : ''
