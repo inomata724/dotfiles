@@ -226,7 +226,7 @@ let mapleader = ";"
 nnoremap tc         :<C-u>tabnew<CR>
 nnoremap tn         gt
 nnoremap tp         gT
-nnoremap <Leader>n  :NERDTreeTabsToggle<CR>
+nnoremap <Leader>n  :NERDTreeToggle<CR>
 nnoremap <Leader>f  :<C-u>CtrlP<CR>
 nnoremap <Leader>jf :call FormatJson()<CR>
 nnoremap <Leader>b  :Gblame<CR>
