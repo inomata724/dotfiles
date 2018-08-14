@@ -108,7 +108,7 @@ set tabstop=4
 set nobackup
 set visualbell t_vb=
 set completeopt=menuone
-set updatetime=4000
+set updatetime=500
 
 " disable plugins
 let g:loaded_gzip            = 1
