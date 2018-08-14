@@ -1,7 +1,3 @@
-if has('python3')
-		silent! python3 1
-endif
-
 if has('vim_starting')
 		set nocompatible
 		if !filereadable(expand("~/.vim/autoload/plug.vim"))
