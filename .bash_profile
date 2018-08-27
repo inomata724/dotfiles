@@ -62,12 +62,6 @@ if [ "x$(uname)" = "xDarwin" ]; then
 		echo $(sw_vers|grep ProductVersion|cut -d ':' -f 2|tr -d "\t")
 	}
 
-	function upgrade_macvim() {
-		brew upgrade macvim
-		cp -r /usr/local/opt/macvim/MacVim.app /Applications
-		defaults write org.vim.MacVim SUEnableAutomaticChecks -bool false
-	}
-
 	export LANG=ja_JP.UTF-8
 	export CLICOLOR=1
 	export PGDATA=/usr/local/var/postgres
@@ -92,7 +86,6 @@ if [ "x$(uname)" = "xDarwin" ]; then
 	alias flushdns='sudo killall -HUP mDNSResponder'
 	alias safari='open -a Safari'
 	alias chrome='open -a Google\ Chrome'
-	#alias mvim='mvim --remote-tab-silent'
 else
 	if [ -f $BASH_COMPLETION_DIR/git -o -f $BASH_COMPLETION_COMPAT_DIR/git-prompt ]; then
 		export PS1='\[\e[0;32m\][\u@\h:\W$(__git_ps1 " (%s)")]\$ \[\e[m\]'
