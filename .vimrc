@@ -237,12 +237,17 @@ nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
 " YouCompleteMe
-let g:ycm_min_num_of_chars_for_completion     = 1
-let g:ycm_seed_identifiers_with_syntax        = 1
-let g:ycm_collect_identifiers_from_tags_files = 0
-let g:ycm_filetype_blacklist                  = {
+let g:ycm_min_num_of_chars_for_completion         = 1
+let g:ycm_seed_identifiers_with_syntax            = 1
+let g:ycm_collect_identifiers_from_tags_files     = 0
+let g:ycm_filetype_blacklist                      = {
 						\  'tagbar' : 1,
 						\  'nerdtree' : 1,
+						\ }
+let g:ycm_filetype_specific_completion_to_disable = {
+						\ 'javascript': 0,
+						\ 'ruby': 0,
+						\ 'eruby': 0
 						\ }
 
 " CtrlP
