@@ -243,11 +243,12 @@ let g:ycm_collect_identifiers_from_tags_files     = 0
 let g:ycm_filetype_blacklist                      = {
 						\  'tagbar' : 1,
 						\  'nerdtree' : 1,
+						\  'html': 1,
 						\ }
 let g:ycm_filetype_specific_completion_to_disable = {
 						\ 'javascript': 0,
 						\ 'ruby': 0,
-						\ 'eruby': 0
+						\ 'eruby': 0,
 						\ }
 
 " CtrlP
