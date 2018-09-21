@@ -4,7 +4,7 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
-export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:./node_modules/.bin:/usr/local/sbin:/usr/local/bin:$PATH
 export EDITOR=vim
 export GREP_OPTIONS="--color=auto"
 
