@@ -62,6 +62,12 @@ if [ "x$(uname)" = "xDarwin" ]; then
 		echo $(sw_vers|grep ProductVersion|cut -d ':' -f 2|tr -d "\t")
 	}
 
+	function upgrade_macvim() {
+		brew upgrade macvim
+		cp -r /usr/local/opt/macvim/MacVim.app /Applications
+		defaults write org.vim.MacVim SUEnableAutomaticChecks -bool false
+	}
+
 	export LANG=ja_JP.UTF-8
 	export CLICOLOR=1
 	export PGDATA=/usr/local/var/postgres
