@@ -64,6 +64,7 @@ if [ "x$(uname)" = "xDarwin" ]; then
 
 	function upgrade_macvim() {
 		brew upgrade macvim
+		brew cleanup macvim
 		cp -r /usr/local/opt/macvim/MacVim.app /Applications
 		defaults write org.vim.MacVim SUEnableAutomaticChecks -bool false
 	}
