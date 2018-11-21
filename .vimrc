@@ -25,6 +25,7 @@ Plug 'cocopon/iceberg.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
+Plug 'nathanaelkane/vim-indent-guides'
 
 if has('gui_running')
 		Plug 'itchyny/vim-cursorword'
