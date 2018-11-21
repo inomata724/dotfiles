@@ -186,6 +186,12 @@ let g:tagbar_type_markdown = {
 						\ ]
 						\ }
 
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup = 0
+let g:indent_guides_start_level           = 2
+let g:indent_guides_space_guides          = 1
+let g:indent_guides_guide_size            = 1
+
 " Encoding
 set enc=utf-8
 set fenc=utf-8
@@ -232,6 +238,7 @@ nnoremap <Leader>t  :TagbarToggle<CR>
 nnoremap <Leader>h  :noh<CR>
 nnoremap <Leader>tm :TableModeToggle<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
+nnoremap <Leader>i  :IndentGuidesToggle<CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
 " YouCompleteMe
