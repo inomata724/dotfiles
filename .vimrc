@@ -91,7 +91,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
 set cpoptions+=d
-set tags=./tags;
 set autoread
 set nofoldenable
 set re=0
@@ -134,15 +133,6 @@ augroup END
 
 " AutoPairs
 let g:AutoPairsMultilineClose=0
-
-" EasyTags
-let g:easytags_always_enabled = 0
-let g:easytags_auto_update    = 0
-let g:easytags_async          = 1
-let g:easytags_dynamic_files  = 2
-let g:easytags_autorecurse    = 1
-let g:easytags_auto_highlight = 0
-let g:easytags_on_cursorhold  = 0
 
 " NERDTree
 autocmd BufEnter * silent! lcd %:p:h
@@ -246,6 +236,7 @@ let g:ycm_min_num_of_chars_for_completion         = 1
 let g:ycm_seed_identifiers_with_syntax            = 1
 let g:ycm_collect_identifiers_from_tags_files     = 0
 let g:ycm_filetype_blacklist                      = {
+						\ 'html':     1,
 						\ 'tagbar':   1,
 						\ 'qf':       1,
 						\ 'notes':    1,
