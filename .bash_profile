@@ -8,10 +8,10 @@ export PATH=$HOME/bin:./node_modules/.bin:/usr/local/sbin:/usr/local/bin:$PATH
 export EDITOR=vim
 export GREP_OPTIONS="--color=auto"
 
-export GIT_PS1_SHOWUPSTREAM=true
-export GIT_PS1_SHOWUNTRACKEDFILES=true
-export GIT_PS1_SHOWSTASHSTATE=true
-export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUPSTREAM=
+export GIT_PS1_SHOWUNTRACKEDFILES=
+export GIT_PS1_SHOWSTASHSTATE=
+export GIT_PS1_SHOWDIRTYSTATE=
 
 function current_dir_name() {
 	echo $(basename "$(pwd)")
