@@ -419,23 +419,23 @@ if executable('jq')
 endif
 
 " FileTypes Definition
-au BufRead,BufNewFile *.txt                           set filetype=text
-au BufRead,BufNewFile *.rb                            set filetype=ruby
-au BufRead,BufNewFile *.erb                           set filetype=eruby
-au BufRead,BufNewFile *.md,*.markdown,*.md.*          set filetype=markdown
-au BufRead,BufNewFile *.go                            set filetype=go
-au BufRead,BufNewFile *.tracwiki                      set filetype=tracwiki
-au BufRead,BufNewFile *.tf,*.tfstate,*.tfstate.backup set filetype=terraform
-au BufRead,BufNewFile *etc/httpd/conf/*,*etc/httpd/conf.d/*,/etc/apache2/apache2.conf set filetype=apache
-au BufRead,BufNewFile keepalived.conf setlocal ft=keepalived
-au BufRead,BufNewFile *.case setlocal ft=case
-au BufRead,BufNewFile *.rule setlocal ft=rule
+au BufRead,BufNewFile *.txt                           setl filetype=text
+au BufRead,BufNewFile *.rb                            setl filetype=ruby
+au BufRead,BufNewFile *.erb                           setl filetype=eruby
+au BufRead,BufNewFile *.md,*.markdown,*.md.*          setl filetype=markdown
+au BufRead,BufNewFile *.go                            setl filetype=go
+au BufRead,BufNewFile *.tracwiki                      setl filetype=tracwiki
+au BufRead,BufNewFile *.tf,*.tfstate,*.tfstate.backup setl filetype=terraform
+au BufRead,BufNewFile *etc/httpd/conf/*,*etc/httpd/conf.d/*,/etc/apache2/apache2.conf setl filetype=apache
+au BufRead,BufNewFile keepalived.conf setl ft=keepalived
+au BufRead,BufNewFile *.case setl ft=case
+au BufRead,BufNewFile *.rule setl ft=rule
 
 " Plain Text
-au FileType text set sw=2 sts=2 ts=2 et
+au FileType text setl sw=2 sts=2 ts=2 et
 
 " HTML
-au FileType html set sw=2 sts=2 ts=2 et
+au FileType html setl sw=2 sts=2 ts=2 et
 
 let g:html5_event_handler_attributes_complete = 1
 let g:html5_rdfa_attributes_complete          = 1
@@ -443,7 +443,7 @@ let g:html5_microdata_attributes_complete     = 1
 let g:html5_aria_attributes_complete          = 1
 
 " Ruby
-au FileType ruby,eruby set sw=2 ts=2 sts=2 et
+au FileType ruby,eruby setl sw=2 ts=2 sts=2 et
 let ruby_space_errors                   = 1
 let g:ruby_indent_block_style           = 'do'
 let g:rubycomplete_buffer_loading       = 1
@@ -455,39 +455,39 @@ let g:rubycomplete_include_object_space = 1
 au FileType python setl smartindent sw=4 sts=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 " JavaScript
-au FileType javascript setlocal sw=2 sts=2 ts=2 et
+au FileType javascript setl sw=2 sts=2 ts=2 et
 
 " CSS/SCSS
-au FileType css setlocal sw=2 sts=2 ts=2 et
-au FileType scss setlocal sw=2 sts=2 ts=2 et
+au FileType css setl sw=2 sts=2 ts=2 et
+au FileType scss setl sw=2 sts=2 ts=2 et
 
 " JSON
-au FileType json setlocal sw=2 sts=2 ts=2 et
+au FileType json setl sw=2 sts=2 ts=2 et
 
 " CoffeeScript
-au FileType coffeescript setlocal sw=2 sts=2 ts=2 et
+au FileType coffeescript setl sw=2 sts=2 ts=2 et
 
 " TypeScript
-au FileType typescript setlocal sw=2 sts=2 ts=2 et
+au FileType typescript setl sw=2 sts=2 ts=2 et
 let g:js_indent_typescript=1
 
 " Yaml
-au FileType yaml set sw=2 sts=2 ts=2 et
+au FileType yaml setl sw=2 sts=2 ts=2 et
 
 " SLS
-au FileType sls set sw=2 sts=2 ts=2 et
+au FileType sls setl sw=2 sts=2 ts=2 et
 
 " Markdown
-au FileType markdown set sw=2 sts=2 ts=2 et
+au FileType markdown setl sw=2 sts=2 ts=2 et
 
 " reStructuredText
 let g:riv_disable_folding = 1
 
 " liquid
-au FileType liquid set sw=2 ts=2 sts=2 et
+au FileType liquid setl sw=2 ts=2 sts=2 et
 
 " Go
-au FileType go set sw=8 sts=8 ts=8 noet
+au FileType go setl sw=8 sts=8 ts=8 noet
 let g:go_highlight_functions         = 1
 let g:go_highlight_methods           = 1
 let g:go_highlight_fields            = 1
@@ -498,4 +498,4 @@ let g:go_fmt_command                 = 'goimports'
 let g:go_fmt_autosave                = 1
 
 " Terraform
-au FileType terraform set sw=2 ts=2 sts=2 et
+au FileType terraform setl sw=2 ts=2 sts=2 et
