@@ -96,7 +96,10 @@ if [ "x$(uname)" = "xDarwin" ]; then
 else
 	export LINUXBREW_PATH="/home/linuxbrew/.linuxbrew"
 	if [ -d $LINUXBREW_PATH ]; then
-			export PATH="$LINUXBREW_PATH/bin:$LINUXBREW_PATH/sbin/:$PATH"
+			export PATH=$LINUXBREW_PATH/bin:$LINUXBREW_PATH/sbin/:$PATH
+
+			eval $(brew shellenv)
+
 			export MANPATH="$LINUXBREW_PATH/share/man:$MANPATH"
 			export INFOPATH="$LINUXBREW_PATH/share/info:$INFOPATH"
 	fi
@@ -122,3 +125,4 @@ if [ -x $(which colordiff 2> /dev/null) ]; then
 else
 	alias diff='diff -u'
 fi
+
