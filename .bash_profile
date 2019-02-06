@@ -94,6 +94,11 @@ if [ "x$(uname)" = "xDarwin" ]; then
 	alias safari='open -a Safari'
 	alias chrome='open -a Google\ Chrome'
 else
+	export LINUXBREW_PATH="/home/linuxbrew/.linuxbrew"
+	export PATH="$LINUXBREW_PATH/.linuxbrew/bin:$LINUXBREW_PATH/sbin/:$PATH"
+	export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
+	export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
+
 	if [ -f $BASH_COMPLETION_DIR/git -o -f $BASH_COMPLETION_COMPAT_DIR/git-prompt ]; then
 		export PS1='\[\e[0;32m\][\u@\h:\W$(__git_ps1 " (%s)")]\$ \[\e[m\]'
 	else
