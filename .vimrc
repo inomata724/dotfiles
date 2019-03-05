@@ -26,10 +26,6 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 
-if has('gui_running')
-		Plug 'itchyny/vim-cursorword'
-endif
-
 if v:version >= 800
 		Plug 'Valloric/YouCompleteMe', { 'do': 'YCM_CORES=1 ./install.py --clang-completer --gocode-completer --tern-completer' }
 end
@@ -50,10 +46,6 @@ Plug 'hashivim/vim-terraform',                 { 'for': 'terraform' }
 Plug 'vim-scripts/tracwiki',                   { 'for': 'tracwiki' }
 Plug 'saltstack/salt-vim',                     { 'for': 'sls' }
 Plug 'glidenote/keepalived-syntax.vim',        { 'for': 'keepalived' }
-
-if has('gui_running')
-		Plug 'todesking/ruby_hl_lvar.vim', { 'for': 'ruby' }
-end
 
 call plug#end()
 
