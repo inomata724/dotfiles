@@ -41,7 +41,6 @@ Plug 'HerringtonDarkholme/yats.vim',           { 'for': 'typescript' }
 Plug 'kchmck/vim-coffee-script',               { 'for': 'coffee' }
 Plug 'Rykka/riv.vim',                          { 'for': 'rst' }
 Plug 'othree/html5.vim',                       { 'for': 'html' }
-Plug 'Valloric/MatchTagAlways',                { 'for': 'html' }
 Plug 'alvan/vim-closetag',                     { 'for': 'html' }
 Plug 'hashivim/vim-terraform',                 { 'for': 'terraform' }
 Plug 'vim-scripts/tracwiki',                   { 'for': 'tracwiki' }
