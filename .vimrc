@@ -196,7 +196,7 @@ if (s:is_plugged('iceberg.vim'))
 endif
 
 " GUI
-set guifont=Ricty:h17
+set guifont=Ricty:h15
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
