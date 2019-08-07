@@ -241,6 +241,15 @@ let g:ycm_filetype_blacklist                      = {
 						\ 'mail':     1,
 						\ 'nerdtree': 1
 						\ }
+let g:ycm_language_server                         = []
+if executable('solargraph')
+let rubylsp = {
+						\   'name': 'ruby',
+						\   'cmdline': [ 'solargraph', 'stdio' ],
+						\   'filetypes': [ 'ruby' ]
+						\ }
+	call add(g:ycm_language_server, rubylsp)
+endif
 
 " CtrlP
 let g:ctrlp_map                 = '<Nop>'
