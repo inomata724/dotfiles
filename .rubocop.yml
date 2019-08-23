@@ -1,12 +1,15 @@
+Layout/AlignHash:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle:      table
+
 Metrics/BlockLength:
   Max: 30
 
 Metrics/MethodLength:
   Max: 30
 
-Layout/AlignHash:
-  EnforcedHashRocketStyle: table
-  EnforcedColonStyle:      table
-
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/DoubleNegation:
   Enabled: false
