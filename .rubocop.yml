@@ -13,3 +13,6 @@ Style/FrozenStringLiteralComment:
 
 Style/DoubleNegation:
   Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
