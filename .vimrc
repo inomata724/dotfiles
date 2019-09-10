@@ -14,7 +14,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/vim-easy-align'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-rooter'
-Plug 'cocopon/vaffle.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'EvanDotPro/nerdtree-chmod'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'dbakker/vim-projectroot'
 Plug 'majutsushi/tagbar'
 Plug 'dhruvasagar/vim-table-mode'
@@ -123,6 +125,15 @@ augroup END
 " AutoPairs
 let g:AutoPairsMultilineClose=0
 
+" NERDTree
+autocmd BufEnter * silent! lcd %:p:h
+let NERDTreeChDirMode                   = 0
+let NERDTreeHijackNetrw                 = 0
+let NERDTreeWinSize                     = 40
+let NERDTreeShowHidden                  = 1
+let g:nerdtree_tabs_open_on_gui_startup = 0
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif"))"
+
 " gitgutter
 let g:gitgutter_max_signs = 2000
 
@@ -197,7 +208,7 @@ let mapleader = ";"
 nnoremap tc         :<C-u>tabnew<CR>
 nnoremap tn         gt
 nnoremap tp         gT
-nnoremap <Leader>v  :Vaffle<CR>
+nnoremap <Leader>n  :NERDTreeTabsToggle<CR>
 nnoremap <Leader>f  :<C-u>CtrlP<CR>
 nnoremap <Leader>jf :call FormatJson()<CR>
 nnoremap <Leader>b  :Gblame<CR>
@@ -228,7 +239,7 @@ let g:ycm_filetype_blacklist                      = {
 						\ 'pandoc':   1,
 						\ 'infolog':  1,
 						\ 'mail':     1,
-						\ 'vaffle':   1
+						\ 'nerdtree': 1
 						\ }
 let g:ycm_language_server                         = []
 if executable('solargraph')
