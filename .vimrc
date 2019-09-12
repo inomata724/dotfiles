@@ -200,7 +200,7 @@ if (s:is_plugged('vim-gotham'))
 endif
 
 if (s:is_plugged('ayu-vim'))
-		let g:ayucolor = 'dark'
+		let g:ayucolor = 'mirage'
 		colorscheme ayu
 endif
 
