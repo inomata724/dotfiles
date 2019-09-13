@@ -22,9 +22,9 @@ Plug 'majutsushi/tagbar'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'elzr/vim-json'
 "Plug 'cocopon/iceberg.vim'
-"Plug 'whatyouhide/vim-gotham'
-Plug 'ayu-theme/ayu-vim'
-Plug 'yarisgutierrez/ayu-lightline'
+Plug 'whatyouhide/vim-gotham'
+"Plug 'ayu-theme/ayu-vim'
+"Plug 'yarisgutierrez/ayu-lightline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
@@ -324,6 +324,8 @@ if s:is_plugged('lightline.vim')
 								\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filepath', 'modified', 'readonly' ] ],
 								\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
 								\ },
+								\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+								\ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
 								\ 'component': {
 								\ 	'rows'    : '%L',
 								\ 	'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
