@@ -2,6 +2,9 @@ Layout/AlignHash:
   EnforcedHashRocketStyle: table
   EnforcedColonStyle:      table
 
+Metrics/LineLength:
+  Max: 120
+
 Metrics/BlockLength:
   Max: 30
 
