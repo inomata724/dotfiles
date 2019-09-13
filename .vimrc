@@ -198,7 +198,7 @@ endif
 if (s:is_plugged('vim-gotham'))
 		colorscheme gotham
 
-		hi VertSplit guibg=bg guifg=bg
+		hi VertSplit guifg=bg guibg=bg
 		hi NonText ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 		hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 endif
