@@ -23,9 +23,10 @@ Plug 'majutsushi/tagbar'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'elzr/vim-json'
 "Plug 'cocopon/iceberg.vim'
-Plug 'whatyouhide/vim-gotham'
+"Plug 'whatyouhide/vim-gotham'
 "Plug 'ayu-theme/ayu-vim'
 "Plug 'yarisgutierrez/ayu-lightline'
+Plug 'atelierbram/Base2Tone-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
@@ -204,6 +205,16 @@ endif
 if (s:is_plugged('ayu-vim'))
 		let g:ayucolor = 'mirage'
 		colorscheme ayu
+endif
+
+if (s:is_plugged('Base2Tone-vim'))
+		set background=dark
+		colorscheme Base2Tone_EveningDark
+
+		hi GitGutterAdd guibg=bg
+		hi GitGutterChange guibg=bg
+		hi GitGutterDelete guibg=bg
+		hi GitGutterChangeDelete guibg=bg
 endif
 
 " GUI
