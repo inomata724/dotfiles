@@ -1,4 +1,5 @@
 if has('vim_starting')
+		set all&
 		set nocompatible
 		if !filereadable(expand("~/.vim/autoload/plug.vim"))
 				echo "Installing vim-plug..."
@@ -183,24 +184,21 @@ set fenc=utf-8
 set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 " Color
-"set background=dark
-
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 if (s:is_plugged('iceberg.vim'))
 		colorscheme iceberg
-		hi NonText ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 		hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 endif
 
 if (s:is_plugged('vim-gotham'))
 		colorscheme gotham
 
-		hi VertSplit guifg=bg guibg=bg
 		hi NonText ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 		hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+		hi VertSplit guifg=bg
 endif
 
 if (s:is_plugged('ayu-vim'))
@@ -218,6 +216,7 @@ set guioptions-=e
 
 " Custom Keymap
 let mapleader = ";"
+nnoremap <Leader>vr :source $MYVIMRC<CR>
 nnoremap tc         :<C-u>tabnew<CR>
 nnoremap tn         gt
 nnoremap tp         gT
