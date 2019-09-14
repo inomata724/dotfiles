@@ -100,6 +100,10 @@ set visualbell t_vb=
 set completeopt=menuone
 set updatetime=4000
 
+if has("gui_running") && has("gui_macvim")
+		set macligatures
+endif
+
 " disable plugins
 let g:loaded_gzip            = 1
 let g:loaded_tar             = 1
@@ -219,7 +223,7 @@ if (s:is_plugged('Base2Tone-vim'))
 endif
 
 " GUI
-set guifont=Ricty:h15
+set guifont=Fira\ Code:h13
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
