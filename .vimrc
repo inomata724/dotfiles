@@ -100,10 +100,6 @@ set visualbell t_vb=
 set completeopt=menuone
 set updatetime=4000
 
-if has("gui_running") && has("gui_macvim")
-		set macligatures
-endif
-
 " disable plugins
 let g:loaded_gzip            = 1
 let g:loaded_tar             = 1
