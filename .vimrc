@@ -215,7 +215,7 @@ if (s:is_plugged('Base2Tone-vim'))
 endif
 
 " GUI
-set guifont=SF\ Mono\ Square:h16
+set guifont=SF\ Mono\ Square\ Regular:h16
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
@@ -356,10 +356,6 @@ if s:is_plugged('lightline.vim')
 								\ 'component_type': {
 								\ 	'indentation': 'error',
 								\ 	'readonly': 'error',
-								\ },
-								\ 'tabline': {
-								\ 	'left': [ [ 'tabs' ] ],
-								\ 	'right': [ [] ]
 								\ },
 								\ 'tab': {
 								\ 	'active': [ 'title' ],
