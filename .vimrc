@@ -22,11 +22,7 @@ Plug 'dbakker/vim-projectroot'
 Plug 'majutsushi/tagbar'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'elzr/vim-json'
-"Plug 'cocopon/iceberg.vim'
-Plug 'whatyouhide/vim-gotham'
-"Plug 'ayu-theme/ayu-vim'
-"Plug 'yarisgutierrez/ayu-lightline'
-"Plug 'atelierbram/Base2Tone-vim'
+Plug 'cocopon/iceberg.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
@@ -219,7 +215,7 @@ if (s:is_plugged('Base2Tone-vim'))
 endif
 
 " GUI
-set guifont=Fira\ Code:h13
+set guifont=SF\ Mono\ Square:h16
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
