@@ -28,8 +28,13 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 
-if v:version >= 800
-		Plug 'Valloric/YouCompleteMe', { 'do': 'YCM_CORES=1 ./install.py --clang-completer --gocode-completer --tern-completer' }
+if v:version >= 800 && has('python3')
+		Plug 'Shougo/deoplete.nvim', { 'do': 'pip3 install --user pynvim' }
+		Plug 'roxma/nvim-yarp'
+		Plug 'roxma/vim-hug-neovim-rpc'
+		Plug 'prabirshrestha/async.vim'
+		Plug 'prabirshrestha/vim-lsp'
+		Plug 'lighttiger2505/deoplete-vim-lsp'
 end
 
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
@@ -242,32 +247,37 @@ nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 nnoremap <Leader>i  :IndentGuidesToggle<CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
-" YouCompleteMe
-let g:ycm_min_num_of_chars_for_completion         = 1
-let g:ycm_seed_identifiers_with_syntax            = 1
-let g:ycm_collect_identifiers_from_tags_files     = 0
-let g:ycm_filetype_blacklist                      = {
-						\ 'html':     1,
-						\ 'tagbar':   1,
-						\ 'qf':       1,
-						\ 'notes':    1,
-						\ 'markdown': 1,
-						\ 'unite':    1,
-						\ 'text':     1,
-						\ 'vimwiki':  1,
-						\ 'pandoc':   1,
-						\ 'infolog':  1,
-						\ 'mail':     1,
-						\ 'nerdtree': 1
-						\ }
-let g:ycm_language_server                         = []
+" deoplete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option({
+						\ 'auto_complete_delay': 200,
+						\ })
+
 if executable('solargraph')
-let rubylsp = {
-						\   'name': 'ruby',
-						\   'cmdline': [ 'solargraph', 'stdio' ],
-						\   'filetypes': [ 'ruby' ]
-						\ }
-	call add(g:ycm_language_server, rubylsp)
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'initialization_options': {"diagnostics": "true"},
+        \ 'whitelist': ['ruby'],
+        \ })
+endif
+
+if executable('gopls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'gopls',
+        \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+        \ 'whitelist': ['go'],
+        \ })
+    autocmd BufWritePre *.go LspDocumentFormatSync
+endif
+
+if executable('typescript-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'typescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \ 'whitelist': ['typescript', 'typescript.tsx'],
+        \ })
 endif
 
 " CtrlP
