@@ -92,7 +92,6 @@ set tabstop=4
 "set ambiwidth=double
 set nobackup
 set visualbell t_vb=
-set completeopt=menuone
 set updatetime=4000
 
 " disable plugins
@@ -243,9 +242,6 @@ nnoremap <Leader>i  :IndentGuidesToggle<CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
 " YouCompleteMe
-let g:ycm_min_num_of_chars_for_completion         = 1
-let g:ycm_seed_identifiers_with_syntax            = 1
-let g:ycm_collect_identifiers_from_tags_files     = 0
 let g:ycm_filetype_blacklist                      = {
 						\ 'html':     1,
 						\ 'tagbar':   1,
