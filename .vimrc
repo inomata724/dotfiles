@@ -29,11 +29,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 
 if v:version >= 800
-		Plug 'prabirshrestha/vim-lsp'
-		Plug 'prabirshrestha/async.vim'
-		Plug 'prabirshrestha/asyncomplete.vim'
-		Plug 'prabirshrestha/asyncomplete-lsp.vim'
-		Plug 'prabirshrestha/asyncomplete-buffer.vim'
+		Plug 'Valloric/YouCompleteMe', { 'do': 'YCM_CORES=1 ./install.py --clang-completer --gocode-completer --tern-completer' }
 end
 
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
@@ -246,46 +242,33 @@ nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 nnoremap <Leader>i  :IndentGuidesToggle<CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
-" vim-lsp
+" YouCompleteMe
+let g:ycm_min_num_of_chars_for_completion         = 1
+let g:ycm_seed_identifiers_with_syntax            = 1
+let g:ycm_collect_identifiers_from_tags_files     = 0
+let g:ycm_filetype_blacklist                      = {
+						\ 'html':     1,
+						\ 'tagbar':   1,
+						\ 'qf':       1,
+						\ 'notes':    1,
+						\ 'markdown': 1,
+						\ 'unite':    1,
+						\ 'text':     1,
+						\ 'vimwiki':  1,
+						\ 'pandoc':   1,
+						\ 'infolog':  1,
+						\ 'mail':     1,
+						\ 'nerdtree': 1
+						\ }
+let g:ycm_language_server                         = []
 if executable('solargraph')
-		au User lsp_setup call lsp#register_server({
-								\ 'name': 'solargraph',
-								\ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-								\ 'initialization_options': {"diagnostics": "true"},
-								\ 'whitelist': ['ruby'],
-								\ })
+let rubylsp = {
+						\   'name': 'ruby',
+						\   'cmdline': [ 'solargraph', 'stdio' ],
+						\   'filetypes': [ 'ruby' ]
+						\ }
+	call add(g:ycm_language_server, rubylsp)
 endif
-
-if executable('gopls')
-		au User lsp_setup call lsp#register_server({
-								\ 'name': 'gopls',
-								\ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-								\ 'whitelist': ['go'],
-								\ })
-		autocmd BufWritePre *.go LspDocumentFormatSync
-endif
-
-if executable('typescript-language-server')
-		au User lsp_setup call lsp#register_server({
-								\ 'name': 'typescript-language-server',
-								\ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-								\ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-								\ 'whitelist': ['typescript', 'typescript.tsx'],
-								\ })
-endif
-
-" asyncomplete
-let g:asyncomplete_auto_popup = 1
-let g:asyncomplete_popup_delay = 200
-call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-						\ 'name': 'buffer',
-						\ 'whitelist': ['*'],
-						\ 'blacklist': [],
-						\ 'completor': function('asyncomplete#sources#buffer#completor'),
-						\ 'config': {
-						\    'max_buffer_size': 5000000,
-						\  },
-						\ }))
 
 " CtrlP
 let g:ctrlp_map                 = '<Nop>'
