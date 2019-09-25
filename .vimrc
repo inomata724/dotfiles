@@ -245,6 +245,13 @@ nnoremap <Leader>i  :IndentGuidesToggle<CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
 " vim-lsp
+let g:lsp_diagnostics_enabled          = 0
+let g:lsp_signs_enabled                = 0
+let g:lsp_diagnostics_echo_cursor      = 0
+let g:lsp_highlights_enabled           = 0
+let g:lsp_textprop_enabled             = 0
+let g:lsp_highlight_references_enabled = 0
+
 if executable('solargraph')
 		au User lsp_setup call lsp#register_server({
 								\ 'name': 'solargraph',
