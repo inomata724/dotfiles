@@ -96,8 +96,6 @@ set tabstop=4
 "set ambiwidth=double
 set nobackup
 set visualbell t_vb=
-set completeopt=menuone
-set updatetime=4000
 
 " disable plugins
 let g:loaded_gzip            = 1
@@ -275,7 +273,7 @@ if executable('typescript-language-server')
 endif
 
 " asyncomplete
-let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_popup  = 1
 let g:asyncomplete_popup_delay = 200
 call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
 						\ 'name': 'buffer',
