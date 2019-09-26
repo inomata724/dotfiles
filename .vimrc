@@ -1,6 +1,5 @@
 if has('vim_starting')
 		set all&
-		set nocompatible
 		if !filereadable(expand("~/.vim/autoload/plug.vim"))
 				echo "Installing vim-plug..."
 				call system("curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
@@ -62,7 +61,6 @@ function s:is_plugged(name)
 		endif
 endfunction
 
-set nocompatible
 set nowrap
 set number
 set autoindent
@@ -84,9 +82,7 @@ set smartcase
 set clipboard+=unnamed
 set backspace=indent,eol,start
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-set timeout timeoutlen=1000 ttimeoutlen=75
 set shortmess+=I
-set cpoptions+=d
 set autoread
 set nofoldenable
 set re=0
