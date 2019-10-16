@@ -1,7 +1,5 @@
-# .bash_profile
-
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+if [ -f /etc/bashrc  ]; then
+		. /etc/bashrc
 fi
 
 export PATH=$HOME/bin:./node_modules/.bin:/usr/local/sbin:/usr/local/bin:$PATH
@@ -126,4 +124,3 @@ if [ -x $(which colordiff 2> /dev/null) ]; then
 else
 	alias diff='diff -u'
 fi
-
