@@ -12,11 +12,11 @@ export GIT_PS1_SHOWUNTRACKEDFILES=
 export GIT_PS1_SHOWSTASHSTATE=
 export GIT_PS1_SHOWDIRTYSTATE=
 
-function current_dir_name() {
+current_dir_name() {
 	echo $(basename "$(pwd)")
 }
 
-function rename_tmux_window_name() {
+rename_tmux_window_name() {
 	local window_name=$1
 	tmux rename-window "$window_name"
 }
@@ -28,14 +28,14 @@ cd() {
 	fi
 }
 
-function ssh() {
+ssh() {
 	if [ "x$TMUX" != "x" ]; then
 		local current_window_name=$(tmux display -p "#{window_name}")
 		rename_tmux_window_name "ssh $1"
-		builtin ssh "$@"
+		command ssh "$@"
 		rename_tmux_window_name "$current_window_name"
 	else
-		builtin ssh "$@"
+		command ssh "$@"
 	fi
 }
 
