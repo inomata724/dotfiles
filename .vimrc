@@ -248,6 +248,7 @@ let g:lsp_highlights_enabled           = 0
 let g:lsp_textprop_enabled             = 0
 let g:lsp_highlight_references_enabled = 0
 let g:lsp_fold_enabled                 = 0
+let g:lsp_text_edit_enabled            = 0
 
 if executable('solargraph')
 		au User lsp_setup call lsp#register_server({
