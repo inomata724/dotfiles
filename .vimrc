@@ -108,6 +108,9 @@ let g:loaded_getscriptPlugin = 1
 let g:loaded_netrw           = 1
 let g:loaded_netrwPlugin     = 1
 
+" ale
+let g:ale_set_highlights = 0
+
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
