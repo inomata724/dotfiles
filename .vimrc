@@ -129,12 +129,14 @@ let g:AutoPairsMultilineClose=0
 
 " NERDTree
 autocmd BufEnter * silent! lcd %:p:h
-let NERDTreeChDirMode                   = 0
-let NERDTreeHijackNetrw                 = 0
-let NERDTreeWinSize                     = 40
-let NERDTreeShowHidden                  = 1
+let g:NERDTreeChDirMode                 = 0
+let g:NERDTreeHijackNetrw               = 0
+let g:NERDTreeWinSize                   = 40
+let g:NERDTreeShowHidden                = 1
+let g:NERDTreeQuitOnOpen                = 1
+let g:NERDTreeAutoDeleteBuffer          = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif"))"
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " gitgutter
 let g:gitgutter_max_signs = 2000
