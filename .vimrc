@@ -16,7 +16,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-rooter'
 Plug 'scrooloose/nerdtree'
 Plug 'EvanDotPro/nerdtree-chmod'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'dbakker/vim-projectroot'
 Plug 'majutsushi/tagbar'
 Plug 'dhruvasagar/vim-table-mode'
@@ -230,7 +229,7 @@ nnoremap <Leader>vr :source $MYVIMRC<CR>
 nnoremap tc         :<C-u>tabnew<CR>
 nnoremap tn         gt
 nnoremap tp         gT
-nnoremap <Leader>n  :NERDTreeTabsToggle<CR>
+nnoremap <Leader>n  :NERDTreeToggle<CR>
 nnoremap <Leader>f  :<C-u>CtrlP<CR>
 nnoremap <Leader>jf :call FormatJson()<CR>
 nnoremap <Leader>b  :Gblame<CR>
