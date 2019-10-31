@@ -1,5 +1,5 @@
 autoload -Uz colors
-autoload -U compinit
+autoload -Uz compinit
 autoload -Uz vcs_info
 
 colors
