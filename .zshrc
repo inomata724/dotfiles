@@ -1,5 +1,9 @@
 autoload -Uz colors
+autoload -U compinit
+autoload -Uz vcs_info
+
 colors
+compinit -u
 
 bindkey -e
 
@@ -11,6 +15,14 @@ export GIT_PS1_SHOWUPSTREAM=
 export GIT_PS1_SHOWUNTRACKEDFILES=
 export GIT_PS1_SHOWSTASHSTATE=
 export GIT_PS1_SHOWDIRTYSTATE=
+
+zstyle ':vcs_info:*' formats ' (%b)'
+zstyle ':vcs_info:*' actionformats ' (%b|%a)'
+precmd () {
+		psvar=()
+		LANG=en_US.UTF-8 vcs_info
+		[[ -n "$vcs_info_msg_0_"  ]] && psvar[1]="$vcs_info_msg_0_"
+}
 
 current_dir_name() {
 	echo $(basename "$(pwd)")
@@ -75,7 +87,7 @@ if [ "x$(uname)" = "xDarwin" ]; then
 	export PATH=$PATH:$HOME/Library/Python/2.7/bin
 	export PATH=/Applications/MacVim.app/Contents/bin:$PATH
 
-	export PROMPT='%F{green}%n@%m%f %F{yellow}%~%f %F{green}$%f '
+	export PROMPT='%F{green}%n@%m%f %F{yellow}%~%f%1(v|%F{yellow}%1v%f|) %F{green}$%f '
 
 	if [ -x $(which gls 2> /dev/null) ]; then
 		alias ls='gls --color=auto'
