@@ -14,8 +14,9 @@
 	excludesfile = ~/.gitignore_global
 	pager = less -R
 [user]
-	name = Ryo Inomata
-	email = inomata724@gmail.com
+	useConfigOnly = true
+	email = (none)
+	name = (none)
 [fetch]
 	prune = true
 [color "grep"]
