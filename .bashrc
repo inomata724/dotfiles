@@ -11,6 +11,15 @@ export GIT_PS1_SHOWUNTRACKEDFILES=
 export GIT_PS1_SHOWSTASHSTATE=
 export GIT_PS1_SHOWDIRTYSTATE=
 
+export BASH_COMPLETION_DIR='/usr/local/etc/bash_completion.d'
+if [ -f $BASH_COMPLETION_DIR/git-prompt.sh -o -f $BASH_COMPLETION_COMPAT_DIR/git-completion.bash ]; then
+		source $BASH_COMPLETION_DIR/git-prompt.sh
+		source $BASH_COMPLETION_DIR/git-completion.bash
+		export PS1="\[\e[0;32m\][\u@\h:\W\$(__git_ps1 ' (%s)')]\$ \[\e[m\]"
+else
+		export PS1='\[\e[0;32m\][\u@\h:\W]\$ \[\e[m\]'
+fi
+
 function current_dir_name() {
 	echo $(basename "$(pwd)")
 }
@@ -74,9 +83,6 @@ if [ "x$(uname)" = "xDarwin" ]; then
 	export PATH=$PATH:$HOME/Library/Python/2.7/bin
 	export PATH=/Applications/MacVim.app/Contents/bin:$PATH
 
-	source /usr/local/etc/bash_completion.d/git-prompt.sh
-	source /usr/local/etc/bash_completion.d/git-completion.bash
-	export PS1="\[\e[0;32m\][\u@\h:\W\$(__git_ps1 ' (%s)')]\$ \[\e[m\]"
 	if [ -f $(brew --prefix)/etc/bash_completion ]; then
 		. $(brew --prefix)/etc/bash_completion
 	fi
@@ -101,12 +107,6 @@ else
 
 			export MANPATH="$LINUXBREW_PATH/share/man:$MANPATH"
 			export INFOPATH="$LINUXBREW_PATH/share/info:$INFOPATH"
-	fi
-
-	if [ -f $BASH_COMPLETION_DIR/git -o -f $BASH_COMPLETION_COMPAT_DIR/git-prompt ]; then
-		export PS1='\[\e[0;32m\][\u@\h:\W$(__git_ps1 " (%s)")]\$ \[\e[m\]'
-	else
-		export PS1='\[\e[0;32m\][\u@\h:\W]\$ \[\e[m\]'
 	fi
 
 	if [ -x $(which dircolors 2> /dev/null) -a -f ~/.dircolors ]; then
