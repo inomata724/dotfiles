@@ -15,9 +15,9 @@ export BASH_COMPLETION_DIR='/usr/local/etc/bash_completion.d'
 if [ -f $BASH_COMPLETION_DIR/git-prompt.sh -o -f $BASH_COMPLETION_COMPAT_DIR/git-completion.bash ]; then
 		source $BASH_COMPLETION_DIR/git-prompt.sh
 		source $BASH_COMPLETION_DIR/git-completion.bash
-		export PS1="\[\e[0;32m\][\u@\h:\W\$(__git_ps1 ' (%s)')]\$ \[\e[m\]"
+		export PS1="\[\e[0;32m\][\u@\h \[\e[m\]\[\e[0;33m\]\w\$(__git_ps1 ' (%s)')\[\e[m\]\[\e[0;32m\]]\$\[\e[m\] "
 else
-		export PS1='\[\e[0;32m\][\u@\h:\W]\$ \[\e[m\]'
+		export PS1='\[\e[0;32m\][\u@\h:\w]\$ \[\e[m\]'
 fi
 
 function current_dir_name() {
