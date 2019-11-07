@@ -25,6 +25,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'andymass/vim-matchup'
 
 if v:version >= 800
 		Plug 'prabirshrestha/vim-lsp'
