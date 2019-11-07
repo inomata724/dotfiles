@@ -87,7 +87,7 @@ if [ "x$(uname)" = "xDarwin" ]; then
 	export PATH=$PATH:$HOME/Library/Python/2.7/bin
 	export PATH=/Applications/MacVim.app/Contents/bin:$PATH
 
-	export PROMPT='%F{green}%n@%m%f %F{yellow}%~%f%1(v|%F{yellow}%1v%f|) %F{green}$%f '
+	export PROMPT='[%F{green}%n@%m%f %F{yellow}%~%f%1(v|%F{yellow}%1v%f|)%F{green}]$%f '
 
 	if [ -x $(which gls 2> /dev/null) ]; then
 		alias ls='gls --color=auto'
