@@ -15,8 +15,6 @@
 	pager = less -R
 [user]
 	useConfigOnly = true
-	email = (none)
-	name = (none)
 [fetch]
 	prune = true
 [color "grep"]
