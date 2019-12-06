@@ -108,6 +108,85 @@ let g:loaded_getscriptPlugin = 1
 let g:loaded_netrw           = 1
 let g:loaded_netrwPlugin     = 1
 
+let g:machinist_api_key    = $MACHINIST_API_KEY
+let g:machinist_agent_name = system('hostname -s')
+let g:machinist_endpoint   = $MACHINIST_ENDPOINT == '' ? 'https://gw.machinist.iij.jp/endpoint' : $MACHINIST_ENDPOINT
+let g:timewindow_interval  = 60
+
+function! s:calc_timewindow(timestamp, interval)
+		return a:timestamp / a:interval * a:interval
+endfunction
+
+function! s:post_to_machinist(counters, timestamp)
+		if (len(keys(a:counters)))
+				let data = { 'agent': g:machinist_agent_name, 'metrics': [] }
+
+				for event in keys(a:counters)
+						let counter = a:counters[event]
+						for buffer_name in keys(counter)
+								let metric = {
+														\ 'namespace': 'vim',
+														\ 'name': event,
+														\ 'tags': { 'buffer_name': buffer_name },
+														\ 'data_point': { 'value': counter[buffer_name], 'timestamp': a:timestamp }
+														\ }
+								call add(data['metrics'], metric)
+						endfor
+				endfor
+
+				let json    = json_encode(data)
+				let headers = "-H 'Content-Type: application/json' -H 'Authorization: Bearer " . g:machinist_api_key . "'"
+				let command = "curl " . headers . " '" . g:machinist_endpoint . "' -d '" . json . "' &"
+				call system(command)
+		endif
+endfunction
+
+function! s:count_event(event)
+		let now                  = localtime()
+		let l:current_timewindow = s:calc_timewindow(now, g:timewindow_interval)
+		let buffer_name          = bufname()
+
+		if (!exists('g:current_timewindow'))
+				let g:current_timewindow = l:current_timewindow
+		endif
+		if (!exists('g:event_counters'))
+				let g:event_counters = {}
+		endif
+
+		if (g:current_timewindow != l:current_timewindow)
+				call s:post_to_machinist(g:event_counters, g:current_timewindow)
+				let g:current_timewindow = l:current_timewindow
+				let g:event_counters     = {}
+		endif
+
+		if (!has_key(g:event_counters, a:event))
+				let g:event_counters[a:event] = {}
+		endif
+
+		if (has_key(g:event_counters[a:event], buffer_name))
+				let g:event_counters[a:event]['all'] += 1
+		else
+				let g:event_counters[a:event]['all'] = 1
+		endif
+endfunction
+
+if (g:machinist_endpoint != '' && g:machinist_api_key != '')
+		augroup CountEvents
+				autocmd!
+				autocmd VimEnter     * call s:count_event('VimEnter')
+				autocmd VimLeave     * call s:count_event('VimLeave')
+				autocmd BufEnter     * call s:count_event('BufEnter')
+				autocmd BufLeave     * call s:count_event('BufLeave')
+				autocmd BufWrite     * call s:count_event('BufWrite')
+				autocmd InsertEnter  * call s:count_event('InsertEnter')
+				autocmd InsertLeave  * call s:count_event('InsertLeave')
+				autocmd CursorHold   * call s:count_event('CursorHold')
+				autocmd CursorHoldI  * call s:count_event('CursorHoldI')
+				autocmd CursorMoved  * call s:count_event('CursorMoved')
+				autocmd CursorMovedI * call s:count_event('CursorMovedI')
+		augroup END
+endif
+
 " ale
 let g:ale_set_highlights = 0
 
