@@ -284,7 +284,7 @@ endif
 
 " asyncomplete
 let g:asyncomplete_auto_popup  = 1
-let g:asyncomplete_popup_delay = 200
+let g:asyncomplete_popup_delay = 100
 call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
 						\ 'name': 'buffer',
 						\ 'whitelist': ['*'],
