@@ -92,6 +92,7 @@ set tabstop=4
 "set ambiwidth=double
 set nobackup
 set visualbell t_vb=
+set updatetime=750
 
 " disable plugins
 let g:loaded_gzip            = 1
@@ -189,6 +190,8 @@ endif
 
 " ale
 let g:ale_set_highlights = 0
+let g:ale_sign_error     = "\uf06a"
+let g:ale_sign_warning   = "\uf071"
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
