@@ -188,6 +188,11 @@ if (g:machinist_endpoint != '' && g:machinist_api_key != '')
 		augroup END
 endif
 
+" auto reload
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
 " ale
 let g:ale_set_highlights = 0
 let g:ale_sign_error     = "\uf06a"
