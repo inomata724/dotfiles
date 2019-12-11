@@ -9,7 +9,7 @@ Metrics/ModuleLength:
   Enabled: false
 
 Metrics/LineLength:
-  Max: 120
+  Max: 80
 
 Metrics/BlockLength:
   Max: 30
@@ -33,4 +33,10 @@ Style/Documentation:
   Enabled: false
 
 Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
+Style/MultilineBlockChain:
   Enabled: false
