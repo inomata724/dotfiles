@@ -191,7 +191,7 @@ endif
 " auto reload
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 autocmd FileChangedShellPost *
-  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+						\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 " ale
 let g:ale_set_highlights = 0
