@@ -42,3 +42,6 @@ Style/BlockDelimiters:
 
 Style/MultilineBlockChain:
   Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
