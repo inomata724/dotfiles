@@ -100,6 +100,7 @@ if [ "x$(uname)" = "xDarwin" ]; then
 	alias flushdns='sudo killall -HUP mDNSResponder'
 	alias safari='open -a Safari'
 	alias chrome='open -a Google\ Chrome'
+	alias mvim='mvim --remote-tab-silent'
 else
 	export LINUXBREW_PATH="/home/linuxbrew/.linuxbrew"
 	if [ -d $LINUXBREW_PATH ]; then
