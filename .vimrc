@@ -32,7 +32,7 @@ if v:version >= 800
 		Plug 'prabirshrestha/async.vim'
 		Plug 'prabirshrestha/asyncomplete.vim'
 		Plug 'prabirshrestha/asyncomplete-lsp.vim'
-		Plug 'prabirshrestha/asyncomplete-buffer.vim'
+		Plug 'mattn/vim-lsp-settings'
 end
 
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
@@ -333,54 +333,24 @@ nnoremap <Leader>i  :IndentGuidesToggle<CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
 " vim-lsp
-let g:lsp_diagnostics_enabled          = 0
-let g:lsp_signs_enabled                = 0
-let g:lsp_diagnostics_echo_cursor      = 0
-let g:lsp_highlights_enabled           = 0
-let g:lsp_textprop_enabled             = 0
-let g:lsp_highlight_references_enabled = 0
-let g:lsp_fold_enabled                 = 0
-let g:lsp_text_edit_enabled            = 0
+function! s:on_lsp_buffer_enabled() abort
+		setlocal omnifunc=lsp#complete
+		setlocal signcolumn=yes
+		nmap <buffer> gd <plug>(lsp-definition)
+		nmap <buffer> <f2> <plug>(lsp-rename)
+		inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
+endfunction
 
-if executable('solargraph')
-		au User lsp_setup call lsp#register_server({
-								\ 'name': 'solargraph',
-								\ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-								\ 'initialization_options': {"diagnostics": "true"},
-								\ 'whitelist': ['ruby'],
-								\ })
-endif
+augroup lsp_install
+		au!
+		autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
 
-if executable('gopls')
-		au User lsp_setup call lsp#register_server({
-								\ 'name': 'gopls',
-								\ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-								\ 'whitelist': ['go'],
-								\ })
-		autocmd BufWritePre *.go LspDocumentFormatSync
-endif
-
-if executable('typescript-language-server')
-		au User lsp_setup call lsp#register_server({
-								\ 'name': 'typescript-language-server',
-								\ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-								\ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-								\ 'whitelist': ['typescript', 'typescript.tsx'],
-								\ })
-endif
-
-" asyncomplete
-let g:asyncomplete_auto_popup  = 1
-let g:asyncomplete_popup_delay = 100
-call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-						\ 'name': 'buffer',
-						\ 'whitelist': ['*'],
-						\ 'blacklist': [],
-						\ 'completor': function('asyncomplete#sources#buffer#completor'),
-						\ 'config': {
-						\    'max_buffer_size': 5000000,
-						\  },
-						\ }))
+let g:lsp_diagnostics_enabled     = 0
+let g:lsp_diagnostics_echo_cursor = 0
+let g:asyncomplete_auto_popup     = 1
+let g:asyncomplete_popup_delay    = 200
+let g:lsp_text_edit_enabled       = 1
 
 " CtrlP
 let g:ctrlp_map                 = '<Nop>'
