@@ -194,9 +194,10 @@ autocmd FileChangedShellPost *
 						\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 " ale
-let g:ale_set_highlights = 0
-let g:ale_sign_error     = "\uf06a"
-let g:ale_sign_warning   = "\uf071"
+let g:ale_set_highlights          = 0
+let g:ale_sign_error              = "\uf06a"
+let g:ale_sign_warning            = "\uf071"
+let g:ale_ruby_rubocop_executable = 'bundle'
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
