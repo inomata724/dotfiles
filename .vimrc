@@ -32,6 +32,7 @@ if v:version >= 800
 		Plug 'prabirshrestha/async.vim'
 		Plug 'prabirshrestha/asyncomplete.vim'
 		Plug 'prabirshrestha/asyncomplete-lsp.vim'
+		Plug 'prabirshrestha/asyncomplete-buffer.vim'
 		Plug 'mattn/vim-lsp-settings'
 end
 
@@ -352,6 +353,16 @@ let g:lsp_diagnostics_echo_cursor = 0
 let g:asyncomplete_auto_popup     = 1
 let g:asyncomplete_popup_delay    = 200
 let g:lsp_text_edit_enabled       = 0
+
+call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+						\ 'name': 'buffer',
+						\ 'whitelist': ['*'],
+						\ 'blacklist': [],
+						\ 'completor': function('asyncomplete#sources#buffer#completor'),
+						\ 'config': {
+						\    'max_buffer_size': 5000000,
+						\  },
+						\ }))
 
 " CtrlP
 let g:ctrlp_map                 = '<Nop>'
