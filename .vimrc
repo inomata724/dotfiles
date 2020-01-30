@@ -351,7 +351,7 @@ augroup END
 let g:lsp_diagnostics_enabled     = 0
 let g:lsp_diagnostics_echo_cursor = 0
 let g:asyncomplete_auto_popup     = 1
-let g:asyncomplete_popup_delay    = 200
+let g:lsp_insert_text_enabled     = 0
 let g:lsp_text_edit_enabled       = 0
 
 call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
