@@ -220,7 +220,7 @@ let g:AutoPairsMultilineClose=0
 autocmd BufEnter * silent! lcd %:p:h
 let g:NERDTreeChDirMode                 = 0
 let g:NERDTreeHijackNetrw               = 0
-let g:NERDTreeWinSize                   = 40
+let g:NERDTreeWinSize                   = 60
 let g:NERDTreeShowHidden                = 1
 let g:NERDTreeQuitOnOpen                = 1
 let g:NERDTreeAutoDeleteBuffer          = 1
