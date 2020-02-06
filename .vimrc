@@ -217,15 +217,24 @@ augroup END
 let g:AutoPairsMultilineClose=0
 
 " NERDTree
-autocmd BufEnter * silent! lcd %:p:h
 let g:NERDTreeChDirMode                 = 0
 let g:NERDTreeHijackNetrw               = 0
 let g:NERDTreeWinSize                   = 60
 let g:NERDTreeShowHidden                = 1
 let g:NERDTreeQuitOnOpen                = 1
 let g:NERDTreeAutoDeleteBuffer          = 1
-let g:nerdtree_tabs_open_on_gui_startup = 0
+autocmd BufEnter * silent! lcd %:p:h
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+function! NerdTreeToggleFind()
+    if exists("g:NERDTree") && g:NERDTree.IsOpen()
+        NERDTreeClose
+    elseif filereadable(expand('%'))
+        NERDTreeFind
+    else
+        NERDTree
+    endif
+endfunction
 
 " gitgutter
 let g:gitgutter_max_signs = 2000
@@ -319,8 +328,7 @@ nnoremap <Leader>vr :source $MYVIMRC<CR>
 nnoremap tc         :<C-u>tabnew<CR>
 nnoremap tn         gt
 nnoremap tp         gT
-nnoremap <Leader>n  :NERDTreeToggle<CR>
-nnoremap <Leader>m  :NERDTreeFind<CR>
+nnoremap <Leader>n  :call NerdTreeToggleFind()<CR>
 nnoremap <Leader>f  :<C-u>CtrlP<CR>
 nnoremap <Leader>jf :call FormatJson()<CR>
 nnoremap <Leader>b  :Gblame<CR>
