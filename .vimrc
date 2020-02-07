@@ -227,13 +227,13 @@ autocmd BufEnter * silent! lcd %:p:h
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 function! NerdTreeToggleFind()
-    if exists("g:NERDTree") && g:NERDTree.IsOpen()
-        NERDTreeClose
-    elseif filereadable(expand('%'))
-        NERDTreeFind
-    else
-        NERDTree
-    endif
+		if exists("g:NERDTree") && g:NERDTree.IsOpen()
+				NERDTreeClose
+		elseif filereadable(expand('%'))
+				NERDTreeFind
+		else
+				NERDTree
+		endif
 endfunction
 
 " gitgutter
