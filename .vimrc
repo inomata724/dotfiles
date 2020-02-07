@@ -379,7 +379,7 @@ let g:ctrlp_use_caching         = 0
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_show_hidden         = 1
 let g:ctrlp_jump_to_buffer      = 2
-let g:ctrlp_match_window        = 'bottom,order:btt,min:1,max:10'
+let g:ctrlp_match_window        = 'bottom,order:btt,min:1,max:20'
 if executable('ag')
 		let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ".git" --ignore ".svn" --ignore ".hg" --hidden -g ""'
 		let g:ctrlp_max_depth    = 10
