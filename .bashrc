@@ -20,6 +20,8 @@ else
 		export PS1='\[\e[0;32m\][\u@\h:\w]\$ \[\e[m\]'
 fi
 
+[ -f ~/.fzf.bash  ] && source ~/.fzf.bash
+
 function current_dir_name() {
 	echo $(basename "$(pwd)")
 }
