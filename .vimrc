@@ -330,7 +330,7 @@ nnoremap tc         :<C-u>tabnew<CR>
 nnoremap tn         gt
 nnoremap tp         gT
 nnoremap <Leader>n  :call NerdTreeToggleFind()<CR>
-nnoremap <Leader>f  :GFiles<CR>
+nnoremap <Leader>f  :Files<CR>
 nnoremap <Leader>b  :Buffers<CR>
 nnoremap <Leader>jf :call FormatJson()<CR>
 nnoremap <Leader>gb  :Gblame<CR>
