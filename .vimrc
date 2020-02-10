@@ -14,6 +14,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'pbogut/fzf-mru.vim'
 Plug 'airblade/vim-rooter'
 Plug 'scrooloose/nerdtree'
 Plug 'EvanDotPro/nerdtree-chmod'
@@ -332,6 +333,7 @@ nnoremap tp         gT
 nnoremap <Leader>n  :call NerdTreeToggleFind()<CR>
 nnoremap <Leader>f  :Files<CR>
 nnoremap <Leader>b  :Buffers<CR>
+nnoremap <Leader>r  :FZFMru<CR>
 nnoremap <Leader>jf :call FormatJson()<CR>
 nnoremap <Leader>gb  :Gblame<CR>
 nnoremap <Leader>gs  :Gstatus<CR>
@@ -377,6 +379,7 @@ call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options
 
 " fzf
 let g:fzf_buffers_jump = 1
+let g:fzf_mru_relative = 1
 
 " vim-rooter
 let g:rooter_disable_map  = 1
