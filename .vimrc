@@ -12,7 +12,8 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/vim-easy-align'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'airblade/vim-rooter'
 Plug 'scrooloose/nerdtree'
 Plug 'EvanDotPro/nerdtree-chmod'
@@ -329,12 +330,13 @@ nnoremap tc         :<C-u>tabnew<CR>
 nnoremap tn         gt
 nnoremap tp         gT
 nnoremap <Leader>n  :call NerdTreeToggleFind()<CR>
-nnoremap <Leader>f  :<C-u>CtrlP<CR>
+nnoremap <Leader>f  :GFiles<CR>
+nnoremap <Leader>b  :Buffers<CR>
 nnoremap <Leader>jf :call FormatJson()<CR>
-nnoremap <Leader>b  :Gblame<CR>
-nnoremap <Leader>s  :Gstatus<CR>
-nnoremap <Leader>c  :Gcommit<CR>
-nnoremap <Leader>d  :Gdiff<CR>
+nnoremap <Leader>gb  :Gblame<CR>
+nnoremap <Leader>gs  :Gstatus<CR>
+nnoremap <Leader>gc  :Gcommit<CR>
+nnoremap <Leader>gd  :Gdiff<CR>
 nnoremap <Leader>u  :UpdateTags -R .<CR>
 nnoremap <Leader>t  :TagbarToggle<CR>
 nnoremap <Leader>h  :noh<CR>
@@ -373,53 +375,8 @@ call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options
 						\  },
 						\ }))
 
-" CtrlP
-let g:ctrlp_map                 = '<Nop>'
-let g:ctrlp_use_caching         = 0
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_show_hidden         = 1
-let g:ctrlp_jump_to_buffer      = 2
-let g:ctrlp_match_window        = 'bottom,order:btt,min:1,max:20'
-if executable('ag')
-		let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ".git" --ignore ".svn" --ignore ".hg" --hidden -g ""'
-		let g:ctrlp_max_depth    = 10
-else
-		let g:ctrlp_max_depth = 5
-endif
-let g:ctrlp_prompt_mappings = {
-						\ 'PrtBS()':              ['<bs>'],
-						\ 'PrtDeleteWord()':      ['<del>'],
-						\ 'PrtCurEnd()':          ['<c-e>'],
-						\ 'PrtCurLeft()':         ['<c-b>'],
-						\ 'PrtCurRight()':        ['<c-f>'],
-						\ 'PrtSelectMove("j")':   ['<c-n>'],
-						\ 'PrtSelectMove("k")':   ['<c-p>'],
-						\ 'PrtHistory(-1)':       ['nop'],
-						\ 'PrtHistory(1)':        ['nop'],
-						\ 'AcceptSelection("e")': ['<cr>'],
-						\ 'ToggleRegex()':        ['<c-r>'],
-						\ 'ToggleByFname()':      ['<c-d>'],
-						\ 'PrtExit()':            ['<c-l>', '<esc>', '<c-c>'],
-						\ 'ToggleFocus()':        ['<nop>'],
-						\ 'PrtExpandDir()':       ['<nop>'],
-						\ 'AcceptSelection("h")': ['<nop>'],
-						\ 'AcceptSelection("t")': ['<nop>'],
-						\ 'AcceptSelection("v")': ['<nop>'],
-						\ 'ToggleType(1)':        ['<nop>'],
-						\ 'ToggleType(-1)':       ['<nop>'],
-						\ 'PrtInsert()':          ['<nop>'],
-						\ 'PrtCurStart()':        ['<nop>'],
-						\ 'PrtClearCache()':      ['<nop>'],
-						\ 'PrtDeleteEnt()':       ['<nop>'],
-						\ 'CreateNewFile()':      ['<nop>'],
-						\ 'MarkToOpen()':         ['<nop>'],
-						\ 'OpenMulti()':          ['<nop>'],
-						\ 'PrtDelete()':          ['<nop>'],
-						\ 'PrtSelectMove("t")':   ['<nop>'],
-						\ 'PrtSelectMove("b")':   ['<nop>'],
-						\ 'PrtSelectMove("u")':   ['<nop>'],
-						\ 'PrtSelectMove("d")':   ['<nop>'],
-						\ }
+" fzf
+let g:fzf_buffers_jump = 1
 
 " vim-rooter
 let g:rooter_disable_map  = 1
