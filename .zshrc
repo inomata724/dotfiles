@@ -24,6 +24,8 @@ precmd () {
 		[[ -n "$vcs_info_msg_0_"  ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
+[ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
+
 current_dir_name() {
 	echo $(basename "$(pwd)")
 }
