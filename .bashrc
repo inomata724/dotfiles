@@ -21,6 +21,7 @@ else
 fi
 
 [ -f ~/.fzf.bash  ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='ag --nocolor --nogroup --ignore ".git" --ignore ".svn" --ignore ".hg" --ignore "node_modules" --hidden -g ""'
 
 function current_dir_name() {
 	echo $(basename "$(pwd)")

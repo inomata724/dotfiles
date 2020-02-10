@@ -25,6 +25,7 @@ precmd () {
 }
 
 [ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag --nocolor --nogroup --ignore ".git" --ignore ".svn" --ignore ".hg" --ignore "node_modules" --hidden -g ""'
 
 current_dir_name() {
 	echo $(basename "$(pwd)")
