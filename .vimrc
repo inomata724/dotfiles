@@ -196,6 +196,9 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
 						\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
+" matchup
+let g:matchup_matchparen_deferred = 1
+
 " ale
 let g:ale_set_highlights          = 0
 let g:ale_sign_error              = "\uf06a"
