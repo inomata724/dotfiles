@@ -28,6 +28,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'andymass/vim-matchup'
+Plug 'itchyny/vim-cursorword'
 
 if v:version >= 800
 		Plug 'prabirshrestha/vim-lsp'
