@@ -28,7 +28,6 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'andymass/vim-matchup'
-Plug 'itchyny/vim-cursorword'
 
 if v:version >= 800
 		Plug 'prabirshrestha/vim-lsp'
@@ -42,7 +41,6 @@ end
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
 Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
 Plug 'tpope/vim-endwise',                      { 'for': 'ruby' }
-"Plug 'todesking/ruby_hl_lvar.vim',             { 'for': 'ruby' }
 Plug 'fatih/vim-go',                           { 'for': 'go', 'do': ':GoUpdateBinaries' }
 Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
 Plug 'jason0x43/vim-js-indent',                { 'for': ['javascript', 'typescript', 'html'] }
