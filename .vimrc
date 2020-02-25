@@ -381,11 +381,11 @@ if s:is_plugged('lightline.vim')
 								\ 'colorscheme': g:colors_name,
 								\ 'active': {
 								\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filepath', 'modified', 'readonly' ] ],
-								\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
+								\ 	'right': [ [ 'lineinfo' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
 								\ },
 								\ 'inactive': {
 								\ 	'left':  [ [ 'mode', 'paste' ], [ 'current_branch' ], [ 'filepath', 'modified', 'readonly' ] ],
-								\ 	'right': [ [ 'rows' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
+								\ 	'right': [ [ 'lineinfo' ], [ 'filetype' ], [ 'fileformat', 'fileencoding', 'indentation' ] ]
 								\ },
 								\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
 								\ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
@@ -399,7 +399,8 @@ if s:is_plugged('lightline.vim')
 								\ 'component_function': {
 								\ 	'current_branch': 'CurrentBranch',
 								\ 	'filename': 'Filename',
-								\ 	'filepath': 'Filepath'
+								\ 	'filepath': 'Filepath',
+								\ 	'lineinfo': 'LineInfo'
 								\ },
 								\ 'component_expand': {
 								\ 	'indentation': 'MixedIndentationWarning',
@@ -481,6 +482,10 @@ if s:is_plugged('lightline.vim')
 		augroup AutoUpdateExpandComponents
 				au BufWritePost * call UpdateExpandComponents()
 		augroup END
+
+		function! LineInfo()
+				return line('.') . '/' . line('$')
+		endfunction
 endif
 
 " JSON formatter
