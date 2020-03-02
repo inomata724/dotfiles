@@ -35,6 +35,7 @@ if v:version >= 800
 		Plug 'prabirshrestha/asyncomplete.vim'
 		Plug 'prabirshrestha/asyncomplete-lsp.vim'
 		Plug 'prabirshrestha/asyncomplete-buffer.vim'
+		Plug 'prabirshrestha/asyncomplete-file.vim'
 		Plug 'mattn/vim-lsp-settings'
 end
 
@@ -363,6 +364,13 @@ call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options
 						\ 'config': {
 						\    'max_buffer_size': 5000000,
 						\  },
+						\ }))
+
+call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+						\ 'name': 'file',
+						\ 'whitelist': ['*'],
+						\ 'priority': 10,
+						\ 'completor': function('asyncomplete#sources#file#completor')
 						\ }))
 
 " fzf
