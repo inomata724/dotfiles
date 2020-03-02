@@ -88,7 +88,7 @@ if [ "x$(uname)" = "xDarwin" ]; then
 	export PGDATA=/usr/local/var/postgres
 	export PATH=$PATH:/usr/local/opt/postgresql/bin
 	export PATH=$PATH:$HOME/Library/Python/2.7/bin
-	export PATH=/Applications/MacVim.app/Contents/bin:$PATH
+	export PATH=$PATH:/Applications/MacVim.app/Contents/bin
 
 	export PROMPT='%F{green}[%n@%m%f %F{yellow}%~%f%1(v|%F{yellow}%1v%f|)%F{green}]$%f '
 

@@ -84,7 +84,7 @@ if [ "x$(uname)" = "xDarwin" ]; then
 	export PGDATA=/usr/local/var/postgres
 	export PATH=$PATH:/usr/local/opt/postgresql/bin
 	export PATH=$PATH:$HOME/Library/Python/2.7/bin
-	export PATH=/Applications/MacVim.app/Contents/bin:$PATH
+	export PATH=$PATH:/Applications/MacVim.app/Contents/bin
 
 	if [ -f $(brew --prefix)/etc/bash_completion ]; then
 		. $(brew --prefix)/etc/bash_completion
