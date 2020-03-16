@@ -28,8 +28,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'andymass/vim-matchup'
 
-"Plug 'cocopon/iceberg.vim'
-Plug 'whatyouhide/vim-gotham'
+Plug 'cocopon/iceberg.vim'
 
 if v:version >= 800
 		Plug 'prabirshrestha/vim-lsp'
