@@ -22,12 +22,14 @@ Plug 'dbakker/vim-projectroot'
 Plug 'majutsushi/tagbar'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'elzr/vim-json'
-Plug 'cocopon/iceberg.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'andymass/vim-matchup'
+
+"Plug 'cocopon/iceberg.vim'
+Plug 'whatyouhide/vim-gotham'
 
 if v:version >= 800
 		Plug 'prabirshrestha/vim-lsp'
