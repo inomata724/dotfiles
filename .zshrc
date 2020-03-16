@@ -83,6 +83,11 @@ if [ "x$(uname)" = "xDarwin" ]; then
 		defaults write org.vim.MacVim SUEnableAutomaticChecks -bool false
 	}
 
+	function reset_wallpaper() {
+		rm $HOME/Library/Application\ Support/Dock/desktoppicture.db
+		killall Dock
+	}
+
 	export LANG=ja_JP.UTF-8
 	export CLICOLOR=1
 	export PGDATA=/usr/local/var/postgres
