@@ -378,6 +378,7 @@ call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options
 " fzf
 let g:fzf_buffers_jump = 1
 let g:fzf_mru_relative = 1
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8  }  }
 
 " vim-rooter
 let g:rooter_disable_map  = 1
