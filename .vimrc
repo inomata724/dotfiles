@@ -31,13 +31,7 @@ Plug 'andymass/vim-matchup'
 Plug 'cocopon/iceberg.vim'
 
 if v:version >= 800
-		Plug 'prabirshrestha/vim-lsp'
-		Plug 'prabirshrestha/async.vim'
-		Plug 'prabirshrestha/asyncomplete.vim'
-		Plug 'prabirshrestha/asyncomplete-lsp.vim'
-		Plug 'prabirshrestha/asyncomplete-buffer.vim'
-		Plug 'prabirshrestha/asyncomplete-file.vim'
-		Plug 'mattn/vim-lsp-settings'
+		Plug 'Valloric/YouCompleteMe', { 'do': 'YCM_CORES=1 ./install.py --clang-completer --gocode-completer --tern-completer' }
 end
 
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
@@ -351,29 +345,10 @@ nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 nnoremap <Leader>i  :IndentGuidesToggle<CR>
 vmap     <Enter>    <Plug>(EasyAlign)
 
-" vim-lsp
-let g:lsp_diagnostics_enabled     = 0
-let g:lsp_diagnostics_echo_cursor = 0
-let g:asyncomplete_auto_popup     = 1
-let g:lsp_insert_text_enabled     = 0
-let g:lsp_text_edit_enabled       = 0
-
-call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-						\ 'name': 'buffer',
-						\ 'whitelist': ['*'],
-						\ 'blacklist': [],
-						\ 'completor': function('asyncomplete#sources#buffer#completor'),
-						\ 'config': {
-						\    'max_buffer_size': 5000000,
-						\  },
-						\ }))
-
-call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-						\ 'name': 'file',
-						\ 'whitelist': ['*'],
-						\ 'priority': 10,
-						\ 'completor': function('asyncomplete#sources#file#completor')
-						\ }))
+" YouCompleteMe
+let g:ycm_min_num_of_chars_for_completion     = 1
+let g:ycm_seed_identifiers_with_syntax        = 1
+let g:ycm_collect_identifiers_from_tags_files = 0
 
 " fzf
 let g:fzf_buffers_jump = 1
