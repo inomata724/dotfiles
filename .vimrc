@@ -22,7 +22,7 @@ Plug 'dbakker/vim-projectroot'
 Plug 'majutsushi/tagbar'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'elzr/vim-json'
-Plug 'jiangmiao/auto-pairs'
+Plug 'cohama/lexima.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -42,7 +42,6 @@ end
 
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
 Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
-Plug 'tpope/vim-endwise',                      { 'for': 'ruby' }
 Plug 'fatih/vim-go',                           { 'for': 'go', 'do': ':GoUpdateBinaries' }
 Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
 Plug 'jason0x43/vim-js-indent',                { 'for': ['javascript', 'typescript', 'html'] }
@@ -219,9 +218,6 @@ augroup vimrc-checktime
 		autocmd WinEnter * checktime
 augroup END
 
-" AutoPairs
-let g:AutoPairsMultilineClose=0
-
 " NERDTree
 let g:NERDTreeChDirMode                 = 0
 let g:NERDTreeHijackNetrw               = 0
@@ -349,6 +345,7 @@ nnoremap <Leader>h  :noh<CR>
 nnoremap <Leader>tm :TableModeToggle<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 nnoremap <Leader>i  :IndentGuidesToggle<CR>
+inoremap <expr> <CR> pumvisible() ? asyncomplete#close_popup() . "\<CR>" : "\<CR>"
 vmap     <Enter>    <Plug>(EasyAlign)
 
 " vim-lsp
