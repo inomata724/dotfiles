@@ -25,7 +25,7 @@ Plug 'elzr/vim-json'
 Plug 'cohama/lexima.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 Plug 'andymass/vim-matchup'
 
 Plug 'cocopon/iceberg.vim'
@@ -272,11 +272,8 @@ let g:tagbar_type_markdown = {
 						\ ]
 						\ }
 
-" Indent Guides
-let g:indent_guides_enable_on_vim_startup = 0
-let g:indent_guides_start_level           = 2
-let g:indent_guides_space_guides          = 1
-let g:indent_guides_guide_size            = 1
+" indentLine
+let g:indentLine_enabled = 1
 
 " Encoding
 set enc=utf-8
@@ -344,7 +341,6 @@ nnoremap <Leader>t  :TagbarToggle<CR>
 nnoremap <Leader>h  :noh<CR>
 nnoremap <Leader>tm :TableModeToggle<CR>
 nnoremap <C-]>      :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
-nnoremap <Leader>i  :IndentGuidesToggle<CR>
 inoremap <expr> <CR> pumvisible() ? asyncomplete#close_popup() . "\<CR>" : "\<CR>"
 vmap     <Enter>    <Plug>(EasyAlign)
 
