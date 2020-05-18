@@ -287,6 +287,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 if (s:is_plugged('iceberg.vim'))
 		colorscheme iceberg
+		set background=dark
 		hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 endif
 
