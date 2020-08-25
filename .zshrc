@@ -132,6 +132,7 @@ alias less='less -R'
 alias vi='vim'
 alias be='bundle exec'
 alias ge='goop exec'
+alias k='kubectl'
 if [ -x $(which colordiff 2> /dev/null) ]; then
 	alias diff='colordiff -u'
 else
