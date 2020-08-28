@@ -42,7 +42,7 @@ end
 
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
 Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
-Plug 'fatih/vim-go',                           { 'for': 'go', 'do': ':GoUpdateBinaries' }
+Plug 'mattn/vim-goimports'
 Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
 Plug 'jason0x43/vim-js-indent',                { 'for': ['javascript', 'typescript', 'html'] }
 Plug 'HerringtonDarkholme/yats.vim',           { 'for': 'typescript' }
