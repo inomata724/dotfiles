@@ -71,6 +71,11 @@ if [ -x $(which go 2> /dev/null) ]; then
 	export PATH=$PATH:$GOPATH/bin
 fi
 
+# kubectl completion
+if [ -x $(which kubectl 2> /dev/null) ]; then
+	source <(kubectl completion zsh)
+fi
+
 if [ "x$(uname)" = "xDarwin" ]; then
 	function osx_version() {
 		echo $(sw_vers|grep ProductVersion|cut -d ':' -f 2|tr -d "\t")
