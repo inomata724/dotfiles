@@ -67,9 +67,11 @@ if [ -x $(which go 2> /dev/null) ]; then
 	export PATH=$PATH:$GOPATH/bin
 fi
 
-# kubectl completion
-if [ -x $(which kubectl 2> /dev/null) ]; then
-	source <(kubectl completion bash)
+# kubectl
+if [ type kubectl > /dev/null 2>&1 ]; then
+		alias k='kubectl'
+		source <(kubectl completion bash)
+		complete -o default -F __start_kubectl k
 fi
 
 if [ "x$(uname)" = "xDarwin" ]; then

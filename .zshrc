@@ -71,9 +71,11 @@ if [ -x $(which go 2> /dev/null) ]; then
 	export PATH=$PATH:$GOPATH/bin
 fi
 
-# kubectl completion
-if [ -x $(which kubectl 2> /dev/null) ]; then
-	source <(kubectl completion zsh)
+# kubectl
+if [ -x "`which kubectl 2>/dev/null`" ]; then
+		alias k='kubectl'
+		source <(kubectl completion zsh)
+		complete -o default -F __start_kubectl k
 fi
 
 if [ "x$(uname)" = "xDarwin" ]; then
@@ -137,7 +139,6 @@ alias less='less -R'
 alias vi='vim'
 alias be='bundle exec'
 alias ge='goop exec'
-alias k='kubectl'
 if [ -x $(which colordiff 2> /dev/null) ]; then
 	alias diff='colordiff -u'
 else
