@@ -68,7 +68,7 @@ if [ -x $(which go 2> /dev/null) ]; then
 fi
 
 # kubectl
-if [ type kubectl > /dev/null 2>&1 ]; then
+if type kubectl > /dev/null 2>&1; then
 		alias k='kubectl'
 		source <(kubectl completion bash)
 		complete -o default -F __start_kubectl k
@@ -129,7 +129,6 @@ alias less='less -R'
 alias vi='vim'
 alias be='bundle exec'
 alias ge='goop exec'
-alias k='kubectl'
 if [ -x $(which colordiff 2> /dev/null) ]; then
 	alias diff='colordiff -u'
 else
