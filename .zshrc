@@ -5,6 +5,8 @@ autoload -Uz vcs_info
 colors
 compinit -u
 
+setopt hist_ignore_dups
+
 bindkey -e
 
 export PATH=$HOME/bin:./node_modules/.bin:/usr/local/sbin:/usr/local/bin:$PATH
