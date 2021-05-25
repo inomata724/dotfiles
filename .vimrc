@@ -315,7 +315,7 @@ if (s:is_plugged('Base2Tone-vim'))
 endif
 
 " GUI
-set guifont=SF\ Mono\ Square\ Regular:h16
+set guifont=SF\ Mono\ Square\ Regular:h15
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
