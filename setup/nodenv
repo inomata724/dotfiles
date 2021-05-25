@@ -1,0 +1,9 @@
+#!/bin/bash
+
+nodenv_dir=~/.nodenv
+
+if [ ! -d $nodenv_dir ]; then
+	git clone https://github.com/nodenv/nodenv.git $nodenv_dir
+	git clone https://github.com/nodenv/node-build.git $nodenv_dir/plugins/node-build
+	git clone https://github.com/nodenv/node-build-update-defs.git $nodenv_dir/plugins/node-build-update-defs
+fi
